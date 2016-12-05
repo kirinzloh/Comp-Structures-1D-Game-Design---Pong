@@ -1,0 +1,130 @@
+module mojo_top (
+    input clk,              // 50MHz clock
+    input rst_n,            // reset button (active low)
+    output led [8],         // 8 user controllable LEDs
+    input cclk,             // configuration clock, AVR ready when high
+    output spi_miso,        // AVR SPI MISO
+    input spi_ss,           // AVR SPI Slave Select
+    input spi_mosi,         // AVR SPI MOSI
+    input spi_sck,          // AVR SPI Clock
+    output spi_channel [4], // AVR general purpose pins (used by default to select ADC channel)
+    input avr_tx,           // AVR TX (FPGA RX)
+    output avr_rx,          // AVR RX (FPGA TX)
+    input avr_rx_busy,      // AVR RX buffer full
+
+    input btnLeft,        //btn input for paddle to go left
+    input btnStart,       //btn input to start the game
+    input btnRight,       //btn input for paddle to go right
+    //output scoreLed[8],   //7-segment LEDs score display
+    output ledmatrix[8]     //led matrix display
+    
+  ) {
+  
+  sig rst;                  // reset signal
+  
+  .clk(clk) {
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    reset_conditioner reset_cond;
+  }
+  sig pattern[16][16];      // led matrix pattern
+  sig ballX[4];
+  sig ballY[4];
+  sig padA[4];
+  sig padB[4];
+  sig playing;
+  sig scoreA[4];
+  sig scoreB[4];
+//  sig mainClk;  
+  
+//  pongClk pongClk;
+  display disp;
+  drawing drawpong;
+  logic logic;
+  ball ball;
+  paddleA paddleA;
+  paddleB paddleB;
+  score score;
+  
+  always {
+    reset_cond.in = ~rst_n; // input raw inverted reset signal
+    rst = reset_cond.out;   // conditioned reset
+    
+    led = 8h00;             // turn LEDs off
+    spi_miso = bz;          // not using SPI
+    spi_channel = bzzzz;    // not using flags
+    avr_rx = bz;            // not using serial port
+    
+//pattern = {c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},      //orientation is laterally inverted
+//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}};
+    
+    playing = 0;
+    scoreA = 0;
+    scoreB = 0; 
+    
+//    pongClk.clk = clk;
+//    pongClk.rst = rst;
+//    mainClk = pongClk.outClk;
+    
+    logic.btnStart = btnStart;
+    logic.scoreA = scoreA;
+    logic.scoreB = scoreB;
+    playing = logic.playing;
+    
+    paddleA.clk = clk;
+    paddleA.rst = rst;
+    paddleA.playing = playing;
+//    paddleA.ballX = ballX;
+    paddleA.btnLeft = btnLeft;
+    paddleA.btnRight = btnRight;
+    padA = paddleA.padA;
+    
+    paddleB.clk = clk;
+    paddleB.rst = rst;
+    paddleB.playing = playing;
+    paddleB.btnLeft = btnLeft;
+    paddleB.btnRight = btnRight;
+    padB = paddleB.padB;
+    
+    ball.clk = clk;
+    ball.rst = rst;
+    ball.playing = playing;
+    ball.padA = padA;
+    ball.padB = padB;
+    ballX = ball.ballX;
+    ballY = ball.ballY;  
+    
+    score.playing = playing;
+    score.ballY = ballY;
+    scoreA = score.scoreA;
+    scoreB = score.scoreB;     
+    
+    drawpong.clk = clk;
+    drawpong.rst = rst;
+    drawpong.ballX = ballX;
+    drawpong.ballY = ballY;
+    drawpong.padA = padA;
+    drawpong.padB = padB;
+    drawpong.playing = playing;
+    pattern = drawpong.pattern;
+    
+    disp.clk = clk;
+    disp.rst = rst;
+    disp.pattern = pattern;
+    ledmatrix = disp.ledmatrix;
+  }
+}

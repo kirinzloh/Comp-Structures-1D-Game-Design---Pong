@@ -1,0 +1,56 @@
+module paddleB (
+    input clk,
+    input rst,
+    input playing,
+    input btnLeft,
+    input btnRight,
+    output padB[4]
+  ) {
+  
+  .clk(clk) {
+    .rst(rst){
+      fsm state(.clk(clk), #INIT(GAMESTART)) = {GAMEON,GAMESTART,LEFTBTNWAIT,RIGHTBTNWAIT};
+      dff padBtemp[4];
+      }
+  }
+  
+  always {
+    padB = padBtemp.q;
+    
+      case (state.q){
+    
+      state.GAMESTART:
+        padBtemp.d = 14;
+        state.d = state.GAMEON;
+        
+      state.GAMEON:
+        if (playing == 1){
+          if (btnLeft == 0 && padBtemp.q > 1){
+            padBtemp.d = padBtemp.q - 1;
+            padB = padBtemp.q;
+            state.d = state.LEFTBTNWAIT;
+          }
+        //  else if (btnRight == 0 && padBtemp.q < 14){
+        //   padBtemp.d = padBtemp.q + 1;
+        //   padB = padBtemp.q;
+        //   state.d = state.RIGHTBTNWAIT;
+        //  }
+        }
+        
+      state.LEFTBTNWAIT:
+        if (playing == 1){
+          if (btnLeft == 1){
+            state.d = state.GAMEON;
+          }
+        }
+        
+      state.RIGHTBTNWAIT:
+        if (playing == 1){
+          if (btnRight == 1){
+            state.d = state.GAMEON;
+          }
+        }
+        
+    }
+  }
+}

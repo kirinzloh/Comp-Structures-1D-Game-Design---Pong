@@ -1,0 +1,15 @@
+module logic (
+    //input btnLeft,
+    //input btnRight,
+    input btnStart,
+    input scoreA[4],
+    input scoreB[4], 
+    output playing
+  ) {
+  always {
+    playing = 1;
+    if (btnStart == 0 && scoreA < 7 && scoreB < 7){
+      playing = 1;
+    }
+  }  
+}

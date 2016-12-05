@@ -1,0 +1,52 @@
+module drawing (
+    input clk,
+    input rst,
+	  input ballX[4],  
+	  input ballY[4],
+	  input padA[4],
+	  input padB[4],
+	  input playing,
+	  output pattern[16][16]
+  ) {
+  
+  .clk(clk) {
+    .rst(rst){
+      dff counter[23];
+      }
+  }
+  
+  var i;
+  
+  always {
+   // counter.d = counter.q + 1;
+   // if (counter.q >= 8000000){
+    if (playing == 1){
+    
+      //Initialize display to off all leds
+      for (i = 0; i < 16; i++){
+          pattern[i] = b1111111111111111; 
+      }
+      
+      //Ball display
+      pattern[ballX][ballY] = b0;
+      
+      //Paddle A display
+      pattern[0][padA - 1] = b0;
+      pattern[0][padA] = b0;
+      pattern[0][padA + 1] = b0;
+      
+      //Paddle B display
+      pattern[15][padB - 1] = b0;
+      pattern[15][padB] = b0;
+      pattern[15][padB + 1] = b0;
+    }
+    else {
+      
+      //Game not started, all leds on
+      for (i = 0; i < 16; i++){
+          pattern[i] = 16b0; 
+      }
+    }
+  //    counter.d = 0;
+  //  }
+}}

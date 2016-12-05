@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Pong!" board="Mojo V3" language="Verilog">
+<project name="TestLedMatrix" board="Mojo V3" language="Lucid">
   <files>
-    <src>Drawing.v</src>
-    <src>matrixClk.v</src>
-    <src top="true">mojo_top.v</src>
-    <src>Logic.v</src>
-    <src>Score.v</src>
-    <src>matrix.v</src>
-    <src>Ball.v</src>
-    <src>PadA.v</src>
-    <src>main.v</src>
-    <src>MainClock.v</src>
-    <src>PadB.v</src>
-    <ucf>mojo.ucf</ucf>
+    <src>drawing.luc</src>
+    <src>score.luc</src>
+    <src>ball.luc</src>
+    <src>pongClk.luc</src>
+    <src>display.luc</src>
+    <src>logic.luc</src>
+    <src top="true">mojo_top.luc</src>
+    <src>padB.luc</src>
+    <src>padA.luc</src>
+    <ucf lib="true">mojo.ucf</ucf>
+    <ucf>custom.ucf</ucf>
+    <component>reset_conditioner.luc</component>
   </files>
 </project>

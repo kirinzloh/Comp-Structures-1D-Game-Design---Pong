@@ -1,0 +1,10 @@
+NET "ledmatrix<0>" LOC = P12 | IOSTANDARD = LVTTL;
+NET "ledmatrix<1>" LOC = P15 | IOSTANDARD = LVTTL;
+NET "ledmatrix<2>" LOC = P17 | IOSTANDARD = LVTTL;
+NET "ledmatrix<3>" LOC = P22 | IOSTANDARD = LVTTL;
+NET "ledmatrix<4>" LOC = P24 | IOSTANDARD = LVTTL;
+NET "ledmatrix<5>" LOC = P27 | IOSTANDARD = LVTTL;
+NET "ledmatrix<6>" LOC = P30 | IOSTANDARD = LVTTL;
+NET "ledmatrix<7>" LOC = P33 | IOSTANDARD = LVTTL;
+
+NET "btnLeft" LOC = P51 | IOSTANDARD = LVTTL | PULLUP;

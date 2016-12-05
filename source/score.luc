@@ -1,0 +1,28 @@
+module score (
+    input playing,
+    input ballY[4],
+    output scoreA[4],
+    output scoreB[4]
+  ) {
+  
+  sig scoreAtemp;
+  sig scoreBtemp;
+  
+  always {
+    scoreAtemp = 0;
+    scoreBtemp = 0;
+    scoreA = 0;
+    scoreB = 0;
+    
+    if (playing == 1){
+      if (ballY == 0){
+        scoreBtemp = scoreBtemp + 1;
+        scoreB = scoreBtemp;
+      }
+      else if (ballY  == 15){
+        scoreAtemp = scoreAtemp + 1;
+        scoreA = scoreAtemp;
+      }
+    }
+  }
+}
