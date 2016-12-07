@@ -20,7 +20,9 @@ module mojo_top_0 (
     input btnLeft,
     input btnStart,
     input btnRight,
-    output reg [7:0] ledmatrix
+    output reg [7:0] ledmatrix,
+    output reg [6:0] score_seg,
+    output reg [3:0] score_sel
   );
   
   
@@ -51,6 +53,10 @@ module mojo_top_0 (
   
   reg [3:0] scoreB;
   
+  reg [6:0] scoreAdisplay;
+  
+  reg [6:0] scoreBdisplay;
+  
   wire [8-1:0] M_disp_ledmatrix;
   reg [1-1:0] M_disp_clk;
   reg [1-1:0] M_disp_rst;
@@ -63,16 +69,12 @@ module mojo_top_0 (
   );
   
   wire [256-1:0] M_drawpong_pattern;
-  reg [1-1:0] M_drawpong_clk;
-  reg [1-1:0] M_drawpong_rst;
   reg [4-1:0] M_drawpong_ballX;
   reg [4-1:0] M_drawpong_ballY;
   reg [4-1:0] M_drawpong_padA;
   reg [4-1:0] M_drawpong_padB;
   reg [1-1:0] M_drawpong_playing;
   drawing_3 drawpong (
-    .clk(M_drawpong_clk),
-    .rst(M_drawpong_rst),
     .ballX(M_drawpong_ballX),
     .ballY(M_drawpong_ballY),
     .padA(M_drawpong_padA),
@@ -141,13 +143,46 @@ module mojo_top_0 (
   
   wire [4-1:0] M_score_scoreA;
   wire [4-1:0] M_score_scoreB;
+  reg [1-1:0] M_score_clk;
+  reg [1-1:0] M_score_rst;
   reg [1-1:0] M_score_playing;
   reg [4-1:0] M_score_ballY;
   score_8 score (
+    .clk(M_score_clk),
+    .rst(M_score_rst),
     .playing(M_score_playing),
     .ballY(M_score_ballY),
     .scoreA(M_score_scoreA),
     .scoreB(M_score_scoreB)
+  );
+  
+  wire [7-1:0] M_segA_segs;
+  reg [4-1:0] M_segA_char;
+  seven_seg_9 segA (
+    .char(M_segA_char),
+    .segs(M_segA_segs)
+  );
+  
+  wire [7-1:0] M_segB_segs;
+  reg [4-1:0] M_segB_char;
+  seven_seg_9 segB (
+    .char(M_segB_char),
+    .segs(M_segB_segs)
+  );
+  
+  wire [7-1:0] M_score_display_score_display;
+  wire [4-1:0] M_score_display_score_sel;
+  reg [1-1:0] M_score_display_clk;
+  reg [1-1:0] M_score_display_rst;
+  reg [7-1:0] M_score_display_scoreAdisplay;
+  reg [7-1:0] M_score_display_scoreBdisplay;
+  score_display_11 score_display (
+    .clk(M_score_display_clk),
+    .rst(M_score_display_rst),
+    .scoreAdisplay(M_score_display_scoreAdisplay),
+    .scoreBdisplay(M_score_display_scoreBdisplay),
+    .score_display(M_score_display_score_display),
+    .score_sel(M_score_display_score_sel)
   );
   
   always @* begin
@@ -183,12 +218,22 @@ module mojo_top_0 (
     M_ball_padB = padB;
     ballX = M_ball_ballX;
     ballY = M_ball_ballY;
+    M_score_clk = clk;
+    M_score_rst = rst;
     M_score_playing = playing;
     M_score_ballY = ballY;
     scoreA = M_score_scoreA;
     scoreB = M_score_scoreB;
-    M_drawpong_clk = clk;
-    M_drawpong_rst = rst;
+    M_segA_char = scoreA;
+    scoreAdisplay = M_segA_segs;
+    M_segB_char = scoreB;
+    scoreBdisplay = M_segB_segs;
+    M_score_display_clk = clk;
+    M_score_display_rst = rst;
+    M_score_display_scoreAdisplay = scoreAdisplay;
+    M_score_display_scoreBdisplay = scoreBdisplay;
+    score_sel = M_score_display_score_sel;
+    score_seg = M_score_display_score_display;
     M_drawpong_ballX = ballX;
     M_drawpong_ballY = ballY;
     M_drawpong_padA = padA;

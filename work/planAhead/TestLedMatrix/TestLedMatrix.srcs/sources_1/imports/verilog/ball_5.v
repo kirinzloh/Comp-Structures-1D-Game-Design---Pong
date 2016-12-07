@@ -51,41 +51,65 @@ module ball_5 (
         M_counter_d = M_counter_q + 1'h1;
         if (M_counter_q >= 23'h7a1200) begin
           if (playing == 1'h1) begin
-            if ((M_ballYtemp_q - 1'h1) == 1'h0) begin
-              if (M_ballXtemp_q == (padA - 1'h1)) begin
-                M_speedX_d = 1'h0;
-                M_speedY_d = 1'h0;
-              end else begin
-                if (M_ballXtemp_q == (padA)) begin
-                  M_speedY_d = 1'h0;
+            if ((M_ballYtemp_q - 1'h1) == 1'h1) begin
+              if (M_speedX_q == 1'h1) begin
+                if ((M_ballXtemp_q + 1'h1) == (padA - 2'h2) && (padA - 2'h2) >= 1'h0) begin
+                  M_speedX_d = 1'h0;
+                  M_speedY_d = 1'h1;
                 end else begin
-                  if (M_ballXtemp_q == (padA + 1'h1)) begin
-                    M_speedX_d = 1'h1;
-                    M_speedY_d = 1'h0;
+                  if ((M_ballXtemp_q + 1'h1) >= (padA - 1'h1) && (M_ballXtemp_q + 1'h1) <= (padA + 1'h1)) begin
+                    M_speedY_d = 1'h1;
+                  end
+                end
+              end else begin
+                if (M_speedX_q == 1'h0) begin
+                  if ((M_ballXtemp_q - 1'h1) >= (padA - 1'h1) && (M_ballXtemp_q - 1'h1) <= (padA + 1'h1)) begin
+                    M_speedY_d = 1'h1;
+                  end else begin
+                    if ((M_ballXtemp_q - 1'h1) == (padA + 2'h2) && (padA + 2'h2) <= 4'hf) begin
+                      M_speedX_d = 1'h1;
+                      M_speedY_d = 1'h1;
+                    end
                   end
                 end
               end
             end else begin
-              if ((M_ballYtemp_q + 1'h1) == 4'hf) begin
-                if (M_ballXtemp_q == (padB - 1'h1)) begin
-                  M_speedX_d = 1'h0;
-                  M_speedY_d = 1'h0;
-                end else begin
-                  if (M_ballXtemp_q == (padB)) begin
+              if ((M_ballYtemp_q + 1'h1) == 4'he) begin
+                if (M_speedX_q == 1'h1) begin
+                  if ((M_ballXtemp_q + 1'h1) == (padB - 2'h2) && (padB - 2'h2) >= 1'h0) begin
+                    M_speedX_d = 1'h0;
                     M_speedY_d = 1'h0;
                   end else begin
-                    if (M_ballXtemp_q == (padB + 1'h1)) begin
-                      M_speedX_d = 1'h1;
+                    if ((M_ballXtemp_q + 1'h1) >= (padB - 1'h1) && (M_ballXtemp_q + 1'h1) <= (padB + 1'h1)) begin
                       M_speedY_d = 1'h0;
+                    end
+                  end
+                end else begin
+                  if (M_speedX_q == 1'h0) begin
+                    if ((M_ballXtemp_q - 1'h1) >= (padB - 1'h1) && (M_ballXtemp_q - 1'h1) <= (padB + 1'h1)) begin
+                      M_speedY_d = 1'h0;
+                    end else begin
+                      if ((M_ballXtemp_q - 1'h1) == (padB + 2'h2) && (padB + 2'h2) <= 4'hf) begin
+                        M_speedX_d = 1'h1;
+                        M_speedY_d = 1'h0;
+                      end
                     end
                   end
                 end
               end else begin
-                if ((M_ballXtemp_q + 1'h1) > 4'hf || (M_ballXtemp_q - 1'h1) < 1'h0) begin
+                if ((M_ballXtemp_q + 1'h1) == 4'hf) begin
                   M_speedX_d = 1'h0;
                 end else begin
-                  if ((M_ballYtemp_q + 1'h1) > 4'hf || (M_ballYtemp_q - 1'h1) < 1'h0) begin
-                    M_speedY_d = 1'h0;
+                  if ((M_ballXtemp_q - 1'h1) == 1'h0) begin
+                    M_speedX_d = 1'h1;
+                  end else begin
+                    if ((M_ballYtemp_q + 1'h1) == 4'hf) begin
+                      M_speedY_d = 1'h0;
+                    end else begin
+                      if ((M_ballYtemp_q - 1'h1) == 1'h0) begin
+                        M_speedY_d = 1'h1;
+                      end
+                    end
                   end
                 end
               end
@@ -115,6 +139,15 @@ module ball_5 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
+      M_state_q <= 1'h1;
+    end else begin
+      M_state_q <= M_state_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
       M_counter_q <= 1'h0;
       M_ballXtemp_q <= 1'h0;
       M_ballYtemp_q <= 1'h0;
@@ -126,15 +159,6 @@ module ball_5 (
       M_ballYtemp_q <= M_ballYtemp_d;
       M_speedX_q <= M_speedX_d;
       M_speedY_q <= M_speedY_d;
-    end
-  end
-  
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_state_q <= 1'h1;
-    end else begin
-      M_state_q <= M_state_d;
     end
   end
   

@@ -94,6 +94,15 @@ module display_2 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
+      M_state_q <= 3'h4;
+    end else begin
+      M_state_q <= M_state_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
       M_i_q <= 1'h0;
       M_j_q <= 1'h0;
       M_k_q <= 1'h0;
@@ -103,15 +112,6 @@ module display_2 (
       M_j_q <= M_j_d;
       M_k_q <= M_k_d;
       M_time_q <= M_time_d;
-    end
-  end
-  
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_state_q <= 3'h4;
-    end else begin
-      M_state_q <= M_state_d;
     end
   end
   

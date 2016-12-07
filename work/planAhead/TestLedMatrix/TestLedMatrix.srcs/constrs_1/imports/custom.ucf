@@ -7,4 +7,20 @@ NET "ledmatrix<5>" LOC = P27 | IOSTANDARD = LVTTL;
 NET "ledmatrix<6>" LOC = P30 | IOSTANDARD = LVTTL;
 NET "ledmatrix<7>" LOC = P33 | IOSTANDARD = LVTTL;
 
-NET "btnLeft" LOC = P51 | IOSTANDARD = LVTTL | PULLUP;
+NET "btnLeft" LOC = P50 | IOSTANDARD = LVTTL | PULLUP;
+NET "btnRight" LOC = P51 | IOSTANDARD = LVTTL | PULLUP;
+NET "btnStart" LOC = P40 | IOSTANDARD = LVTTL | PULLUP;
+
+NET "score_seg<0>" LOC = P67 | IOSTANDARD = LVTTL;
+NET "score_seg<1>" LOC = P83 | IOSTANDARD = LVTTL;
+NET "score_seg<2>" LOC = P78 | IOSTANDARD = LVTTL;
+NET "score_seg<3>" LOC = P66 | IOSTANDARD = LVTTL;
+NET "score_seg<4>" LOC = P57 | IOSTANDARD = LVTTL;
+NET "score_seg<5>" LOC = P75 | IOSTANDARD = LVTTL;
+NET "score_seg<6>" LOC = P80 | IOSTANDARD = LVTTL;
+//NET "score_seg<7>" LOC = P74 | IOSTANDARD = LVTTL;
+
+NET "score_sel<0>" LOC = P58 | IOSTANDARD = LVTTL;
+NET "score_sel<1>" LOC = P79 | IOSTANDARD = LVTTL;
+NET "score_sel<2>" LOC = P81 | IOSTANDARD = LVTTL;
+NET "score_sel<3>" LOC = P82 | IOSTANDARD = LVTTL;

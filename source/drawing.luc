@@ -1,6 +1,4 @@
 module drawing (
-    input clk,
-    input rst,
 	  input ballX[4],  
 	  input ballY[4],
 	  input padA[4],
@@ -9,17 +7,9 @@ module drawing (
 	  output pattern[16][16]
   ) {
   
-  .clk(clk) {
-    .rst(rst){
-      dff counter[23];
-      }
-  }
-  
   var i;
   
   always {
-   // counter.d = counter.q + 1;
-   // if (counter.q >= 8000000){
     if (playing == 1){
     
       //Initialize display to off all leds
@@ -28,7 +18,7 @@ module drawing (
       }
       
       //Ball display
-      pattern[ballX][ballY] = b0;
+      pattern[ballY][ballX] = b0;
       
       //Paddle A display
       pattern[0][padA - 1] = b0;
@@ -43,10 +33,24 @@ module drawing (
     else {
       
       //Game not started, all leds on
-      for (i = 0; i < 16; i++){
-          pattern[i] = 16b0; 
-      }
+      //for (i = 0; i < 16; i++){
+        //  pattern[i] = 16b0; 
+      //}
+      pattern = {c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},      //orientation is laterally inverted
+           c{1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1},
+       	   c{1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1},
+           c{1,0,0,0,1,0,0,1,1,0,0,0,1,1,1,1},
+           c{1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1},
+           c{1,0,1,0,1,0,1,0,1,0,0,0,1,1,1,1},
+           c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+           c{1,1,0,1,0,1,0,0,0,1,0,1,0,1,1,1},
+           c{1,1,1,0,1,1,0,1,0,1,0,1,0,1,1,1},
+           c{1,1,1,0,1,1,0,1,0,1,0,1,0,1,1,1},
+           c{1,1,1,0,1,1,0,0,0,1,0,0,0,1,1,1},
+           c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+           c{1,1,1,1,0,0,0,1,0,0,1,1,0,1,0,1},
+           c{1,1,1,1,0,1,0,1,0,1,0,1,1,0,1,1},
+           c{1,1,1,1,0,0,1,1,0,1,0,1,1,0,1,1},
+           c{1,1,1,1,0,1,0,1,0,0,1,1,1,0,1,1}};
     }
-  //    counter.d = 0;
-  //  }
 }}

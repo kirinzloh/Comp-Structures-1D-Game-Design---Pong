@@ -5,6 +5,8 @@
 */
 
 module score_8 (
+    input clk,
+    input rst,
     input playing,
     input [3:0] ballY,
     output reg [3:0] scoreA,
@@ -13,25 +15,60 @@ module score_8 (
   
   
   
-  reg scoreAtemp;
+  localparam GAMEON_state = 1'd0;
+  localparam GAMESTART_state = 1'd1;
   
-  reg scoreBtemp;
+  reg M_state_d, M_state_q = GAMESTART_state;
+  reg [3:0] M_scoreAtemp_d, M_scoreAtemp_q = 1'h0;
+  reg [3:0] M_scoreBtemp_d, M_scoreBtemp_q = 1'h0;
   
   always @* begin
-    scoreAtemp = 1'h0;
-    scoreBtemp = 1'h0;
-    scoreA = 1'h0;
-    scoreB = 1'h0;
-    if (playing == 1'h1) begin
-      if (ballY == 1'h0) begin
-        scoreBtemp = scoreBtemp + 1'h1;
-        scoreB = scoreBtemp;
-      end else begin
-        if (ballY == 4'hf) begin
-          scoreAtemp = scoreAtemp + 1'h1;
-          scoreA = scoreAtemp;
+    M_state_d = M_state_q;
+    M_scoreAtemp_d = M_scoreAtemp_q;
+    M_scoreBtemp_d = M_scoreBtemp_q;
+    
+    scoreA = M_scoreAtemp_q;
+    scoreB = M_scoreBtemp_q;
+    
+    case (M_state_q)
+      GAMESTART_state: begin
+        M_scoreAtemp_d = 1'h0;
+        M_scoreBtemp_d = 1'h0;
+        M_state_d = GAMEON_state;
+      end
+      GAMEON_state: begin
+        if (playing == 1'h1) begin
+          if (ballY == 1'h0) begin
+            M_scoreBtemp_d = M_scoreBtemp_q + 1'h1;
+            scoreB = M_scoreBtemp_q;
+          end else begin
+            if (ballY == 4'hf) begin
+              M_scoreAtemp_d = M_scoreAtemp_q + 1'h1;
+              scoreA = M_scoreAtemp_q;
+            end
+          end
         end
       end
+    endcase
+  end
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_state_q <= 1'h1;
+    end else begin
+      M_state_q <= M_state_d;
     end
   end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_scoreAtemp_q <= 1'h0;
+      M_scoreBtemp_q <= 1'h0;
+    end else begin
+      M_scoreAtemp_q <= M_scoreAtemp_d;
+      M_scoreBtemp_q <= M_scoreBtemp_d;
+    end
+  end
+  
 endmodule

@@ -9,6 +9,10 @@ module paddleA (
   ) {
 
   .clk(clk) {
+    edge_detector edge_detector_left(#RISE(1), #FALL(0)); // detect rising edges
+    edge_detector edge_detector_right(#RISE(1), #FALL(0));
+    button_conditioner button_cond_left;
+    button_conditioner button_cond_right;
   .rst(rst){
       fsm state(.clk(clk), #INIT(GAMESTART)) = {GAMEON,GAMESTART,LEFTBTNWAIT,RIGHTBTNWAIT};
       dff padAtemp[4];
@@ -18,6 +22,11 @@ module paddleA (
   
   always {
     padA = padAtemp.q;
+    button_cond_left.in = btnLeft;
+    edge_detector_left.in = button_cond_left.out;
+    button_cond_right.in = btnRight;
+    edge_detector_right.in = button_cond_right.out;
+    
 //    ai = 1;
     
     // if (playing == 1){
@@ -36,33 +45,33 @@ module paddleA (
     
     case (state.q){
       state.GAMESTART:
-        padAtemp.d = 1;
+        padAtemp.d = 0;
         state.d = state.GAMEON;
         
       state.GAMEON:
         if (playing == 1){
-          if (btnLeft == 0 && padAtemp.q > 1){
+          if (edge_detector_left.out == 1 && padAtemp.q > 1){
             padAtemp.d = padAtemp.q - 1;
             padA = padAtemp.q;
             state.d = state.LEFTBTNWAIT;
           }
-        //  else if (btnRight == 0 && padAtemp.q < 14){
-        //    padAtemp.d = padAtemp.q + 1;
-        //    padA = padAtemp.q;
-        //    state.d = state.RIGHTBTNWAIT;
-        //  }
+          if (edge_detector_right.out == 1 && padAtemp.q < 14){
+            padAtemp.d = padAtemp.q + 1;
+            padA = padAtemp.q;
+            state.d = state.RIGHTBTNWAIT;
+          }
         }
         
       state.LEFTBTNWAIT:
         if (playing == 1){
-          if (btnLeft == 1){
+          if (edge_detector_left.out == 0){
             state.d = state.GAMEON;
           }
         }
         
       state.RIGHTBTNWAIT:
         if (playing == 1){
-          if (btnRight == 1){
+          if (edge_detector_right.out == 0){
             state.d = state.GAMEON;
           }
         }

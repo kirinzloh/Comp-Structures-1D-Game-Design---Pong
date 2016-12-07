@@ -15,6 +15,37 @@ NET "ledmatrix[6]" IOSTANDARD = LVTTL;
 NET "ledmatrix[7]" LOC = P33;
 NET "ledmatrix[7]" IOSTANDARD = LVTTL;
 
-NET "btnLeft" LOC = P51;
+NET "btnLeft" LOC = P50;
 NET "btnLeft" IOSTANDARD = LVTTL;
 NET "btnLeft" PULLUP;
+NET "btnRight" LOC = P51;
+NET "btnRight" IOSTANDARD = LVTTL;
+NET "btnRight" PULLUP;
+NET "btnStart" LOC = P40;
+NET "btnStart" IOSTANDARD = LVTTL;
+NET "btnStart" PULLUP;
+
+NET "score_seg[0]" LOC = P67;
+NET "score_seg[0]" IOSTANDARD = LVTTL;
+NET "score_seg[1]" LOC = P83;
+NET "score_seg[1]" IOSTANDARD = LVTTL;
+NET "score_seg[2]" LOC = P78;
+NET "score_seg[2]" IOSTANDARD = LVTTL;
+NET "score_seg[3]" LOC = P66;
+NET "score_seg[3]" IOSTANDARD = LVTTL;
+NET "score_seg[4]" LOC = P57;
+NET "score_seg[4]" IOSTANDARD = LVTTL;
+NET "score_seg[5]" LOC = P75;
+NET "score_seg[5]" IOSTANDARD = LVTTL;
+NET "score_seg[6]" LOC = P80;
+NET "score_seg[6]" IOSTANDARD = LVTTL;
+//NET "score_seg<7>" LOC = P74 | IOSTANDARD = LVTTL;
+
+NET "score_sel[0]" LOC = P58;
+NET "score_sel[0]" IOSTANDARD = LVTTL;
+NET "score_sel[1]" LOC = P79;
+NET "score_sel[1]" IOSTANDARD = LVTTL;
+NET "score_sel[2]" LOC = P81;
+NET "score_sel[2]" IOSTANDARD = LVTTL;
+NET "score_sel[3]" LOC = P82;
+NET "score_sel[3]" IOSTANDARD = LVTTL;

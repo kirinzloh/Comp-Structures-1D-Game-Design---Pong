@@ -12,12 +12,12 @@ module mojo_top (
     output avr_rx,          // AVR RX (FPGA TX)
     input avr_rx_busy,      // AVR RX buffer full
 
-    input btnLeft,        //btn input for paddle to go left
-    input btnStart,       //btn input to start the game
-    input btnRight,       //btn input for paddle to go right
-    //output scoreLed[8],   //7-segment LEDs score display
-    output ledmatrix[8]     //led matrix display
-    
+    input btnLeft,          // btn input for paddle to go left
+    input btnStart,         // btn input to start the game
+    input btnRight,         // btn input for paddle to go right
+    output ledmatrix[8],    // led matrix display
+    output score_seg[7],    // 7-segment LEDs score display
+    output score_sel[4]     // Digit select for score display
   ) {
   
   sig rst;                  // reset signal
@@ -26,6 +26,8 @@ module mojo_top (
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;
+    .rst(rst){
+    }
   }
   sig pattern[16][16];      // led matrix pattern
   sig ballX[4];
@@ -35,9 +37,9 @@ module mojo_top (
   sig playing;
   sig scoreA[4];
   sig scoreB[4];
-//  sig mainClk;  
+  sig scoreAdisplay[7];
+  sig scoreBdisplay[7];
   
-//  pongClk pongClk;
   display disp;
   drawing drawpong;
   logic logic;
@@ -45,6 +47,9 @@ module mojo_top (
   paddleA paddleA;
   paddleB paddleB;
   score score;
+  seven_seg segA;
+  seven_seg segB;
+  score_display score_display;
   
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
@@ -54,6 +59,13 @@ module mojo_top (
     spi_miso = bz;          // not using SPI
     spi_channel = bzzzz;    // not using flags
     avr_rx = bz;            // not using serial port
+    
+    //seg.values = {4b1101,4b1101,4b1101,4b1101};
+    //score_seg = ~seg.seg;
+    //score_sel = ~seg.sel;
+    
+    //score_seg = 8b11111111;
+    //score_sel = 4b0000;
     
 //pattern = {c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},      //orientation is laterally inverted
 //        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -75,10 +87,6 @@ module mojo_top (
     playing = 0;
     scoreA = 0;
     scoreB = 0; 
-    
-//    pongClk.clk = clk;
-//    pongClk.rst = rst;
-//    mainClk = pongClk.outClk;
     
     logic.btnStart = btnStart;
     logic.scoreA = scoreA;
@@ -108,13 +116,25 @@ module mojo_top (
     ballX = ball.ballX;
     ballY = ball.ballY;  
     
+    score.clk = clk;
+    score.rst = rst;
     score.playing = playing;
     score.ballY = ballY;
     scoreA = score.scoreA;
     scoreB = score.scoreB;     
     
-    drawpong.clk = clk;
-    drawpong.rst = rst;
+    segA.char = scoreA;
+    scoreAdisplay = segA.segs;
+    segB.char = scoreB;
+    scoreBdisplay = segB.segs;
+    
+    score_display.clk = clk;
+    score_display.rst = rst;
+    score_display.scoreAdisplay = scoreAdisplay;
+    score_display.scoreBdisplay = scoreBdisplay;
+    score_sel = score_display.score_sel;
+    score_seg = score_display.score_display;
+   
     drawpong.ballX = ballX;
     drawpong.ballY = ballY;
     drawpong.padA = padA;

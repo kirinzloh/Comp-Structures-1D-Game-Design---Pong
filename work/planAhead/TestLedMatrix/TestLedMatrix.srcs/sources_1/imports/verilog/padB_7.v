@@ -15,6 +15,34 @@ module paddleB_7 (
   
   
   
+  wire [1-1:0] M_edge_detector_left_out;
+  reg [1-1:0] M_edge_detector_left_in;
+  edge_detector_12 edge_detector_left (
+    .clk(clk),
+    .in(M_edge_detector_left_in),
+    .out(M_edge_detector_left_out)
+  );
+  wire [1-1:0] M_edge_detector_right_out;
+  reg [1-1:0] M_edge_detector_right_in;
+  edge_detector_12 edge_detector_right (
+    .clk(clk),
+    .in(M_edge_detector_right_in),
+    .out(M_edge_detector_right_out)
+  );
+  wire [1-1:0] M_button_cond_left_out;
+  reg [1-1:0] M_button_cond_left_in;
+  button_conditioner_14 button_cond_left (
+    .clk(clk),
+    .in(M_button_cond_left_in),
+    .out(M_button_cond_left_out)
+  );
+  wire [1-1:0] M_button_cond_right_out;
+  reg [1-1:0] M_button_cond_right_in;
+  button_conditioner_14 button_cond_right (
+    .clk(clk),
+    .in(M_button_cond_right_in),
+    .out(M_button_cond_right_out)
+  );
   localparam GAMEON_state = 2'd0;
   localparam GAMESTART_state = 2'd1;
   localparam LEFTBTNWAIT_state = 2'd2;
@@ -28,31 +56,40 @@ module paddleB_7 (
     M_padBtemp_d = M_padBtemp_q;
     
     padB = M_padBtemp_q;
+    M_button_cond_left_in = btnLeft;
+    M_edge_detector_left_in = M_button_cond_left_out;
+    M_button_cond_right_in = btnRight;
+    M_edge_detector_right_in = M_button_cond_right_out;
     
     case (M_state_q)
       GAMESTART_state: begin
-        M_padBtemp_d = 4'he;
+        M_padBtemp_d = 4'hf;
         M_state_d = GAMEON_state;
       end
       GAMEON_state: begin
         if (playing == 1'h1) begin
-          if (btnLeft == 1'h0 && M_padBtemp_q > 1'h1) begin
+          if (M_edge_detector_left_out == 1'h1 && M_padBtemp_q > 1'h1) begin
             M_padBtemp_d = M_padBtemp_q - 1'h1;
             padB = M_padBtemp_q;
             M_state_d = LEFTBTNWAIT_state;
+          end
+          if (M_edge_detector_right_out == 1'h1 && M_padBtemp_q < 4'he) begin
+            M_padBtemp_d = M_padBtemp_q + 1'h1;
+            padB = M_padBtemp_q;
+            M_state_d = RIGHTBTNWAIT_state;
           end
         end
       end
       LEFTBTNWAIT_state: begin
         if (playing == 1'h1) begin
-          if (btnLeft == 1'h1) begin
+          if (M_edge_detector_left_out == 1'h0) begin
             M_state_d = GAMEON_state;
           end
         end
       end
       RIGHTBTNWAIT_state: begin
         if (playing == 1'h1) begin
-          if (btnRight == 1'h1) begin
+          if (M_edge_detector_right_out == 1'h0) begin
             M_state_d = GAMEON_state;
           end
         end

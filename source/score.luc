@@ -1,28 +1,44 @@
 module score (
+    input clk,
+    input rst,
     input playing,
     input ballY[4],
     output scoreA[4],
     output scoreB[4]
   ) {
   
-  sig scoreAtemp;
-  sig scoreBtemp;
+  .clk(clk) {
+    .rst(rst){
+      fsm state(.clk(clk), #INIT(GAMESTART)) = {GAMEON,GAMESTART};
+      dff scoreAtemp[4];
+      dff scoreBtemp[4];
+      }
+  }
   
   always {
-    scoreAtemp = 0;
-    scoreBtemp = 0;
-    scoreA = 0;
-    scoreB = 0;
+    scoreA = scoreAtemp.q;
+    scoreB = scoreBtemp.q;
     
-    if (playing == 1){
-      if (ballY == 0){
-        scoreBtemp = scoreBtemp + 1;
-        scoreB = scoreBtemp;
-      }
-      else if (ballY  == 15){
-        scoreAtemp = scoreAtemp + 1;
-        scoreA = scoreAtemp;
-      }
+    case (state.q){
+      state.GAMESTART:
+        scoreAtemp.d = 0;
+        scoreBtemp.d = 0;
+        state.d = state.GAMEON;
+        
+      state.GAMEON:
+       if (playing == 1){
+         if (ballY == 0){
+          scoreBtemp.d = scoreBtemp.q + 1;
+          scoreB = scoreBtemp.q;
+          }
+         else if (ballY  == 15){
+           scoreAtemp.d = scoreAtemp.q + 1;
+           scoreA = scoreAtemp.q;
+         }
+       }
+       else if (playing == 0){
+        state.d = state.GAMESTART;
+       }
     }
-  }
+}
 }
