@@ -1,0 +1,32 @@
+module score_display (
+    input clk,
+    input rst,
+    input scoreAdisplay[7],
+    input scoreBdisplay[7],
+    output score_display[7],
+    output score_sel[4]
+  ) {
+  
+  .clk(clk) {
+    .rst(rst){
+      dff counter;
+      }
+  }
+  sig digitsel[4][4];
+  
+  always {
+    score_display = 7b0000000;
+    score_sel = 4b0000;
+    digitsel = {4b0111,4b1011,4b1101,4b1110};
+    counter.d = counter.q + 1;
+    
+    if (counter.q == 0){
+      score_sel = digitsel[1];
+      score_display = scoreAdisplay;
+    }
+    else if (counter.q == 1){
+      score_sel = digitsel[2];
+      score_display = scoreBdisplay;
+    }
+    }  
+}
