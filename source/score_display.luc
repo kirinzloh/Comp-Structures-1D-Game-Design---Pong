@@ -14,6 +14,8 @@ module score_display (
   }
   sig digitsel[4][4];
   
+  // Score displayed through a 4 digit 7-segment display
+  
   always {
     score_display = 7b0000000;
     score_sel = 4b0000;

@@ -1,15 +1,50 @@
 module logic (
-    //input btnLeft,
-    //input btnRight,
+    input clk,
+    input rst,
     input btnStart,
-    input scoreA[4],
-    input scoreB[4], 
-    output playing
+    input scoreA[8],
+    input scoreB[8], 
+    output playing[2]
   ) {
+  
+  .clk(clk) {
+    edge_detector start(#RISE(1), #FALL(0)); // detect rising edges
+    button_conditioner button_cond;  
+    .rst(rst){
+      fsm state(.clk(clk), #INIT(MAINSCREEN)) = {MAINSCREEN,GAMEON};
+      dff playingtemp[2];
+    }
+  }
+    
   always {
-    playing = 1;
-    if (btnStart == 0 && scoreA < 7 && scoreB < 7){
-      playing = 1;
+    button_cond.in = btnStart;
+    start.in = button_cond.out;
+    playing = playingtemp.q;
+    
+    case (state.q){
+      state.MAINSCREEN:
+        playingtemp.d = 0;
+        if (start.out == 1 && scoreA < 7 && scoreB < 7){    //Start game
+          playingtemp.d = 1;
+          playing = playingtemp.q;
+          state.d = state.GAMEON;
+          
+        }
+      state.GAMEON:
+        if (start.out == 1){
+          playingtemp.d = 0;
+          playing = playingtemp.q;
+          state.d = state.MAINSCREEN;
+        }
+        if (scoreA > 7){    // If player A wins
+          playingtemp.d = 2;
+          playing = playingtemp.q;
+          }
+        else if (scoreB > 7){    // If player B wins
+          playingtemp.d = 3;
+          playing = playingtemp.q;
+        }
+
     }
   }  
 }

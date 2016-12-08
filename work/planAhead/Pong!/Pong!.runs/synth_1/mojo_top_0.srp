@@ -1,0 +1,1008 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> Reading design: mojo_top_0.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "mojo_top_0.prj"
+
+---- Target Parameters
+Target Device                      : xc6slx9tqg144-2
+Output File Name                   : "mojo_top_0.ngc"
+
+---- Source Options
+Top Module Name                    : mojo_top_0
+
+---- General Options
+Optimization Goal                  : speed
+Optimization Effort                : 1
+Netlist Hierarchy                  : rebuilt
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/shifter_31.v" into library work
+Parsing module <shifter_31>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/pipeline_25.v" into library work
+Parsing module <pipeline_25>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/compare_29.v" into library work
+Parsing module <compare_29>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/boolean_30.v" into library work
+Parsing module <boolean_30>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/adder_28.v" into library work
+Parsing module <adder_28>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/edge_detector_12.v" into library work
+Parsing module <edge_detector_12>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/button_conditioner_13.v" into library work
+Parsing module <button_conditioner_13>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/alu_18.v" into library work
+Parsing module <alu_18>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/seven_seg_9.v" into library work
+Parsing module <seven_seg_9>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/score_display_11.v" into library work
+Parsing module <score_display_11>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/score_8.v" into library work
+Parsing module <score_8>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/reset_conditioner_1.v" into library work
+Parsing module <reset_conditioner_1>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padB_7.v" into library work
+Parsing module <paddleB_7>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padA_6.v" into library work
+Parsing module <paddleA_6>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/logic_4.v" into library work
+Parsing module <logic_4>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/drawing_3.v" into library work
+Parsing module <drawing_3>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/display_2.v" into library work
+Parsing module <display_2>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/ball_5.v" into library work
+Parsing module <ball_5>.
+Analyzing Verilog file "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
+Parsing module <mojo_top_0>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <mojo_top_0>.
+
+Elaborating module <reset_conditioner_1>.
+
+Elaborating module <display_2>.
+
+Elaborating module <drawing_3>.
+
+Elaborating module <logic_4>.
+
+Elaborating module <edge_detector_12>.
+
+Elaborating module <button_conditioner_13>.
+
+Elaborating module <pipeline_25>.
+
+Elaborating module <ball_5>.
+
+Elaborating module <paddleA_6>.
+
+Elaborating module <alu_18>.
+
+Elaborating module <adder_28>.
+
+Elaborating module <compare_29>.
+
+Elaborating module <boolean_30>.
+
+Elaborating module <shifter_31>.
+WARNING:HDLCompiler:1127 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padA_6.v" Line 71: Assignment to M_alu_sub_overflow ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padA_6.v" Line 72: Assignment to M_alu_z ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padA_6.v" Line 73: Assignment to M_alu_v ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padA_6.v" Line 74: Assignment to M_alu_n ignored, since the identifier is never used
+
+Elaborating module <paddleB_7>.
+WARNING:HDLCompiler:1127 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padB_7.v" Line 71: Assignment to M_alu_sub_overflow ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padB_7.v" Line 72: Assignment to M_alu_z ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padB_7.v" Line 73: Assignment to M_alu_v ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padB_7.v" Line 74: Assignment to M_alu_n ignored, since the identifier is never used
+
+Elaborating module <score_8>.
+WARNING:HDLCompiler:1127 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/score_8.v" Line 39: Assignment to M_alu_sub_overflow ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/score_8.v" Line 40: Assignment to M_alu_z ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/score_8.v" Line 41: Assignment to M_alu_v ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/score_8.v" Line 42: Assignment to M_alu_n ignored, since the identifier is never used
+
+Elaborating module <seven_seg_9>.
+
+Elaborating module <score_display_11>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <mojo_top_0>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/mojo_top_0.v".
+WARNING:Xst:647 - Input <cclk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <spi_ss> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <spi_mosi> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <spi_sck> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <avr_tx> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit tristate buffer for signal <spi_miso> created at line 202
+    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 202
+    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 202
+    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 202
+    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 202
+    Found 1-bit tristate buffer for signal <avr_rx> created at line 202
+    Summary:
+	inferred   6 Tristate(s).
+Unit <mojo_top_0> synthesized.
+
+Synthesizing Unit <reset_conditioner_1>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/reset_conditioner_1.v".
+    Found 4-bit register for signal <M_stage_q>.
+    Summary:
+	inferred   4 D-type flip-flop(s).
+Unit <reset_conditioner_1> synthesized.
+
+Synthesizing Unit <display_2>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/display_2.v".
+    Found 4-bit register for signal <M_j_q>.
+    Found 4-bit register for signal <M_k_q>.
+    Found 16-bit register for signal <M_time_q>.
+    Found 2-bit register for signal <M_state_q>.
+    Found 4-bit register for signal <M_i_q>.
+    Found finite state machine <FSM_0> for signal <M_state_q>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 8                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 11                                             |
+    | Power Up State     | 11                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit subtractor for signal <M_j_q[3]_GND_3_o_sub_10_OUT> created at line 69.
+    Found 4-bit subtractor for signal <M_i_q[3]_GND_3_o_sub_16_OUT> created at line 85.
+    Found 8-bit adder for signal <M_i_q[3]_GND_3_o_add_5_OUT> created at line 63.
+    Found 1-bit adder for signal <clk_GND_3_o_add_7_OUT<0>> created at line 36.
+    Found 16-bit adder for signal <M_time_q[15]_GND_3_o_add_12_OUT> created at line 79.
+    Found 4-bit adder for signal <M_k_q[3]_GND_3_o_add_16_OUT> created at line 86.
+    Found 511-bit shifter logical right for signal <n0051> created at line 63
+    Found 8-bit 4-to-1 multiplexer for signal <ledmatrix> created at line 36.
+    Summary:
+	inferred   6 Adder/Subtractor(s).
+	inferred  28 D-type flip-flop(s).
+	inferred   7 Multiplexer(s).
+	inferred   1 Combinational logic shifter(s).
+	inferred   1 Finite State Machine(s).
+Unit <display_2> synthesized.
+
+Synthesizing Unit <drawing_3>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/drawing_3.v".
+    Found 8-bit adder for signal <ballY[3]_GND_4_o_add_3_OUT> created at line 27.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  32 Multiplexer(s).
+Unit <drawing_3> synthesized.
+
+Synthesizing Unit <logic_4>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/logic_4.v".
+    Found 2-bit register for signal <M_playingtemp_q>.
+    Found 1-bit register for signal <M_state_q>.
+    Found 8-bit comparator greater for signal <scoreA[7]_GND_5_o_LessThan_2_o> created at line 49
+    Summary:
+	inferred   3 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <logic_4> synthesized.
+
+Synthesizing Unit <edge_detector_12>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/edge_detector_12.v".
+    Found 1-bit register for signal <M_last_q>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <edge_detector_12> synthesized.
+
+Synthesizing Unit <button_conditioner_13>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/button_conditioner_13.v".
+    Found 20-bit register for signal <M_ctr_q>.
+    Found 20-bit adder for signal <M_ctr_q[19]_GND_7_o_add_2_OUT> created at line 39.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  20 D-type flip-flop(s).
+Unit <button_conditioner_13> synthesized.
+
+Synthesizing Unit <pipeline_25>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/pipeline_25.v".
+    Found 2-bit register for signal <M_pipe_q>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <pipeline_25> synthesized.
+
+Synthesizing Unit <ball_5>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/ball_5.v".
+    Found 8-bit register for signal <M_hitcounter_q>.
+    Found 23-bit register for signal <M_ballspeed_q>.
+    Found 4-bit register for signal <M_ballXtemp_q>.
+    Found 4-bit register for signal <M_ballYtemp_q>.
+    Found 1-bit register for signal <M_directionX_q>.
+    Found 1-bit register for signal <M_directionY_q>.
+    Found 1-bit register for signal <M_state_q>.
+    Found 23-bit register for signal <M_counter_q>.
+    Found finite state machine <FSM_1> for signal <M_ballspeed_q>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 34                                             |
+    | Inputs             | 7                                              |
+    | Outputs            | 16                                             |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00000000000000000000000                        |
+    | Power Up State     | 00000000000000000000000                        |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit subtractor for signal <M_ballYtemp_q[3]_GND_9_o_sub_15_OUT> created at line 70.
+    Found 4-bit subtractor for signal <padA[3]_GND_9_o_sub_22_OUT> created at line 76.
+    Found 4-bit subtractor for signal <padA[3]_GND_9_o_sub_37_OUT> created at line 88.
+    Found 4-bit subtractor for signal <padB[3]_GND_9_o_sub_56_OUT> created at line 103.
+    Found 4-bit subtractor for signal <padB[3]_GND_9_o_sub_71_OUT> created at line 115.
+    Found 4-bit subtractor for signal <M_ballXtemp_q[3]_GND_9_o_sub_77_OUT> created at line 119.
+    Found 23-bit adder for signal <M_counter_q[22]_GND_9_o_add_0_OUT> created at line 57.
+    Found 4-bit adder for signal <M_ballYtemp_q[3]_GND_9_o_add_11_OUT> created at line 66.
+    Found 4-bit adder for signal <padA[3]_GND_9_o_add_39_OUT> created at line 88.
+    Found 4-bit adder for signal <padA[3]_GND_9_o_add_43_OUT> created at line 92.
+    Found 4-bit adder for signal <M_ballXtemp_q[3]_GND_9_o_add_59_OUT> created at line 108.
+    Found 4-bit adder for signal <padB[3]_GND_9_o_add_73_OUT> created at line 115.
+    Found 4-bit adder for signal <padB[3]_GND_9_o_add_77_OUT> created at line 119.
+    Found 8-bit adder for signal <M_hitcounter_q[7]_GND_9_o_add_80_OUT> created at line 122.
+    Found 23-bit comparator greater for signal <n0001> created at line 58
+    Found 4-bit comparator greater for signal <M_ballYtemp_q[3]_PWR_11_o_LessThan_6_o> created at line 60
+    Found 4-bit comparator greater for signal <GND_9_o_M_ballYtemp_q[3]_LessThan_7_o> created at line 60
+    Found 4-bit comparator equal for signal <M_ballXtemp_q[3]_padA[3]_equal_23_o> created at line 76
+    Found 4-bit comparator lessequal for signal <n0024> created at line 81
+    Found 4-bit comparator lessequal for signal <n0026> created at line 81
+    Found 4-bit comparator lessequal for signal <n0035> created at line 88
+    Found 4-bit comparator lessequal for signal <n0038> created at line 88
+    Found 4-bit comparator equal for signal <M_ballXtemp_q[3]_padA[3]_equal_45_o> created at line 92
+    Found 4-bit comparator equal for signal <M_ballXtemp_q[3]_padB[3]_equal_57_o> created at line 103
+    Found 4-bit comparator lessequal for signal <n0060> created at line 108
+    Found 4-bit comparator lessequal for signal <n0062> created at line 108
+    Found 4-bit comparator lessequal for signal <n0072> created at line 115
+    Found 4-bit comparator lessequal for signal <n0075> created at line 115
+    Found 4-bit comparator equal for signal <M_ballXtemp_q[3]_padB[3]_equal_79_o> created at line 119
+    Found 8-bit comparator greater for signal <n0108> created at line 149
+    Summary:
+	inferred  14 Adder/Subtractor(s).
+	inferred  42 D-type flip-flop(s).
+	inferred  16 Comparator(s).
+	inferred  47 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <ball_5> synthesized.
+
+Synthesizing Unit <paddleA_6>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padA_6.v".
+INFO:Xst:3210 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padA_6.v" line 67: Output port <sub_overflow> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padA_6.v" line 67: Output port <z> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padA_6.v" line 67: Output port <v> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padA_6.v" line 67: Output port <n> of the instance <alu> is unconnected or connected to loadless signal.
+    Found 8-bit register for signal <M_padArighttemp_q>.
+    Found 4-bit register for signal <M_padApostemp_q>.
+    Found 2-bit register for signal <M_state_q>.
+    Found 8-bit register for signal <M_padAlefttemp_q>.
+    Found finite state machine <FSM_2> for signal <M_state_q>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 25                                             |
+    | Inputs             | 11                                             |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 11                                             |
+    | Power Up State     | 11                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit subtractor for signal <M_padApostemp_q[3]_GND_10_o_sub_74_OUT> created at line 204.
+    Found 4-bit adder for signal <M_padApostemp_q[3]_GND_10_o_add_67_OUT> created at line 189.
+    Found 4-bit 4-to-1 multiplexer for signal <M_padApostemp_d> created at line 95.
+    Found 8-bit 4-to-1 multiplexer for signal <M_padAlefttemp_d> created at line 95.
+    Found 8-bit 4-to-1 multiplexer for signal <M_padArighttemp_d> created at line 95.
+    Found 6-bit 3-to-1 multiplexer for signal <M_alu_alufn> created at line 95.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  20 D-type flip-flop(s).
+	inferred  49 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <paddleA_6> synthesized.
+
+Synthesizing Unit <alu_18>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/alu_18.v".
+    Found 8-bit 4-to-1 multiplexer for signal <alu_output> created at line 93.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <alu_18> synthesized.
+
+Synthesizing Unit <adder_28>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/adder_28.v".
+WARNING:Xst:647 - Input <alufn<5:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 9-bit subtractor for signal <sub_sum> created at line 33.
+    Found 9-bit subtractor for signal <GND_12_o_a[7]_sub_10_OUT> created at line 41.
+    Found 9-bit adder for signal <n0040> created at line 29.
+    Found 8x8-bit multiplier for signal <n0033> created at line 37.
+    Found 8x8-bit multiplier for signal <n0035> created at line 41.
+    Found 9-bit 4-to-1 multiplexer for signal <sum> created at line 26.
+    Summary:
+	inferred   2 Multiplier(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   6 Multiplexer(s).
+Unit <adder_28> synthesized.
+
+Synthesizing Unit <div_8u_8u>.
+    Related source file is "".
+    Found 16-bit adder for signal <n0292> created at line 0.
+    Found 16-bit adder for signal <GND_14_o_b[7]_add_1_OUT> created at line 0.
+    Found 15-bit adder for signal <n0296> created at line 0.
+    Found 15-bit adder for signal <GND_14_o_b[7]_add_3_OUT> created at line 0.
+    Found 14-bit adder for signal <n0300> created at line 0.
+    Found 14-bit adder for signal <GND_14_o_b[7]_add_5_OUT> created at line 0.
+    Found 13-bit adder for signal <n0304> created at line 0.
+    Found 13-bit adder for signal <GND_14_o_b[7]_add_7_OUT> created at line 0.
+    Found 12-bit adder for signal <n0308> created at line 0.
+    Found 12-bit adder for signal <GND_14_o_b[7]_add_9_OUT> created at line 0.
+    Found 11-bit adder for signal <n0312> created at line 0.
+    Found 11-bit adder for signal <GND_14_o_b[7]_add_11_OUT> created at line 0.
+    Found 10-bit adder for signal <n0316> created at line 0.
+    Found 10-bit adder for signal <GND_14_o_b[7]_add_13_OUT> created at line 0.
+    Found 9-bit adder for signal <n0320> created at line 0.
+    Found 9-bit adder for signal <GND_14_o_b[7]_add_15_OUT> created at line 0.
+    Found 16-bit comparator lessequal for signal <BUS_0001> created at line 0
+    Found 15-bit comparator lessequal for signal <BUS_0002> created at line 0
+    Found 14-bit comparator lessequal for signal <BUS_0003> created at line 0
+    Found 13-bit comparator lessequal for signal <BUS_0004> created at line 0
+    Found 12-bit comparator lessequal for signal <BUS_0005> created at line 0
+    Found 11-bit comparator lessequal for signal <BUS_0006> created at line 0
+    Found 10-bit comparator lessequal for signal <BUS_0007> created at line 0
+    Found 9-bit comparator lessequal for signal <BUS_0008> created at line 0
+    Found 8-bit comparator lessequal for signal <BUS_0009> created at line 0
+    Summary:
+	inferred  16 Adder/Subtractor(s).
+	inferred   9 Comparator(s).
+	inferred  57 Multiplexer(s).
+Unit <div_8u_8u> synthesized.
+
+Synthesizing Unit <compare_29>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/compare_29.v".
+WARNING:Xst:647 - Input <alufn<0:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <alufn<5:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit 4-to-1 multiplexer for signal <cmp> created at line 21.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <compare_29> synthesized.
+
+Synthesizing Unit <boolean_30>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/boolean_30.v".
+WARNING:Xst:647 - Input <alufn<5:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 8-bit 14-to-1 multiplexer for signal <boole_output> created at line 18.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <boolean_30> synthesized.
+
+Synthesizing Unit <shifter_31>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/shifter_31.v".
+WARNING:Xst:647 - Input <alufn<5:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <b<7:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 8-bit shifter logical left for signal <a[7]_b[2]_shift_left_0_OUT> created at line 20
+    Found 8-bit shifter logical right for signal <a[7]_b[2]_shift_right_1_OUT> created at line 23
+    Found 8-bit shifter arithmetic right for signal <a[7]_b[2]_shift_right_2_OUT> created at line 26
+    Found 8-bit 4-to-1 multiplexer for signal <shift_output> created at line 18.
+    Summary:
+	inferred   1 Multiplexer(s).
+	inferred   3 Combinational logic shifter(s).
+Unit <shifter_31> synthesized.
+
+Synthesizing Unit <paddleB_7>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padB_7.v".
+INFO:Xst:3210 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padB_7.v" line 67: Output port <sub_overflow> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padB_7.v" line 67: Output port <z> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padB_7.v" line 67: Output port <v> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/padB_7.v" line 67: Output port <n> of the instance <alu> is unconnected or connected to loadless signal.
+    Found 8-bit register for signal <M_padBlefttemp_q>.
+    Found 8-bit register for signal <M_padBrighttemp_q>.
+    Found 4-bit register for signal <M_padBpostemp_q>.
+    Found 2-bit register for signal <M_state_q>.
+    Found finite state machine <FSM_3> for signal <M_state_q>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 25                                             |
+    | Inputs             | 11                                             |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 11                                             |
+    | Power Up State     | 11                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit subtractor for signal <M_padBpostemp_q[3]_GND_18_o_sub_74_OUT> created at line 204.
+    Found 4-bit adder for signal <M_padBpostemp_q[3]_GND_18_o_add_67_OUT> created at line 189.
+    Found 4-bit 4-to-1 multiplexer for signal <M_padBpostemp_d> created at line 95.
+    Found 8-bit 4-to-1 multiplexer for signal <M_padBlefttemp_d> created at line 95.
+    Found 8-bit 4-to-1 multiplexer for signal <M_padBrighttemp_d> created at line 95.
+    Found 6-bit 3-to-1 multiplexer for signal <M_alu_alufn> created at line 95.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  20 D-type flip-flop(s).
+	inferred  49 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <paddleB_7> synthesized.
+
+Synthesizing Unit <score_8>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/score_8.v".
+INFO:Xst:3210 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/score_8.v" line 35: Output port <sub_overflow> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/score_8.v" line 35: Output port <z> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/score_8.v" line 35: Output port <v> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/score_8.v" line 35: Output port <n> of the instance <alu> is unconnected or connected to loadless signal.
+    Found 8-bit register for signal <M_scoreBtemp_q>.
+    Found 1-bit register for signal <M_state_q>.
+    Found 8-bit register for signal <M_scoreAtemp_q>.
+    Summary:
+	inferred  17 D-type flip-flop(s).
+	inferred   5 Multiplexer(s).
+Unit <score_8> synthesized.
+
+Synthesizing Unit <seven_seg_9>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/seven_seg_9.v".
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <seven_seg_9> synthesized.
+
+Synthesizing Unit <score_display_11>.
+    Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/Pong with ALU/work/planAhead/Pong!/Pong!.srcs/sources_1/imports/verilog/score_display_11.v".
+    Found 1-bit register for signal <M_counter_q>.
+    Found 1-bit adder for signal <M_counter_d> created at line 28.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   3 Multiplexer(s).
+Unit <score_display_11> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 6
+ 8x8-bit multiplier                                    : 6
+# Adders/Subtractors                                   : 85
+ 1-bit adder                                           : 2
+ 10-bit adder                                          : 6
+ 11-bit adder                                          : 6
+ 12-bit adder                                          : 6
+ 13-bit adder                                          : 6
+ 14-bit adder                                          : 6
+ 15-bit adder                                          : 6
+ 16-bit adder                                          : 7
+ 20-bit adder                                          : 5
+ 23-bit adder                                          : 1
+ 4-bit adder                                           : 9
+ 4-bit subtractor                                      : 10
+ 8-bit adder                                           : 3
+ 9-bit adder                                           : 6
+ 9-bit addsub                                          : 3
+ 9-bit subtractor                                      : 3
+# Registers                                            : 37
+ 1-bit register                                        : 11
+ 16-bit register                                       : 3
+ 2-bit register                                        : 6
+ 20-bit register                                       : 5
+ 23-bit register                                       : 1
+ 4-bit register                                        : 8
+ 8-bit register                                        : 3
+# Comparators                                          : 44
+ 10-bit comparator lessequal                           : 3
+ 11-bit comparator lessequal                           : 3
+ 12-bit comparator lessequal                           : 3
+ 13-bit comparator lessequal                           : 3
+ 14-bit comparator lessequal                           : 3
+ 15-bit comparator lessequal                           : 3
+ 16-bit comparator lessequal                           : 3
+ 23-bit comparator greater                             : 1
+ 4-bit comparator equal                                : 4
+ 4-bit comparator greater                              : 2
+ 4-bit comparator lessequal                            : 8
+ 8-bit comparator greater                              : 2
+ 8-bit comparator lessequal                            : 3
+ 9-bit comparator lessequal                            : 3
+# Multiplexers                                         : 396
+ 1-bit 2-to-1 multiplexer                              : 226
+ 1-bit 4-to-1 multiplexer                              : 3
+ 16-bit 2-to-1 multiplexer                             : 2
+ 2-bit 2-to-1 multiplexer                              : 1
+ 23-bit 2-to-1 multiplexer                             : 2
+ 4-bit 2-to-1 multiplexer                              : 35
+ 4-bit 4-to-1 multiplexer                              : 2
+ 6-bit 2-to-1 multiplexer                              : 8
+ 6-bit 3-to-1 multiplexer                              : 2
+ 7-bit 2-to-1 multiplexer                              : 4
+ 8-bit 14-to-1 multiplexer                             : 3
+ 8-bit 2-to-1 multiplexer                              : 79
+ 8-bit 4-to-1 multiplexer                              : 11
+ 9-bit 2-to-1 multiplexer                              : 18
+# Logic shifters                                       : 10
+ 511-bit shifter logical right                         : 1
+ 8-bit shifter arithmetic right                        : 3
+ 8-bit shifter logical left                            : 3
+ 8-bit shifter logical right                           : 3
+# Tristates                                            : 6
+ 1-bit tristate buffer                                 : 6
+# FSMs                                                 : 4
+# Xors                                                 : 6
+ 1-bit xor2                                            : 3
+ 8-bit xor2                                            : 3
+
+=========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <button_conditioner_13>.
+The following registers are absorbed into counter <M_ctr_q>: 1 register on signal <M_ctr_q>.
+Unit <button_conditioner_13> synthesized (advanced).
+
+Synthesizing (advanced) Unit <display_2>.
+The following registers are absorbed into counter <M_k_q>: 1 register on signal <M_k_q>.
+The following registers are absorbed into counter <M_i_q>: 1 register on signal <M_i_q>.
+Unit <display_2> synthesized (advanced).
+
+Synthesizing (advanced) Unit <score_display_11>.
+The following registers are absorbed into counter <M_counter_q>: 1 register on signal <M_counter_q>.
+Unit <score_display_11> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 6
+ 8x8-bit multiplier                                    : 6
+# Adders/Subtractors                                   : 53
+ 1-bit adder                                           : 1
+ 16-bit adder                                          : 1
+ 23-bit adder                                          : 1
+ 4-bit adder                                           : 8
+ 4-bit subtractor                                      : 9
+ 8-bit adder                                           : 3
+ 8-bit adder carry in                                  : 24
+ 9-bit addsub                                          : 3
+ 9-bit subtractor                                      : 3
+# Counters                                             : 8
+ 1-bit up counter                                      : 1
+ 20-bit up counter                                     : 5
+ 4-bit down counter                                    : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 141
+ Flip-Flops                                            : 141
+# Comparators                                          : 44
+ 10-bit comparator lessequal                           : 3
+ 11-bit comparator lessequal                           : 3
+ 12-bit comparator lessequal                           : 3
+ 13-bit comparator lessequal                           : 3
+ 14-bit comparator lessequal                           : 3
+ 15-bit comparator lessequal                           : 3
+ 16-bit comparator lessequal                           : 3
+ 23-bit comparator greater                             : 1
+ 4-bit comparator equal                                : 4
+ 4-bit comparator greater                              : 2
+ 4-bit comparator lessequal                            : 8
+ 8-bit comparator greater                              : 2
+ 8-bit comparator lessequal                            : 3
+ 9-bit comparator lessequal                            : 3
+# Multiplexers                                         : 400
+ 1-bit 2-to-1 multiplexer                              : 234
+ 1-bit 4-to-1 multiplexer                              : 3
+ 16-bit 2-to-1 multiplexer                             : 2
+ 23-bit 2-to-1 multiplexer                             : 2
+ 4-bit 2-to-1 multiplexer                              : 33
+ 4-bit 4-to-1 multiplexer                              : 2
+ 6-bit 2-to-1 multiplexer                              : 8
+ 6-bit 3-to-1 multiplexer                              : 2
+ 7-bit 2-to-1 multiplexer                              : 4
+ 8-bit 14-to-1 multiplexer                             : 3
+ 8-bit 2-to-1 multiplexer                              : 78
+ 8-bit 4-to-1 multiplexer                              : 11
+ 9-bit 2-to-1 multiplexer                              : 18
+# Logic shifters                                       : 10
+ 511-bit shifter logical right                         : 1
+ 8-bit shifter arithmetic right                        : 3
+ 8-bit shifter logical left                            : 3
+ 8-bit shifter logical right                           : 3
+# FSMs                                                 : 4
+# Xors                                                 : 6
+ 1-bit xor2                                            : 3
+ 8-bit xor2                                            : 3
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <M_playingtemp_q_1> has a constant value of 0 in block <logic_4>. This FF/Latch will be trimmed during the optimization process.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <disp/FSM_0> on signal <M_state_q[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 11    | 11
+ 01    | 01
+ 10    | 10
+ 00    | 00
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <ball/FSM_1> on signal <M_ballspeed_q[1:2]> with sequential encoding.
+-------------------------------------
+ State                   | Encoding
+-------------------------------------
+ 00000000000000000000000 | 00
+ 11110100001001000000000 | 01
+ 01011011100011011000000 | 10
+ 01111010000100100000000 | 11
+-------------------------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <paddleA/FSM_2> on signal <M_state_q[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 11    | 11
+ 10    | 10
+ 00    | 00
+ 01    | 01
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <paddleB/FSM_3> on signal <M_state_q[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 11    | 11
+ 10    | 10
+ 00    | 00
+ 01    | 01
+-------------------
+WARNING:Xst:2973 - All outputs of instance <alu/adder/a[7]_b[7]_div_7> of block <div_8u_8u> are unconnected in block <paddleA_6>. Underlying logic will be removed.
+WARNING:Xst:2973 - All outputs of instance <alu/adder/a[7]_b[7]_div_7> of block <div_8u_8u> are unconnected in block <paddleB_7>. Underlying logic will be removed.
+WARNING:Xst:2973 - All outputs of instance <alu/adder/a[7]_b[7]_div_7> of block <div_8u_8u> are unconnected in block <score_8>. Underlying logic will be removed.
+
+Optimizing unit <mojo_top_0> ...
+
+Optimizing unit <display_2> ...
+
+Optimizing unit <logic_4> ...
+
+Optimizing unit <ball_5> ...
+
+Optimizing unit <paddleA_6> ...
+
+Optimizing unit <div_8u_8u> ...
+
+Optimizing unit <paddleB_7> ...
+
+Optimizing unit <score_8> ...
+
+Optimizing unit <drawing_3> ...
+WARNING:Xst:1293 - FF/Latch <disp/M_time_q_15> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <logic/M_state_q> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <logic/M_playingtemp_q_0> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 23.
+FlipFlop ball/M_ballXtemp_q_0 has been replicated 3 time(s)
+FlipFlop ball/M_ballXtemp_q_1 has been replicated 2 time(s)
+FlipFlop ball/M_ballXtemp_q_2 has been replicated 2 time(s)
+FlipFlop ball/M_ballXtemp_q_3 has been replicated 1 time(s)
+FlipFlop logic/M_state_q has been replicated 1 time(s)
+FlipFlop paddleA/M_state_q_FSM_FFd2 has been replicated 1 time(s)
+FlipFlop paddleB/M_padBlefttemp_q_2 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+Processing Unit <mojo_top_0> :
+	Found 2-bit shift register for signal <logic/button_cond/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <paddleA/button_cond_right/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <paddleA/button_cond_left/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <paddleB/button_cond_right/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <paddleB/button_cond_left/sync/M_pipe_q_1>.
+INFO:Xst:741 - HDL ADVISOR - A 4-bit shift register was found for signal <reset_cond/M_stage_q_3> and currently occupies 4 logic cells (2 slices). Removing the set/reset logic would take advantage of SRL32 (and derived) primitives and reduce this to 1 logic cells (1 slices). Evaluate if the set/reset can be removed for this simple shift register. The majority of simple pipeline structures do not need to be set/reset operationally.
+Unit <mojo_top_0> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 256
+ Flip-Flops                                            : 256
+# Shift Registers                                      : 5
+ 2-bit shift register                                  : 5
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : mojo_top_0.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 1447
+#      GND                         : 14
+#      INV                         : 16
+#      LUT1                        : 132
+#      LUT2                        : 63
+#      LUT3                        : 110
+#      LUT4                        : 84
+#      LUT5                        : 172
+#      LUT6                        : 545
+#      MUXCY                       : 140
+#      MUXF7                       : 20
+#      VCC                         : 13
+#      XORCY                       : 138
+# FlipFlops/Latches                : 261
+#      FD                          : 5
+#      FDE                         : 5
+#      FDR                         : 56
+#      FDRE                        : 182
+#      FDS                         : 13
+# Shift Registers                  : 5
+#      SRLC16E                     : 5
+# Clock Buffers                    : 1
+#      BUFG                        : 1
+# IO Buffers                       : 40
+#      IBUF                        : 7
+#      OBUF                        : 27
+#      OBUFT                       : 6
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             261  out of  11440     2%  
+ Number of Slice LUTs:                 1127  out of   5720    19%  
+    Number used as Logic:              1122  out of   5720    19%  
+    Number used as Memory:                5  out of   1440     0%  
+       Number used as SRL:                5
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   1176
+   Number with an unused Flip Flop:     915  out of   1176    77%  
+   Number with an unused LUT:            49  out of   1176     4%  
+   Number of fully used LUT-FF pairs:   212  out of   1176    18%  
+   Number of unique control sets:        31
+
+IO Utilization: 
+ Number of IOs:                          46
+ Number of bonded IOBs:                  40  out of    102    39%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | IBUF+BUFG              | 266   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 8.631ns (Maximum Frequency: 115.861MHz)
+   Minimum input arrival time before clock: 3.526ns
+   Maximum output required time after clock: 13.576ns
+   Maximum combinational path delay: 5.857ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 8.631ns (frequency: 115.861MHz)
+  Total number of paths / destination ports: 34695 / 689
+-------------------------------------------------------------------------
+Delay:               8.631ns (Levels of Logic = 6)
+  Source:            paddleA/M_padAlefttemp_q_4 (FF)
+  Destination:       paddleA/M_padArighttemp_q_4 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: paddleA/M_padAlefttemp_q_4 to paddleA/M_padArighttemp_q_4
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              8   0.525   1.374  M_padAlefttemp_q_4 (M_padAlefttemp_q_4)
+     LUT6:I1->O            9   0.254   0.976  M_edge_detector_left_out[0]_M_padAlefttemp_q[7]_AND_627_o11 (M_edge_detector_left_out[0]_M_padAlefttemp_q[7]_AND_627_o1)
+     LUT3:I2->O           19   0.254   1.261  n0027<7>1 (n0027)
+     LUT6:I5->O            8   0.254   1.220  Mmux_M_padAlefttemp_d101211 (Mmux_M_padAlefttemp_d10121)
+     LUT6:I2->O            1   0.254   0.790  Mmux_M_padAlefttemp_d10103_SW0_SW2_F (N552)
+     LUT3:I1->O            1   0.250   0.910  Mmux_M_padAlefttemp_d10103_SW0_SW21 (N272)
+     LUT6:I3->O            1   0.235   0.000  Mmux_M_padAlefttemp_d10103 (M_padArighttemp_d<4>)
+     FDR:D                     0.074          M_padArighttemp_q_4
+    ----------------------------------------
+    Total                      8.631ns (2.100ns logic, 6.531ns route)
+                                       (24.3% logic, 75.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 9 / 9
+-------------------------------------------------------------------------
+Offset:              3.526ns (Levels of Logic = 3)
+  Source:            rst_n (PAD)
+  Destination:       reset_cond/M_stage_q_3 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst_n to reset_cond/M_stage_q_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.328   0.681  rst_n_IBUF (rst_n_IBUF)
+     INV:I->O              4   0.255   0.803  M_reset_cond_in1_INV_0 (M_reset_cond_in)
+     begin scope: 'reset_cond:in'
+     FDS:S                     0.459          M_stage_q_0
+    ----------------------------------------
+    Total                      3.526ns (2.042ns logic, 1.484ns route)
+                                       (57.9% logic, 42.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 2618 / 17
+-------------------------------------------------------------------------
+Offset:              13.576ns (Levels of Logic = 11)
+  Source:            ball/M_ballYtemp_q_1 (FF)
+  Destination:       ledmatrix<5> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: ball/M_ballYtemp_q_1 to ledmatrix<5>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q            87   0.525   2.336  M_ballYtemp_q_1 (M_ballYtemp_q_1)
+     end scope: 'ball:ballY<1>'
+     begin scope: 'drawpong:ballY<1>'
+     LUT3:I0->O            5   0.235   1.271  pattern<20>111 (pattern<20>11)
+     LUT5:I0->O            2   0.254   1.156  pattern<96>11 (pattern<96>1)
+     end scope: 'drawpong:pattern<96>1'
+     begin scope: 'disp:pattern<96>1'
+     LUT6:I1->O            1   0.254   0.682  Mmux_ledmatrix6207 (Mmux_ledmatrix6206)
+     LUT6:I5->O            1   0.254   0.682  Mmux_ledmatrix6210 (Mmux_ledmatrix6209)
+     LUT6:I5->O            1   0.254   0.790  Mmux_ledmatrix6211 (Mmux_ledmatrix6210)
+     LUT6:I4->O            1   0.250   0.790  Mmux_ledmatrix6284 (Mmux_ledmatrix6283)
+     LUT6:I4->O            1   0.250   0.681  Mmux_ledmatrix6390 (ledmatrix<5>)
+     end scope: 'disp:ledmatrix<5>'
+     OBUF:I->O                 2.912          ledmatrix_5_OBUF (ledmatrix<5>)
+    ----------------------------------------
+    Total                     13.576ns (5.188ns logic, 8.388ns route)
+                                       (38.2% logic, 61.8% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               5.857ns (Levels of Logic = 4)
+  Source:            clk (PAD)
+  Destination:       ledmatrix<6> (PAD)
+
+  Data Path: clk to ledmatrix<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.328   0.682  clk_IBUF (clk_IBUF)
+     begin scope: 'disp:clk_IBUF'
+     LUT2:I1->O            1   0.254   0.681  Mmux_ledmatrix71 (ledmatrix<6>)
+     end scope: 'disp:ledmatrix<6>'
+     OBUF:I->O                 2.912          ledmatrix_6_OBUF (ledmatrix<6>)
+    ----------------------------------------
+    Total                      5.857ns (4.494ns logic, 1.363ns route)
+                                       (76.7% logic, 23.3% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    8.631|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 23.00 secs
+Total CPU time to Xst completion: 23.37 secs
+ 
+--> 
+
+Total memory usage is 348732 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   29 (   0 filtered)
+Number of infos    :   15 (   0 filtered)
+

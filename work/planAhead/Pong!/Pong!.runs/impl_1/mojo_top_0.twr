@@ -1,0 +1,1672 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -o
+mojo_top_0.twr -v 30 -l 30 mojo_top_0_routed.ncd mojo_top_0.pcf
+
+Design file:              mojo_top_0_routed.ncd
+Physical constraint file: mojo_top_0.pcf
+Device,package,speed:     xc6slx9,tqg144,C,-2 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report, limited to 30 items per constraint
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 34690 paths analyzed, 1375 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   8.254ns.
+--------------------------------------------------------------------------------
+Slack:                  11.746ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_12 (FF)
+  Destination:          paddleA/M_padArighttemp_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.251ns (Levels of Logic = 6)
+  Clock Path Skew:      0.032ns (0.701 - 0.669)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_12 to paddleA/M_padArighttemp_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y16.AQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[15]
+                                                       paddleA/button_cond_left/M_ctr_q_12
+    SLICE_X7Y15.C2       net (fanout=2)        1.515   paddleA/button_cond_left/M_ctr_q[12]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.C1       net (fanout=7)        1.483   paddleA/out2
+    SLICE_X1Y14.C        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_2
+    SLICE_X6Y14.D2       net (fanout=2)        1.260   paddleA/out11
+    SLICE_X6Y14.D        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padAlefttemp_d101211
+    SLICE_X4Y13.B3       net (fanout=8)        0.695   paddleA/Mmux_M_padAlefttemp_d10121
+    SLICE_X4Y13.B        Tilo                  0.254   paddleA/_n0195_mmx_out1
+                                                       paddleA/Mmux_M_padAlefttemp_d1083_SW0_SW0_F
+    SLICE_X4Y13.A5       net (fanout=1)        0.247   paddleA/N438
+    SLICE_X4Y13.A        Tilo                  0.254   paddleA/_n0195_mmx_out1
+                                                       paddleA/Mmux_M_padAlefttemp_d1083_SW0_SW01
+    SLICE_X5Y15.C4       net (fanout=1)        0.892   paddleA/N275
+    SLICE_X5Y15.CLK      Tas                   0.373   M_paddleA_padA[3]
+                                                       paddleA/Mmux_M_padAlefttemp_d1083
+                                                       paddleA/M_padArighttemp_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      8.251ns (2.159ns logic, 6.092ns route)
+                                                       (26.2% logic, 73.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.780ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_9 (FF)
+  Destination:          paddleA/M_padArighttemp_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.161ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.024ns (0.334 - 0.358)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_9 to paddleA/M_padArighttemp_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y15.BQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[11]
+                                                       paddleA/button_cond_left/M_ctr_q_9
+    SLICE_X7Y15.C1       net (fanout=2)        1.425   paddleA/button_cond_left/M_ctr_q[9]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.C1       net (fanout=7)        1.483   paddleA/out2
+    SLICE_X1Y14.C        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_2
+    SLICE_X6Y14.D2       net (fanout=2)        1.260   paddleA/out11
+    SLICE_X6Y14.D        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padAlefttemp_d101211
+    SLICE_X4Y13.B3       net (fanout=8)        0.695   paddleA/Mmux_M_padAlefttemp_d10121
+    SLICE_X4Y13.B        Tilo                  0.254   paddleA/_n0195_mmx_out1
+                                                       paddleA/Mmux_M_padAlefttemp_d1083_SW0_SW0_F
+    SLICE_X4Y13.A5       net (fanout=1)        0.247   paddleA/N438
+    SLICE_X4Y13.A        Tilo                  0.254   paddleA/_n0195_mmx_out1
+                                                       paddleA/Mmux_M_padAlefttemp_d1083_SW0_SW01
+    SLICE_X5Y15.C4       net (fanout=1)        0.892   paddleA/N275
+    SLICE_X5Y15.CLK      Tas                   0.373   M_paddleA_padA[3]
+                                                       paddleA/Mmux_M_padAlefttemp_d1083
+                                                       paddleA/M_padArighttemp_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      8.161ns (2.159ns logic, 6.002ns route)
+                                                       (26.5% logic, 73.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.866ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_12 (FF)
+  Destination:          paddleA/M_padApostemp_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.064ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.035ns (0.322 - 0.357)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_12 to paddleA/M_padApostemp_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y16.AQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[15]
+                                                       paddleA/button_cond_left/M_ctr_q_12
+    SLICE_X7Y15.C2       net (fanout=2)        1.515   paddleA/button_cond_left/M_ctr_q[12]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.B3       net (fanout=7)        1.333   paddleA/out2
+    SLICE_X1Y14.B        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_1
+    SLICE_X6Y14.B5       net (fanout=1)        0.938   paddleA/out1_0
+    SLICE_X6Y14.B        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X6Y14.A4       net (fanout=15)       0.529   paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X6Y14.A        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padApostemp_d121_SW0
+    SLICE_X5Y25.A6       net (fanout=1)        1.067   paddleA/N312
+    SLICE_X5Y25.A        Tilo                  0.259   M_paddleA_padApos[3]
+                                                       paddleA/Mmux_M_padApostemp_d121
+    SLICE_X5Y25.C2       net (fanout=2)        0.537   paddleA/Mmux_M_padApostemp_d121
+    SLICE_X5Y25.CLK      Tas                   0.373   M_paddleA_padApos[3]
+                                                       paddleA/Mmux_M_padApostemp_d162
+                                                       paddleA/M_padApostemp_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      8.064ns (2.145ns logic, 5.919ns route)
+                                                       (26.6% logic, 73.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.886ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_9 (FF)
+  Destination:          paddleA/M_padApostemp_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.974ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.105ns (0.627 - 0.732)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_9 to paddleA/M_padApostemp_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y15.BQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[11]
+                                                       paddleA/button_cond_left/M_ctr_q_9
+    SLICE_X7Y15.C1       net (fanout=2)        1.425   paddleA/button_cond_left/M_ctr_q[9]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.B3       net (fanout=7)        1.333   paddleA/out2
+    SLICE_X1Y14.B        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_1
+    SLICE_X6Y14.B5       net (fanout=1)        0.938   paddleA/out1_0
+    SLICE_X6Y14.B        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X6Y14.A4       net (fanout=15)       0.529   paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X6Y14.A        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padApostemp_d121_SW0
+    SLICE_X5Y25.A6       net (fanout=1)        1.067   paddleA/N312
+    SLICE_X5Y25.A        Tilo                  0.259   M_paddleA_padApos[3]
+                                                       paddleA/Mmux_M_padApostemp_d121
+    SLICE_X5Y25.C2       net (fanout=2)        0.537   paddleA/Mmux_M_padApostemp_d121
+    SLICE_X5Y25.CLK      Tas                   0.373   M_paddleA_padApos[3]
+                                                       paddleA/Mmux_M_padApostemp_d162
+                                                       paddleA/M_padApostemp_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.974ns (2.145ns logic, 5.829ns route)
+                                                       (26.9% logic, 73.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.903ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_12 (FF)
+  Destination:          paddleA/M_padArighttemp_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.094ns (Levels of Logic = 6)
+  Clock Path Skew:      0.032ns (0.701 - 0.669)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_12 to paddleA/M_padArighttemp_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y16.AQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[15]
+                                                       paddleA/button_cond_left/M_ctr_q_12
+    SLICE_X7Y15.C2       net (fanout=2)        1.515   paddleA/button_cond_left/M_ctr_q[12]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.C1       net (fanout=7)        1.483   paddleA/out2
+    SLICE_X1Y14.C        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_2
+    SLICE_X6Y14.D2       net (fanout=2)        1.260   paddleA/out11
+    SLICE_X6Y14.D        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padAlefttemp_d101211
+    SLICE_X6Y14.C6       net (fanout=8)        0.172   paddleA/Mmux_M_padAlefttemp_d10121
+    SLICE_X6Y14.C        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padAlefttemp_d1083_SW0_SW2_F
+    SLICE_X4Y14.B3       net (fanout=1)        0.623   paddleA/N440
+    SLICE_X4Y14.B        Tilo                  0.254   M_state_q_1
+                                                       paddleA/Mmux_M_padAlefttemp_d1083_SW0_SW21
+    SLICE_X5Y15.C2       net (fanout=1)        0.901   paddleA/N277
+    SLICE_X5Y15.CLK      Tas                   0.373   M_paddleA_padA[3]
+                                                       paddleA/Mmux_M_padAlefttemp_d1083
+                                                       paddleA/M_padArighttemp_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      8.094ns (2.140ns logic, 5.954ns route)
+                                                       (26.4% logic, 73.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.911ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_12 (FF)
+  Destination:          paddleA/M_padApostemp_q_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.019ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.035ns (0.322 - 0.357)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_12 to paddleA/M_padApostemp_q_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y16.AQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[15]
+                                                       paddleA/button_cond_left/M_ctr_q_12
+    SLICE_X7Y15.C2       net (fanout=2)        1.515   paddleA/button_cond_left/M_ctr_q[12]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.B3       net (fanout=7)        1.333   paddleA/out2
+    SLICE_X1Y14.B        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_1
+    SLICE_X6Y14.B5       net (fanout=1)        0.938   paddleA/out1_0
+    SLICE_X6Y14.B        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X4Y21.D4       net (fanout=15)       1.060   paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X4Y21.CMUX     Topdc                 0.456   paddleA/Mmux_M_padApostemp_d44
+                                                       paddleA/Mmux_M_padApostemp_d123_F
+                                                       paddleA/Mmux_M_padApostemp_d123
+    SLICE_X5Y25.B3       net (fanout=2)        1.066   paddleA/Mmux_M_padApostemp_d123
+    SLICE_X5Y25.CLK      Tas                   0.373   M_paddleA_padApos[3]
+                                                       paddleA/Mmux_M_padApostemp_d124
+                                                       paddleA/M_padApostemp_q_2
+    -------------------------------------------------  ---------------------------
+    Total                                      8.019ns (2.107ns logic, 5.912ns route)
+                                                       (26.3% logic, 73.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.930ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_12 (FF)
+  Destination:          paddleA/M_padApostemp_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.000ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.035ns (0.322 - 0.357)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_12 to paddleA/M_padApostemp_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y16.AQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[15]
+                                                       paddleA/button_cond_left/M_ctr_q_12
+    SLICE_X7Y15.C2       net (fanout=2)        1.515   paddleA/button_cond_left/M_ctr_q[12]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.B3       net (fanout=7)        1.333   paddleA/out2
+    SLICE_X1Y14.B        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_1
+    SLICE_X6Y14.B5       net (fanout=1)        0.938   paddleA/out1_0
+    SLICE_X6Y14.B        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X4Y21.D4       net (fanout=15)       1.060   paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X4Y21.CMUX     Topdc                 0.456   paddleA/Mmux_M_padApostemp_d44
+                                                       paddleA/Mmux_M_padApostemp_d123_F
+                                                       paddleA/Mmux_M_padApostemp_d123
+    SLICE_X5Y25.C6       net (fanout=2)        1.047   paddleA/Mmux_M_padApostemp_d123
+    SLICE_X5Y25.CLK      Tas                   0.373   M_paddleA_padApos[3]
+                                                       paddleA/Mmux_M_padApostemp_d162
+                                                       paddleA/M_padApostemp_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      8.000ns (2.107ns logic, 5.893ns route)
+                                                       (26.3% logic, 73.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.931ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_9 (FF)
+  Destination:          paddleA/M_padApostemp_q_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.929ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.105ns (0.627 - 0.732)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_9 to paddleA/M_padApostemp_q_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y15.BQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[11]
+                                                       paddleA/button_cond_left/M_ctr_q_9
+    SLICE_X7Y15.C1       net (fanout=2)        1.425   paddleA/button_cond_left/M_ctr_q[9]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.B3       net (fanout=7)        1.333   paddleA/out2
+    SLICE_X1Y14.B        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_1
+    SLICE_X6Y14.B5       net (fanout=1)        0.938   paddleA/out1_0
+    SLICE_X6Y14.B        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X4Y21.D4       net (fanout=15)       1.060   paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X4Y21.CMUX     Topdc                 0.456   paddleA/Mmux_M_padApostemp_d44
+                                                       paddleA/Mmux_M_padApostemp_d123_F
+                                                       paddleA/Mmux_M_padApostemp_d123
+    SLICE_X5Y25.B3       net (fanout=2)        1.066   paddleA/Mmux_M_padApostemp_d123
+    SLICE_X5Y25.CLK      Tas                   0.373   M_paddleA_padApos[3]
+                                                       paddleA/Mmux_M_padApostemp_d124
+                                                       paddleA/M_padApostemp_q_2
+    -------------------------------------------------  ---------------------------
+    Total                                      7.929ns (2.107ns logic, 5.822ns route)
+                                                       (26.6% logic, 73.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.937ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_9 (FF)
+  Destination:          paddleA/M_padArighttemp_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.004ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.024ns (0.334 - 0.358)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_9 to paddleA/M_padArighttemp_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y15.BQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[11]
+                                                       paddleA/button_cond_left/M_ctr_q_9
+    SLICE_X7Y15.C1       net (fanout=2)        1.425   paddleA/button_cond_left/M_ctr_q[9]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.C1       net (fanout=7)        1.483   paddleA/out2
+    SLICE_X1Y14.C        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_2
+    SLICE_X6Y14.D2       net (fanout=2)        1.260   paddleA/out11
+    SLICE_X6Y14.D        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padAlefttemp_d101211
+    SLICE_X6Y14.C6       net (fanout=8)        0.172   paddleA/Mmux_M_padAlefttemp_d10121
+    SLICE_X6Y14.C        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padAlefttemp_d1083_SW0_SW2_F
+    SLICE_X4Y14.B3       net (fanout=1)        0.623   paddleA/N440
+    SLICE_X4Y14.B        Tilo                  0.254   M_state_q_1
+                                                       paddleA/Mmux_M_padAlefttemp_d1083_SW0_SW21
+    SLICE_X5Y15.C2       net (fanout=1)        0.901   paddleA/N277
+    SLICE_X5Y15.CLK      Tas                   0.373   M_paddleA_padA[3]
+                                                       paddleA/Mmux_M_padAlefttemp_d1083
+                                                       paddleA/M_padArighttemp_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      8.004ns (2.140ns logic, 5.864ns route)
+                                                       (26.7% logic, 73.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.950ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_9 (FF)
+  Destination:          paddleA/M_padApostemp_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.910ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.105ns (0.627 - 0.732)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_9 to paddleA/M_padApostemp_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y15.BQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[11]
+                                                       paddleA/button_cond_left/M_ctr_q_9
+    SLICE_X7Y15.C1       net (fanout=2)        1.425   paddleA/button_cond_left/M_ctr_q[9]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.B3       net (fanout=7)        1.333   paddleA/out2
+    SLICE_X1Y14.B        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_1
+    SLICE_X6Y14.B5       net (fanout=1)        0.938   paddleA/out1_0
+    SLICE_X6Y14.B        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X4Y21.D4       net (fanout=15)       1.060   paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X4Y21.CMUX     Topdc                 0.456   paddleA/Mmux_M_padApostemp_d44
+                                                       paddleA/Mmux_M_padApostemp_d123_F
+                                                       paddleA/Mmux_M_padApostemp_d123
+    SLICE_X5Y25.C6       net (fanout=2)        1.047   paddleA/Mmux_M_padApostemp_d123
+    SLICE_X5Y25.CLK      Tas                   0.373   M_paddleA_padApos[3]
+                                                       paddleA/Mmux_M_padApostemp_d162
+                                                       paddleA/M_padApostemp_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.910ns (2.107ns logic, 5.803ns route)
+                                                       (26.6% logic, 73.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.113ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_12 (FF)
+  Destination:          paddleA/M_padArighttemp_q_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.884ns (Levels of Logic = 5)
+  Clock Path Skew:      0.032ns (0.701 - 0.669)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_12 to paddleA/M_padArighttemp_q_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y16.AQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[15]
+                                                       paddleA/button_cond_left/M_ctr_q_12
+    SLICE_X7Y15.C2       net (fanout=2)        1.515   paddleA/button_cond_left/M_ctr_q[12]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.C1       net (fanout=7)        1.483   paddleA/out2
+    SLICE_X1Y14.C        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_2
+    SLICE_X6Y14.D2       net (fanout=2)        1.260   paddleA/out11
+    SLICE_X6Y14.D        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padAlefttemp_d101211
+    SLICE_X5Y13.C1       net (fanout=8)        0.796   paddleA/Mmux_M_padAlefttemp_d10121
+    SLICE_X5Y13.C        Tilo                  0.259   paddleA/N273
+                                                       paddleA/Mmux_M_padAlefttemp_d10103_SW0_SW3
+    SLICE_X4Y15.B1       net (fanout=1)        0.954   paddleA/N273
+    SLICE_X4Y15.CLK      Tas                   0.339   M_paddleA_padA[5]
+                                                       paddleA/Mmux_M_padAlefttemp_d10103
+                                                       paddleA/M_padArighttemp_q_4
+    -------------------------------------------------  ---------------------------
+    Total                                      7.884ns (1.876ns logic, 6.008ns route)
+                                                       (23.8% logic, 76.2% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.132ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_8 (FF)
+  Destination:          paddleA/M_padArighttemp_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.809ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.024ns (0.334 - 0.358)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_8 to paddleA/M_padArighttemp_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y15.AQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[11]
+                                                       paddleA/button_cond_left/M_ctr_q_8
+    SLICE_X7Y15.C3       net (fanout=2)        1.073   paddleA/button_cond_left/M_ctr_q[8]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.C1       net (fanout=7)        1.483   paddleA/out2
+    SLICE_X1Y14.C        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_2
+    SLICE_X6Y14.D2       net (fanout=2)        1.260   paddleA/out11
+    SLICE_X6Y14.D        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padAlefttemp_d101211
+    SLICE_X4Y13.B3       net (fanout=8)        0.695   paddleA/Mmux_M_padAlefttemp_d10121
+    SLICE_X4Y13.B        Tilo                  0.254   paddleA/_n0195_mmx_out1
+                                                       paddleA/Mmux_M_padAlefttemp_d1083_SW0_SW0_F
+    SLICE_X4Y13.A5       net (fanout=1)        0.247   paddleA/N438
+    SLICE_X4Y13.A        Tilo                  0.254   paddleA/_n0195_mmx_out1
+                                                       paddleA/Mmux_M_padAlefttemp_d1083_SW0_SW01
+    SLICE_X5Y15.C4       net (fanout=1)        0.892   paddleA/N275
+    SLICE_X5Y15.CLK      Tas                   0.373   M_paddleA_padA[3]
+                                                       paddleA/Mmux_M_padAlefttemp_d1083
+                                                       paddleA/M_padArighttemp_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.809ns (2.159ns logic, 5.650ns route)
+                                                       (27.6% logic, 72.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.139ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_12 (FF)
+  Destination:          paddleA/M_padArighttemp_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.858ns (Levels of Logic = 6)
+  Clock Path Skew:      0.032ns (0.701 - 0.669)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_12 to paddleA/M_padArighttemp_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y16.AQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[15]
+                                                       paddleA/button_cond_left/M_ctr_q_12
+    SLICE_X7Y15.C2       net (fanout=2)        1.515   paddleA/button_cond_left/M_ctr_q[12]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.B3       net (fanout=7)        1.333   paddleA/out2
+    SLICE_X1Y14.B        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_1
+    SLICE_X6Y14.B5       net (fanout=1)        0.938   paddleA/out1_0
+    SLICE_X6Y14.B        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X6Y14.C4       net (fanout=15)       0.408   paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X6Y14.C        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padAlefttemp_d1083_SW0_SW2_F
+    SLICE_X4Y14.B3       net (fanout=1)        0.623   paddleA/N440
+    SLICE_X4Y14.B        Tilo                  0.254   M_state_q_1
+                                                       paddleA/Mmux_M_padAlefttemp_d1083_SW0_SW21
+    SLICE_X5Y15.C2       net (fanout=1)        0.901   paddleA/N277
+    SLICE_X5Y15.CLK      Tas                   0.373   M_paddleA_padA[3]
+                                                       paddleA/Mmux_M_padAlefttemp_d1083
+                                                       paddleA/M_padArighttemp_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.858ns (2.140ns logic, 5.718ns route)
+                                                       (27.2% logic, 72.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.147ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_9 (FF)
+  Destination:          paddleA/M_padArighttemp_q_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.794ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.024ns (0.334 - 0.358)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_9 to paddleA/M_padArighttemp_q_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y15.BQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[11]
+                                                       paddleA/button_cond_left/M_ctr_q_9
+    SLICE_X7Y15.C1       net (fanout=2)        1.425   paddleA/button_cond_left/M_ctr_q[9]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.C1       net (fanout=7)        1.483   paddleA/out2
+    SLICE_X1Y14.C        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_2
+    SLICE_X6Y14.D2       net (fanout=2)        1.260   paddleA/out11
+    SLICE_X6Y14.D        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padAlefttemp_d101211
+    SLICE_X5Y13.C1       net (fanout=8)        0.796   paddleA/Mmux_M_padAlefttemp_d10121
+    SLICE_X5Y13.C        Tilo                  0.259   paddleA/N273
+                                                       paddleA/Mmux_M_padAlefttemp_d10103_SW0_SW3
+    SLICE_X4Y15.B1       net (fanout=1)        0.954   paddleA/N273
+    SLICE_X4Y15.CLK      Tas                   0.339   M_paddleA_padA[5]
+                                                       paddleA/Mmux_M_padAlefttemp_d10103
+                                                       paddleA/M_padArighttemp_q_4
+    -------------------------------------------------  ---------------------------
+    Total                                      7.794ns (1.876ns logic, 5.918ns route)
+                                                       (24.1% logic, 75.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.170ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_12 (FF)
+  Destination:          paddleA/M_padArighttemp_q_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.827ns (Levels of Logic = 6)
+  Clock Path Skew:      0.032ns (0.701 - 0.669)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_12 to paddleA/M_padArighttemp_q_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y16.AQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[15]
+                                                       paddleA/button_cond_left/M_ctr_q_12
+    SLICE_X7Y15.C2       net (fanout=2)        1.515   paddleA/button_cond_left/M_ctr_q[12]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.C1       net (fanout=7)        1.483   paddleA/out2
+    SLICE_X1Y14.C        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_2
+    SLICE_X6Y14.D2       net (fanout=2)        1.260   paddleA/out11
+    SLICE_X6Y14.D        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padAlefttemp_d101211
+    SLICE_X5Y13.B3       net (fanout=8)        0.646   paddleA/Mmux_M_padAlefttemp_d10121
+    SLICE_X5Y13.B        Tilo                  0.259   paddleA/N273
+                                                       paddleA/Mmux_M_padAlefttemp_d10103_SW0_SW2_F
+    SLICE_X4Y15.A6       net (fanout=1)        0.358   paddleA/N552
+    SLICE_X4Y15.A        Tilo                  0.254   M_paddleA_padA[5]
+                                                       paddleA/Mmux_M_padAlefttemp_d10103_SW0_SW21
+    SLICE_X4Y15.B4       net (fanout=1)        0.435   paddleA/N272
+    SLICE_X4Y15.CLK      Tas                   0.339   M_paddleA_padA[5]
+                                                       paddleA/Mmux_M_padAlefttemp_d10103
+                                                       paddleA/M_padArighttemp_q_4
+    -------------------------------------------------  ---------------------------
+    Total                                      7.827ns (2.130ns logic, 5.697ns route)
+                                                       (27.2% logic, 72.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.173ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_9 (FF)
+  Destination:          paddleA/M_padArighttemp_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.768ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.024ns (0.334 - 0.358)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_9 to paddleA/M_padArighttemp_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y15.BQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[11]
+                                                       paddleA/button_cond_left/M_ctr_q_9
+    SLICE_X7Y15.C1       net (fanout=2)        1.425   paddleA/button_cond_left/M_ctr_q[9]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.B3       net (fanout=7)        1.333   paddleA/out2
+    SLICE_X1Y14.B        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_1
+    SLICE_X6Y14.B5       net (fanout=1)        0.938   paddleA/out1_0
+    SLICE_X6Y14.B        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X6Y14.C4       net (fanout=15)       0.408   paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X6Y14.C        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padAlefttemp_d1083_SW0_SW2_F
+    SLICE_X4Y14.B3       net (fanout=1)        0.623   paddleA/N440
+    SLICE_X4Y14.B        Tilo                  0.254   M_state_q_1
+                                                       paddleA/Mmux_M_padAlefttemp_d1083_SW0_SW21
+    SLICE_X5Y15.C2       net (fanout=1)        0.901   paddleA/N277
+    SLICE_X5Y15.CLK      Tas                   0.373   M_paddleA_padA[3]
+                                                       paddleA/Mmux_M_padAlefttemp_d1083
+                                                       paddleA/M_padArighttemp_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.768ns (2.140ns logic, 5.628ns route)
+                                                       (27.5% logic, 72.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.179ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleB/button_cond_left/M_ctr_q_10 (FF)
+  Destination:          paddleB/M_padBrighttemp_q_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.781ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.005ns (0.297 - 0.302)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleB/button_cond_left/M_ctr_q_10 to paddleB/M_padBrighttemp_q_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X12Y9.CQ       Tcko                  0.525   paddleB/button_cond_left/M_ctr_q[11]
+                                                       paddleB/button_cond_left/M_ctr_q_10
+    SLICE_X14Y9.A4       net (fanout=2)        0.749   paddleB/button_cond_left/M_ctr_q[10]
+    SLICE_X14Y9.A        Tilo                  0.235   paddleB/Mmux_M_padBlefttemp_d10101
+                                                       paddleB/button_cond_left/out3
+    SLICE_X13Y9.A1       net (fanout=5)        0.757   paddleB/out2_0
+    SLICE_X13Y9.A        Tilo                  0.259   paddleB/M_last_q
+                                                       paddleB/button_cond_left/out4
+    SLICE_X20Y11.A4      net (fanout=7)        1.203   paddleB/M_button_cond_left_out
+    SLICE_X20Y11.A       Tilo                  0.254   paddleB/Mmux_M_padBlefttemp_d1016
+                                                       paddleB/M_edge_detector_left_out[0]_M_padBrighttemp_q[7]_AND_629_o
+    SLICE_X16Y10.B2      net (fanout=18)       1.262   paddleB/M_edge_detector_left_out[0]_M_padBrighttemp_q[7]_AND_629_o
+    SLICE_X16Y10.B       Tilo                  0.254   paddleB/M_edge_detector_left_out[0]_M_padBlefttemp_q[7]_AND_632_o
+                                                       paddleB/Mmux_M_alu_alufn11
+    SLICE_X16Y10.A5      net (fanout=16)       0.300   paddleB/M_alu_alufn[0]
+    SLICE_X16Y10.A       Tilo                  0.254   paddleB/M_edge_detector_left_out[0]_M_padBlefttemp_q[7]_AND_632_o
+                                                       paddleB/Mmux_M_padBlefttemp_d10145
+    SLICE_X22Y11.B1      net (fanout=1)        1.380   paddleB/Mmux_M_padBlefttemp_d10145
+    SLICE_X22Y11.CLK     Tas                   0.349   M_paddleB_padB[7]
+                                                       paddleB/Mmux_M_padBlefttemp_d10148
+                                                       paddleB/M_padBrighttemp_q_6
+    -------------------------------------------------  ---------------------------
+    Total                                      7.781ns (2.130ns logic, 5.651ns route)
+                                                       (27.4% logic, 72.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.182ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleB/button_cond_left/M_ctr_q_8 (FF)
+  Destination:          paddleB/M_padBrighttemp_q_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.778ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.005ns (0.297 - 0.302)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleB/button_cond_left/M_ctr_q_8 to paddleB/M_padBrighttemp_q_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X12Y9.AQ       Tcko                  0.525   paddleB/button_cond_left/M_ctr_q[11]
+                                                       paddleB/button_cond_left/M_ctr_q_8
+    SLICE_X14Y9.A1       net (fanout=2)        0.746   paddleB/button_cond_left/M_ctr_q[8]
+    SLICE_X14Y9.A        Tilo                  0.235   paddleB/Mmux_M_padBlefttemp_d10101
+                                                       paddleB/button_cond_left/out3
+    SLICE_X13Y9.A1       net (fanout=5)        0.757   paddleB/out2_0
+    SLICE_X13Y9.A        Tilo                  0.259   paddleB/M_last_q
+                                                       paddleB/button_cond_left/out4
+    SLICE_X20Y11.A4      net (fanout=7)        1.203   paddleB/M_button_cond_left_out
+    SLICE_X20Y11.A       Tilo                  0.254   paddleB/Mmux_M_padBlefttemp_d1016
+                                                       paddleB/M_edge_detector_left_out[0]_M_padBrighttemp_q[7]_AND_629_o
+    SLICE_X16Y10.B2      net (fanout=18)       1.262   paddleB/M_edge_detector_left_out[0]_M_padBrighttemp_q[7]_AND_629_o
+    SLICE_X16Y10.B       Tilo                  0.254   paddleB/M_edge_detector_left_out[0]_M_padBlefttemp_q[7]_AND_632_o
+                                                       paddleB/Mmux_M_alu_alufn11
+    SLICE_X16Y10.A5      net (fanout=16)       0.300   paddleB/M_alu_alufn[0]
+    SLICE_X16Y10.A       Tilo                  0.254   paddleB/M_edge_detector_left_out[0]_M_padBlefttemp_q[7]_AND_632_o
+                                                       paddleB/Mmux_M_padBlefttemp_d10145
+    SLICE_X22Y11.B1      net (fanout=1)        1.380   paddleB/Mmux_M_padBlefttemp_d10145
+    SLICE_X22Y11.CLK     Tas                   0.349   M_paddleB_padB[7]
+                                                       paddleB/Mmux_M_padBlefttemp_d10148
+                                                       paddleB/M_padBrighttemp_q_6
+    -------------------------------------------------  ---------------------------
+    Total                                      7.778ns (2.130ns logic, 5.648ns route)
+                                                       (27.4% logic, 72.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.187ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/M_padApostemp_q_0 (FF)
+  Destination:          ball/M_hitcounter_q_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.730ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.048ns (0.601 - 0.649)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/M_padApostemp_q_0 to ball/M_hitcounter_q_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X4Y23.AQ       Tcko                  0.525   M_paddleA_padApos[1]
+                                                       paddleA/M_padApostemp_q_0
+    SLICE_X15Y31.B3      net (fanout=22)       2.201   M_paddleA_padApos[0]
+    SLICE_X15Y31.B       Tilo                  0.259   ball/M_ballXtemp_q_2_2
+                                                       ball/Madd_padA[3]_GND_9_o_add_39_OUT_xor<3>11
+    SLICE_X10Y29.A4      net (fanout=2)        1.204   ball/padA[3]_GND_9_o_add_39_OUT[3]
+    SLICE_X10Y29.A       Tilo                  0.235   ball/_n0428_inv1
+                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_536_o1
+    SLICE_X12Y30.C1      net (fanout=5)        1.041   ball/padA[3]_M_ballXtemp_q[3]_AND_536_o
+    SLICE_X12Y30.C       Tilo                  0.255   ball/Mmux_M_hitcounter_d111
+                                                       ball/_n0328_inv24
+    SLICE_X14Y30.A3      net (fanout=8)        0.575   ball/_n0328_inv24
+    SLICE_X14Y30.A       Tilo                  0.235   ball/M_hitcounter_q[7]
+                                                       ball/_n0328_inv1_SW3
+    SLICE_X15Y29.B2      net (fanout=4)        0.827   ball/N266
+    SLICE_X15Y29.CLK     Tas                   0.373   ball/M_hitcounter_q[2]
+                                                       ball/M_hitcounter_q_1_rstpot
+                                                       ball/M_hitcounter_q_1
+    -------------------------------------------------  ---------------------------
+    Total                                      7.730ns (1.882ns logic, 5.848ns route)
+                                                       (24.3% logic, 75.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.204ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_9 (FF)
+  Destination:          paddleA/M_padArighttemp_q_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.737ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.024ns (0.334 - 0.358)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_9 to paddleA/M_padArighttemp_q_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y15.BQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[11]
+                                                       paddleA/button_cond_left/M_ctr_q_9
+    SLICE_X7Y15.C1       net (fanout=2)        1.425   paddleA/button_cond_left/M_ctr_q[9]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.C1       net (fanout=7)        1.483   paddleA/out2
+    SLICE_X1Y14.C        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_2
+    SLICE_X6Y14.D2       net (fanout=2)        1.260   paddleA/out11
+    SLICE_X6Y14.D        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padAlefttemp_d101211
+    SLICE_X5Y13.B3       net (fanout=8)        0.646   paddleA/Mmux_M_padAlefttemp_d10121
+    SLICE_X5Y13.B        Tilo                  0.259   paddleA/N273
+                                                       paddleA/Mmux_M_padAlefttemp_d10103_SW0_SW2_F
+    SLICE_X4Y15.A6       net (fanout=1)        0.358   paddleA/N552
+    SLICE_X4Y15.A        Tilo                  0.254   M_paddleA_padA[5]
+                                                       paddleA/Mmux_M_padAlefttemp_d10103_SW0_SW21
+    SLICE_X4Y15.B4       net (fanout=1)        0.435   paddleA/N272
+    SLICE_X4Y15.CLK      Tas                   0.339   M_paddleA_padA[5]
+                                                       paddleA/Mmux_M_padAlefttemp_d10103
+                                                       paddleA/M_padArighttemp_q_4
+    -------------------------------------------------  ---------------------------
+    Total                                      7.737ns (2.130ns logic, 5.607ns route)
+                                                       (27.5% logic, 72.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.209ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_12 (FF)
+  Destination:          paddleA/M_padArighttemp_q_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.788ns (Levels of Logic = 5)
+  Clock Path Skew:      0.032ns (0.701 - 0.669)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_12 to paddleA/M_padArighttemp_q_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y16.AQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[15]
+                                                       paddleA/button_cond_left/M_ctr_q_12
+    SLICE_X7Y15.C2       net (fanout=2)        1.515   paddleA/button_cond_left/M_ctr_q[12]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.C1       net (fanout=7)        1.483   paddleA/out2
+    SLICE_X1Y14.C        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_2
+    SLICE_X6Y16.C5       net (fanout=2)        0.905   paddleA/out11
+    SLICE_X6Y16.C        Tilo                  0.235   paddleA/M_alu_alufn[0]
+                                                       paddleA/Mmux_M_alu_alufn1_SW0
+    SLICE_X2Y15.B4       net (fanout=8)        0.988   paddleA/N28
+    SLICE_X2Y15.B        Tilo                  0.235   paddleA/N341
+                                                       paddleA/M_alu_alufn<5>41
+    SLICE_X4Y15.C2       net (fanout=1)        1.045   paddleA/M_alu_alufn<5>_mmx_out4
+    SLICE_X4Y15.CLK      Tas                   0.339   M_paddleA_padA[5]
+                                                       paddleA/Mmux_M_padAlefttemp_d10127
+                                                       paddleA/M_padArighttemp_q_5
+    -------------------------------------------------  ---------------------------
+    Total                                      7.788ns (1.852ns logic, 5.936ns route)
+                                                       (23.8% logic, 76.2% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.218ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleB/button_cond_left/M_ctr_q_11 (FF)
+  Destination:          paddleB/M_padBrighttemp_q_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.742ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.005ns (0.297 - 0.302)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleB/button_cond_left/M_ctr_q_11 to paddleB/M_padBrighttemp_q_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X12Y9.DQ       Tcko                  0.525   paddleB/button_cond_left/M_ctr_q[11]
+                                                       paddleB/button_cond_left/M_ctr_q_11
+    SLICE_X14Y9.A2       net (fanout=2)        0.710   paddleB/button_cond_left/M_ctr_q[11]
+    SLICE_X14Y9.A        Tilo                  0.235   paddleB/Mmux_M_padBlefttemp_d10101
+                                                       paddleB/button_cond_left/out3
+    SLICE_X13Y9.A1       net (fanout=5)        0.757   paddleB/out2_0
+    SLICE_X13Y9.A        Tilo                  0.259   paddleB/M_last_q
+                                                       paddleB/button_cond_left/out4
+    SLICE_X20Y11.A4      net (fanout=7)        1.203   paddleB/M_button_cond_left_out
+    SLICE_X20Y11.A       Tilo                  0.254   paddleB/Mmux_M_padBlefttemp_d1016
+                                                       paddleB/M_edge_detector_left_out[0]_M_padBrighttemp_q[7]_AND_629_o
+    SLICE_X16Y10.B2      net (fanout=18)       1.262   paddleB/M_edge_detector_left_out[0]_M_padBrighttemp_q[7]_AND_629_o
+    SLICE_X16Y10.B       Tilo                  0.254   paddleB/M_edge_detector_left_out[0]_M_padBlefttemp_q[7]_AND_632_o
+                                                       paddleB/Mmux_M_alu_alufn11
+    SLICE_X16Y10.A5      net (fanout=16)       0.300   paddleB/M_alu_alufn[0]
+    SLICE_X16Y10.A       Tilo                  0.254   paddleB/M_edge_detector_left_out[0]_M_padBlefttemp_q[7]_AND_632_o
+                                                       paddleB/Mmux_M_padBlefttemp_d10145
+    SLICE_X22Y11.B1      net (fanout=1)        1.380   paddleB/Mmux_M_padBlefttemp_d10145
+    SLICE_X22Y11.CLK     Tas                   0.349   M_paddleB_padB[7]
+                                                       paddleB/Mmux_M_padBlefttemp_d10148
+                                                       paddleB/M_padBrighttemp_q_6
+    -------------------------------------------------  ---------------------------
+    Total                                      7.742ns (2.130ns logic, 5.612ns route)
+                                                       (27.5% logic, 72.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.238ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_8 (FF)
+  Destination:          paddleA/M_padApostemp_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.622ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.105ns (0.627 - 0.732)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_8 to paddleA/M_padApostemp_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y15.AQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[11]
+                                                       paddleA/button_cond_left/M_ctr_q_8
+    SLICE_X7Y15.C3       net (fanout=2)        1.073   paddleA/button_cond_left/M_ctr_q[8]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.B3       net (fanout=7)        1.333   paddleA/out2
+    SLICE_X1Y14.B        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_1
+    SLICE_X6Y14.B5       net (fanout=1)        0.938   paddleA/out1_0
+    SLICE_X6Y14.B        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X6Y14.A4       net (fanout=15)       0.529   paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X6Y14.A        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padApostemp_d121_SW0
+    SLICE_X5Y25.A6       net (fanout=1)        1.067   paddleA/N312
+    SLICE_X5Y25.A        Tilo                  0.259   M_paddleA_padApos[3]
+                                                       paddleA/Mmux_M_padApostemp_d121
+    SLICE_X5Y25.C2       net (fanout=2)        0.537   paddleA/Mmux_M_padApostemp_d121
+    SLICE_X5Y25.CLK      Tas                   0.373   M_paddleA_padApos[3]
+                                                       paddleA/Mmux_M_padApostemp_d162
+                                                       paddleA/M_padApostemp_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.622ns (2.145ns logic, 5.477ns route)
+                                                       (28.1% logic, 71.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.243ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_9 (FF)
+  Destination:          paddleA/M_padArighttemp_q_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.698ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.024ns (0.334 - 0.358)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_9 to paddleA/M_padArighttemp_q_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y15.BQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[11]
+                                                       paddleA/button_cond_left/M_ctr_q_9
+    SLICE_X7Y15.C1       net (fanout=2)        1.425   paddleA/button_cond_left/M_ctr_q[9]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.C1       net (fanout=7)        1.483   paddleA/out2
+    SLICE_X1Y14.C        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_2
+    SLICE_X6Y16.C5       net (fanout=2)        0.905   paddleA/out11
+    SLICE_X6Y16.C        Tilo                  0.235   paddleA/M_alu_alufn[0]
+                                                       paddleA/Mmux_M_alu_alufn1_SW0
+    SLICE_X2Y15.B4       net (fanout=8)        0.988   paddleA/N28
+    SLICE_X2Y15.B        Tilo                  0.235   paddleA/N341
+                                                       paddleA/M_alu_alufn<5>41
+    SLICE_X4Y15.C2       net (fanout=1)        1.045   paddleA/M_alu_alufn<5>_mmx_out4
+    SLICE_X4Y15.CLK      Tas                   0.339   M_paddleA_padA[5]
+                                                       paddleA/Mmux_M_padAlefttemp_d10127
+                                                       paddleA/M_padArighttemp_q_5
+    -------------------------------------------------  ---------------------------
+    Total                                      7.698ns (1.852ns logic, 5.846ns route)
+                                                       (24.1% logic, 75.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.247ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/M_padApostemp_q_0 (FF)
+  Destination:          ball/M_hitcounter_q_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.670ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.048ns (0.601 - 0.649)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/M_padApostemp_q_0 to ball/M_hitcounter_q_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X4Y23.AQ       Tcko                  0.525   M_paddleA_padApos[1]
+                                                       paddleA/M_padApostemp_q_0
+    SLICE_X15Y31.B3      net (fanout=22)       2.201   M_paddleA_padApos[0]
+    SLICE_X15Y31.B       Tilo                  0.259   ball/M_ballXtemp_q_2_2
+                                                       ball/Madd_padA[3]_GND_9_o_add_39_OUT_xor<3>11
+    SLICE_X10Y29.A4      net (fanout=2)        1.204   ball/padA[3]_GND_9_o_add_39_OUT[3]
+    SLICE_X10Y29.A       Tilo                  0.235   ball/_n0428_inv1
+                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_536_o1
+    SLICE_X12Y30.C1      net (fanout=5)        1.041   ball/padA[3]_M_ballXtemp_q[3]_AND_536_o
+    SLICE_X12Y30.C       Tilo                  0.255   ball/Mmux_M_hitcounter_d111
+                                                       ball/_n0328_inv24
+    SLICE_X15Y29.D1      net (fanout=8)        0.793   ball/_n0328_inv24
+    SLICE_X15Y29.D       Tilo                  0.259   ball/M_hitcounter_q[2]
+                                                       ball/M_hitcounter_q_2_rstpot_SW1
+    SLICE_X15Y29.C4      net (fanout=1)        0.525   ball/N292
+    SLICE_X15Y29.CLK     Tas                   0.373   ball/M_hitcounter_q[2]
+                                                       ball/M_hitcounter_q_2_rstpot
+                                                       ball/M_hitcounter_q_2
+    -------------------------------------------------  ---------------------------
+    Total                                      7.670ns (1.906ns logic, 5.764ns route)
+                                                       (24.9% logic, 75.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.253ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_12 (FF)
+  Destination:          paddleA/M_padApostemp_q_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.677ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.035ns (0.322 - 0.357)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_12 to paddleA/M_padApostemp_q_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y16.AQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[15]
+                                                       paddleA/button_cond_left/M_ctr_q_12
+    SLICE_X7Y15.C2       net (fanout=2)        1.515   paddleA/button_cond_left/M_ctr_q[12]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.B3       net (fanout=7)        1.333   paddleA/out2
+    SLICE_X1Y14.B        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_1
+    SLICE_X6Y14.B5       net (fanout=1)        0.938   paddleA/out1_0
+    SLICE_X6Y14.B        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X6Y14.A4       net (fanout=15)       0.529   paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X6Y14.A        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padApostemp_d121_SW0
+    SLICE_X5Y25.A6       net (fanout=1)        1.067   paddleA/N312
+    SLICE_X5Y25.A        Tilo                  0.259   M_paddleA_padApos[3]
+                                                       paddleA/Mmux_M_padApostemp_d121
+    SLICE_X5Y25.B6       net (fanout=2)        0.150   paddleA/Mmux_M_padApostemp_d121
+    SLICE_X5Y25.CLK      Tas                   0.373   M_paddleA_padApos[3]
+                                                       paddleA/Mmux_M_padApostemp_d124
+                                                       paddleA/M_padApostemp_q_2
+    -------------------------------------------------  ---------------------------
+    Total                                      7.677ns (2.145ns logic, 5.532ns route)
+                                                       (27.9% logic, 72.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.269ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleB/button_cond_right/M_ctr_q_16 (FF)
+  Destination:          paddleB/M_padBrighttemp_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.720ns (Levels of Logic = 6)
+  Clock Path Skew:      0.024ns (0.654 - 0.630)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleB/button_cond_right/M_ctr_q_16 to paddleB/M_padBrighttemp_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X22Y16.AQ      Tcko                  0.476   paddleB/button_cond_right/M_ctr_q[19]
+                                                       paddleB/button_cond_right/M_ctr_q_16
+    SLICE_X21Y14.C2      net (fanout=2)        0.959   paddleB/button_cond_right/M_ctr_q[16]
+    SLICE_X21Y14.C       Tilo                  0.259   paddleB/N165
+                                                       paddleB/button_cond_right/out2
+    SLICE_X23Y13.C5      net (fanout=8)        0.467   paddleB/out1_0
+    SLICE_X23Y13.C       Tilo                  0.259   paddleB/Mmux_M_padBlefttemp_d10165
+                                                       paddleB/edge_detector_right/out1_1
+    SLICE_X13Y9.B4       net (fanout=4)        1.520   paddleB/out1
+    SLICE_X13Y9.B        Tilo                  0.259   paddleB/M_last_q
+                                                       paddleB/Mmux_M_padBpostemp_d721
+    SLICE_X14Y9.D2       net (fanout=6)        0.768   paddleB/Mmux_M_padBpostemp_d72
+    SLICE_X14Y9.D        Tilo                  0.235   paddleB/Mmux_M_padBlefttemp_d10101
+                                                       paddleB/Mmux_M_padBlefttemp_d101011
+    SLICE_X18Y10.A1      net (fanout=1)        0.971   paddleB/Mmux_M_padBlefttemp_d10101
+    SLICE_X18Y10.A       Tilo                  0.235   M_paddleB_padB[1]
+                                                       paddleB/Mmux_M_padBlefttemp_d101021
+    SLICE_X19Y9.D1       net (fanout=4)        0.939   paddleB/Mmux_M_padBlefttemp_d10102
+    SLICE_X19Y9.CLK      Tas                   0.373   M_paddleB_padB[3]
+                                                       paddleB/Mmux_M_padBlefttemp_d1083
+                                                       paddleB/M_padBrighttemp_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.720ns (2.096ns logic, 5.624ns route)
+                                                       (27.2% logic, 72.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.270ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleB/button_cond_left/M_ctr_q_9 (FF)
+  Destination:          paddleB/M_padBrighttemp_q_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.690ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.005ns (0.297 - 0.302)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleB/button_cond_left/M_ctr_q_9 to paddleB/M_padBrighttemp_q_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X12Y9.BQ       Tcko                  0.525   paddleB/button_cond_left/M_ctr_q[11]
+                                                       paddleB/button_cond_left/M_ctr_q_9
+    SLICE_X14Y9.A5       net (fanout=2)        0.658   paddleB/button_cond_left/M_ctr_q[9]
+    SLICE_X14Y9.A        Tilo                  0.235   paddleB/Mmux_M_padBlefttemp_d10101
+                                                       paddleB/button_cond_left/out3
+    SLICE_X13Y9.A1       net (fanout=5)        0.757   paddleB/out2_0
+    SLICE_X13Y9.A        Tilo                  0.259   paddleB/M_last_q
+                                                       paddleB/button_cond_left/out4
+    SLICE_X20Y11.A4      net (fanout=7)        1.203   paddleB/M_button_cond_left_out
+    SLICE_X20Y11.A       Tilo                  0.254   paddleB/Mmux_M_padBlefttemp_d1016
+                                                       paddleB/M_edge_detector_left_out[0]_M_padBrighttemp_q[7]_AND_629_o
+    SLICE_X16Y10.B2      net (fanout=18)       1.262   paddleB/M_edge_detector_left_out[0]_M_padBrighttemp_q[7]_AND_629_o
+    SLICE_X16Y10.B       Tilo                  0.254   paddleB/M_edge_detector_left_out[0]_M_padBlefttemp_q[7]_AND_632_o
+                                                       paddleB/Mmux_M_alu_alufn11
+    SLICE_X16Y10.A5      net (fanout=16)       0.300   paddleB/M_alu_alufn[0]
+    SLICE_X16Y10.A       Tilo                  0.254   paddleB/M_edge_detector_left_out[0]_M_padBlefttemp_q[7]_AND_632_o
+                                                       paddleB/Mmux_M_padBlefttemp_d10145
+    SLICE_X22Y11.B1      net (fanout=1)        1.380   paddleB/Mmux_M_padBlefttemp_d10145
+    SLICE_X22Y11.CLK     Tas                   0.349   M_paddleB_padB[7]
+                                                       paddleB/Mmux_M_padBlefttemp_d10148
+                                                       paddleB/M_padBrighttemp_q_6
+    -------------------------------------------------  ---------------------------
+    Total                                      7.690ns (2.130ns logic, 5.560ns route)
+                                                       (27.7% logic, 72.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.273ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_9 (FF)
+  Destination:          paddleA/M_padApostemp_q_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.587ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.105ns (0.627 - 0.732)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_9 to paddleA/M_padApostemp_q_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y15.BQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[11]
+                                                       paddleA/button_cond_left/M_ctr_q_9
+    SLICE_X7Y15.C1       net (fanout=2)        1.425   paddleA/button_cond_left/M_ctr_q[9]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.B3       net (fanout=7)        1.333   paddleA/out2
+    SLICE_X1Y14.B        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_1
+    SLICE_X6Y14.B5       net (fanout=1)        0.938   paddleA/out1_0
+    SLICE_X6Y14.B        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X6Y14.A4       net (fanout=15)       0.529   paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X6Y14.A        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/Mmux_M_padApostemp_d121_SW0
+    SLICE_X5Y25.A6       net (fanout=1)        1.067   paddleA/N312
+    SLICE_X5Y25.A        Tilo                  0.259   M_paddleA_padApos[3]
+                                                       paddleA/Mmux_M_padApostemp_d121
+    SLICE_X5Y25.B6       net (fanout=2)        0.150   paddleA/Mmux_M_padApostemp_d121
+    SLICE_X5Y25.CLK      Tas                   0.373   M_paddleA_padApos[3]
+                                                       paddleA/Mmux_M_padApostemp_d124
+                                                       paddleA/M_padApostemp_q_2
+    -------------------------------------------------  ---------------------------
+    Total                                      7.587ns (2.145ns logic, 5.442ns route)
+                                                       (28.3% logic, 71.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.283ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleA/button_cond_left/M_ctr_q_8 (FF)
+  Destination:          paddleA/M_padApostemp_q_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.577ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.105ns (0.627 - 0.732)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleA/button_cond_left/M_ctr_q_8 to paddleA/M_padApostemp_q_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y15.AQ       Tcko                  0.525   paddleA/button_cond_left/M_ctr_q[11]
+                                                       paddleA/button_cond_left/M_ctr_q_8
+    SLICE_X7Y15.C3       net (fanout=2)        1.073   paddleA/button_cond_left/M_ctr_q[8]
+    SLICE_X7Y15.C        Tilo                  0.259   paddleA/M_last_q_0
+                                                       paddleA/button_cond_left/out3
+    SLICE_X1Y14.B3       net (fanout=7)        1.333   paddleA/out2
+    SLICE_X1Y14.B        Tilo                  0.259   paddleA/out1_1
+                                                       paddleA/edge_detector_left/out1_1
+    SLICE_X6Y14.B5       net (fanout=1)        0.938   paddleA/out1_0
+    SLICE_X6Y14.B        Tilo                  0.235   paddleA/Mmux_M_padAlefttemp_d10121
+                                                       paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X4Y21.D4       net (fanout=15)       1.060   paddleA/M_edge_detector_left_out[0]_M_padArighttemp_q[7]_AND_619_o
+    SLICE_X4Y21.CMUX     Topdc                 0.456   paddleA/Mmux_M_padApostemp_d44
+                                                       paddleA/Mmux_M_padApostemp_d123_F
+                                                       paddleA/Mmux_M_padApostemp_d123
+    SLICE_X5Y25.B3       net (fanout=2)        1.066   paddleA/Mmux_M_padApostemp_d123
+    SLICE_X5Y25.CLK      Tas                   0.373   M_paddleA_padApos[3]
+                                                       paddleA/Mmux_M_padApostemp_d124
+                                                       paddleA/M_padApostemp_q_2
+    -------------------------------------------------  ---------------------------
+    Total                                      7.577ns (2.107ns logic, 5.470ns route)
+                                                       (27.8% logic, 72.2% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 17.334ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.666ns (375.094MHz) (Tbcper_I)
+  Physical resource: clk_IBUF_BUFG/I0
+  Logical resource: clk_IBUF_BUFG/I0
+  Location pin: BUFGMUX_X2Y11.I0
+  Clock network: clk_IBUF
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: paddleB/button_cond_right/M_sync_out/CLK
+  Logical resource: logic/button_cond/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X8Y6.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: paddleB/button_cond_right/M_sync_out/CLK
+  Logical resource: paddleA/button_cond_left/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X8Y6.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: paddleB/button_cond_right/M_sync_out/CLK
+  Logical resource: paddleA/button_cond_right/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X8Y6.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: paddleB/button_cond_right/M_sync_out/CLK
+  Logical resource: paddleB/button_cond_left/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X8Y6.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: paddleB/button_cond_right/M_sync_out/CLK
+  Logical resource: paddleB/button_cond_right/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X8Y6.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[3]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_0/CK
+  Location pin: SLICE_X4Y6.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[3]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_1/CK
+  Location pin: SLICE_X4Y6.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[3]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_2/CK
+  Location pin: SLICE_X4Y6.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[3]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_3/CK
+  Location pin: SLICE_X4Y6.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[7]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_4/CK
+  Location pin: SLICE_X4Y7.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[7]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_5/CK
+  Location pin: SLICE_X4Y7.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[7]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_6/CK
+  Location pin: SLICE_X4Y7.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[7]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_7/CK
+  Location pin: SLICE_X4Y7.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[11]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_8/CK
+  Location pin: SLICE_X4Y8.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[11]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_9/CK
+  Location pin: SLICE_X4Y8.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[11]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_10/CK
+  Location pin: SLICE_X4Y8.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[11]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_11/CK
+  Location pin: SLICE_X4Y8.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[15]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_12/CK
+  Location pin: SLICE_X4Y9.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[15]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_13/CK
+  Location pin: SLICE_X4Y9.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[15]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_14/CK
+  Location pin: SLICE_X4Y9.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[15]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_15/CK
+  Location pin: SLICE_X4Y9.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[19]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_16/CK
+  Location pin: SLICE_X4Y10.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[19]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_17/CK
+  Location pin: SLICE_X4Y10.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[19]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_18/CK
+  Location pin: SLICE_X4Y10.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: logic/button_cond/M_ctr_q[19]/CLK
+  Logical resource: logic/button_cond/M_ctr_q_19/CK
+  Location pin: SLICE_X4Y10.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: paddleB/button_cond_left/M_ctr_q[3]/CLK
+  Logical resource: paddleB/button_cond_left/M_ctr_q_0/CK
+  Location pin: SLICE_X12Y7.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: paddleB/button_cond_left/M_ctr_q[3]/CLK
+  Logical resource: paddleB/button_cond_left/M_ctr_q_1/CK
+  Location pin: SLICE_X12Y7.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: paddleB/button_cond_left/M_ctr_q[3]/CLK
+  Logical resource: paddleB/button_cond_left/M_ctr_q_2/CK
+  Location pin: SLICE_X12Y7.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: paddleB/button_cond_left/M_ctr_q[3]/CLK
+  Logical resource: paddleB/button_cond_left/M_ctr_q_3/CK
+  Location pin: SLICE_X12Y7.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    8.254|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 34690 paths, 0 nets, and 3115 connections
+
+Design statistics:
+   Minimum period:   8.254ns{1}   (Maximum frequency: 121.153MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Fri Dec 09 03:41:37 2016 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 233 MB
+
+
+

@@ -12,13 +12,13 @@ module mojo_top (
     output avr_rx,          // AVR RX (FPGA TX)
     input avr_rx_busy,      // AVR RX buffer full
     
-    input abtnLeft,          // Player A btn input for paddle to go left
-    input abtnRight,         // Player A btn input for paddle to go right
+    input abtnLeft,         // Player A btn input for paddle to go left
+    input abtnRight,        // Player A btn input for paddle to go right
     input bbtnLeft,         // Player B btn input for paddle to go left
     input bbtnRight,        // Player B btn input for paddle to go right
-    input btnStart,         // btn input to start the game
-    output ledmatrix[8],    // led matrix display
-    output score_seg[7],    // 7-segment LEDs score display
+    input btnStart,         // btn input to start/reset the game
+    output ledmatrix[8],    // 16x16 led matrix display
+    output score_seg[7],    // 4 digit 7-segment LEDs score display
     output score_sel[4]     // Digit select for score display
   ) {
   
@@ -32,26 +32,29 @@ module mojo_top (
     }
   }
   sig pattern[16][16];      // led matrix pattern
-  sig ballX[4];
-  sig ballY[4];
-  sig padA[4];
-  sig padB[4];
-  sig playing;
-  sig scoreA[4];
-  sig scoreB[4];
-  sig scoreAdisplay[7];
-  sig scoreBdisplay[7];
+  sig ballX[4];             // ball x-coordinate position 
+  sig ballY[4];             // ball y-coordinate position
+  sig padA[16];             // paddle A 16-bit display on LED
+  sig padB[16];             // paddle B 16-bit display on LED
+  sig padApos[4];           // paddle A x-coordinate position
+  sig padBpos[4];           // paddle B x-coordinate position
+  sig playing[2];           // determines state of the game
+  sig scoreA[8];            // score of player A
+  sig scoreB[8];            // score of player B
+  sig scoreAdisplay[7];     // player A score display
+  sig scoreBdisplay[7];     // player B score display 
   
-  display disp;
-  drawing drawpong;
-  logic logic;
-  ball ball;
-  paddleA paddleA;
-  paddleB paddleB;
-  score score;
-  seven_seg segA;
-  seven_seg segB;
-  score_display score_display;
+  //creating modules
+  display disp;            // display module for the LED matrix
+  drawing drawpong;        // provides the required pattern inputs for display 
+  logic logic;             // determines state of the game
+  ball ball;               // module for the ball logic
+  paddleA paddleA;         // module for paddle A logic
+  paddleB paddleB;         // module for paddle B logic
+  score score;             // module for game scores
+  seven_seg segA;          // module for score display of player A score
+  seven_seg segB;          // module for score display of player B score
+  score_display score_display;   // module for score display through 4 digit 7-segment display
   
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
@@ -60,36 +63,15 @@ module mojo_top (
     led = 8h00;             // turn LEDs off
     spi_miso = bz;          // not using SPI
     spi_channel = bzzzz;    // not using flags
-    avr_rx = bz;            // not using serial port
+    avr_rx = bz;            // not using serial port   
     
-    //seg.values = {4b1101,4b1101,4b1101,4b1101};
-    //score_seg = ~seg.seg;
-    //score_sel = ~seg.sel;
+    playing = 0;            // game not started
+    scoreA = 0;             // score initialized to 0
+    scoreB = 0;             
     
-    //score_seg = 8b11111111;
-    //score_sel = 4b0000;
-    
-//pattern = {c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},      //orientation is laterally inverted
-//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-//        c{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}};
-    
-    playing = 0;
-    scoreA = 0;
-    scoreB = 0; 
-    
+    //instantiating the modules
+    logic.clk = clk;
+    logic.rst = rst;
     logic.btnStart = btnStart;
     logic.scoreA = scoreA;
     logic.scoreB = scoreB;
@@ -98,10 +80,10 @@ module mojo_top (
     paddleA.clk = clk;
     paddleA.rst = rst;
     paddleA.playing = playing;
-//    paddleA.ballX = ballX;
     paddleA.btnLeft = abtnLeft;
     paddleA.btnRight = abtnRight;
     padA = paddleA.padA;
+    padApos = paddleA.padApos;
     
     paddleB.clk = clk;
     paddleB.rst = rst;
@@ -109,12 +91,13 @@ module mojo_top (
     paddleB.btnLeft = bbtnLeft;
     paddleB.btnRight = bbtnRight;
     padB = paddleB.padB;
+    padBpos = paddleB.padBpos;
     
     ball.clk = clk;
     ball.rst = rst;
     ball.playing = playing;
-    ball.padA = padA;
-    ball.padB = padB;
+    ball.padA = padApos;
+    ball.padB = padBpos;
     ballX = ball.ballX;
     ballY = ball.ballY;  
     
@@ -136,7 +119,7 @@ module mojo_top (
     score_display.scoreBdisplay = scoreBdisplay;
     score_sel = score_display.score_sel;
     score_seg = score_display.score_display;
-   
+    
     drawpong.ballX = ballX;
     drawpong.ballY = ballY;
     drawpong.padA = padA;
@@ -148,5 +131,5 @@ module mojo_top (
     disp.rst = rst;
     disp.pattern = pattern;
     ledmatrix = disp.ledmatrix;
-  }
-}
+    
+}}

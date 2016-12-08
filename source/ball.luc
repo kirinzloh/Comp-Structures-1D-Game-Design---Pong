@@ -1,7 +1,7 @@
 module ball (
     input clk,
     input rst,
-    input playing,
+    input playing[2],
     input padA[4],
     input padB[4],
     output ballX[4],
@@ -11,140 +11,129 @@ module ball (
   .clk(clk) {
     .rst(rst){
       fsm state(.clk(clk), #INIT(GAMESTART)) = {GAMEON,GAMESTART};
-      dff counter[23];
-      dff hitcounter[4];
-      dff ballspeed[23];
-      dff ballXtemp[4];
-      dff ballYtemp[4];
-      dff speedX;      
-      dff speedY;
-      
+      dff counter[23];    // to set delay such that the LED matrix is able to display the game properly
+      dff hitcounter[8];  // counts the number of times the ball hits the paddles
+      dff ballspeed[23];  // determines the speed of the ball, use in conjunction with counter
+      dff ballXtemp[4];   // temporary store x-position of ball 
+      dff ballYtemp[4];   // temporary store y-position of ball 
+      dff directionX;     // direction of ball in x-axis     
+      dff directionY;     // direction of ball in y-axis
       }
   }
-
-//  sig speedX;
-//  sig speedY;
-//  sig ballXtemp;
-//  sig ballYtemp;
   
-  // speed == 0 => move left/move down | speed == 1 => move right/move up
-  // Change in speed == change in direction
+  
+  // direction == 0 => move left/move down | direction == 1 => move right/move up
   always {
     ballX = ballXtemp.q;
     ballY = ballYtemp.q;
     
     case (state.q){
-      state.GAMESTART:
+      state.GAMESTART:              // Initialize game
         ballspeed.d = 8000000;
         hitcounter.d = 0;
         ballXtemp.d = 8;
         ballYtemp.d = 7;
-        speedX.d = 1;
-        speedY.d = 1;
+        directionX.d = 1;
+        directionY.d = 1;
         ballX = ballXtemp.q;
         ballY = ballYtemp.q;
-        state.d = state.GAMEON;
+        state.d = state.GAMEON;  
         
-      state.GAMEON:
+      state.GAMEON:                // Game ongoing
           counter.d = counter.q + 1;
-          if (counter.q >= ballspeed.q){
+          if (counter.q >= ballspeed.q){    // delay reached
           if (playing == 1){
-            if ((ballXtemp.q + 1) == 15 && (ballYtemp.q < 14 || ballYtemp.q > 1)){
-              speedX.d = 0;
+            if ((ballXtemp.q + 1) == 15 && (ballYtemp.q < 14 || ballYtemp.q > 1)){  // ball right collison
+              directionX.d = 0;
             }  
-            if ((ballXtemp.q - 1) == 0 && (ballYtemp.q < 14 || ballYtemp.q > 1)){
-              speedX.d = 1;
+            if ((ballXtemp.q - 1) == 0 && (ballYtemp.q < 14 || ballYtemp.q > 1)){   // ball left collision
+              directionX.d = 1;
             }
-            if ((ballYtemp.q + 1) == 15){
-              speedY.d = 0;
-              hitcounter.d = 0;
+            if ((ballYtemp.q + 1) == 15){    // ball top collision
+              directionY.d = 0;
+              hitcounter.d = 0;    // ballspeed reset
             }
-            if ((ballYtemp.q - 1) == 0){
-              speedY.d = 1;
+            if ((ballYtemp.q - 1) == 0){     // ball bottom collision
+              directionY.d = 1;
               hitcounter.d = 0;
             }   
-            if ((ballYtemp.q - 1) == 1){
-              if (speedX.q == 1){
-                if ((ballXtemp.q + 1) == (padA - 2) && (padA - 2) >= 0 ){
-                  speedX.d = 0;
-                  speedY.d = 1;
+            if ((ballYtemp.q - 1) == 1){     // ball reaches paddle A region
+              if (directionX.q == 1){    // ball moving towards the right
+                if ((ballXtemp.q + 1) == (padA - 2) && (padA - 2) >= 0 ){  // ball hits left corner of paddle
+                  directionX.d = 0;
+                  directionY.d = 1;
                   hitcounter.d = hitcounter.q + 1;
                 }
-                else if ((ballXtemp.q + 1) >= (padA-1) && (ballXtemp.q + 1) <= (padA+1)){
-                  speedY.d = 1;
+                else if ((ballXtemp.q + 1) >= (padA-1) && (ballXtemp.q + 1) <= (padA+1)){  // ball hits paddle front
+                  directionY.d = 1;
                   hitcounter.d = hitcounter.q + 1;
                 }             
               }
-              else if (speedX.q == 0){
-                if ((ballXtemp.q - 1) >= (padA-1) && (ballXtemp.q - 1) <= (padA+1)){
-                  speedY.d = 1;
+              else if (directionX.q == 0){  // ball moving towards the left
+                if ((ballXtemp.q - 1) >= (padA-1) && (ballXtemp.q - 1) <= (padA+1)){  // ball hits paddle front
+                  directionY.d = 1;
                   hitcounter.d = hitcounter.q + 1;
                 }
-                else if ((ballXtemp.q - 1) == (padA + 2) && (padA + 2) <= 15 ){
-                  speedX.d = 1;
-                  speedY.d = 1;
+                else if ((ballXtemp.q - 1) == (padA + 2) && (padA + 2) <= 15 ){  // ball hits right corner of paddle
+                  directionX.d = 1;
+                  directionY.d = 1;
                   hitcounter.d = hitcounter.q + 1;
                 }              
               }
             }
-            else if ((ballYtemp.q + 1) == 14){
-              if (speedX.q == 1){
+            else if ((ballYtemp.q + 1) == 14){    // ball reaches paddle B region
+              if (directionX.q == 1){
                 if ((ballXtemp.q + 1) == (padB - 2) && (padB - 2) >= 0 ){
-                    speedX.d = 0;
-                    speedY.d = 0;
+                    directionX.d = 0;
+                    directionY.d = 0;
                     hitcounter.d = hitcounter.q + 1;
                   }
                 else if ((ballXtemp.q + 1) >= (padB-1) && (ballXtemp.q + 1) <= (padB+1)){
-                  speedY.d = 0;
+                  directionY.d = 0;
                   hitcounter.d = hitcounter.q + 1;
                 }
               }
-              else if (speedX.q == 0){
+              else if (directionX.q == 0){
                 if ((ballXtemp.q - 1) >= (padB-1) && (ballXtemp.q - 1) <= (padB+1)){
-                  speedY.d = 0;
+                  directionY.d = 0;
                   hitcounter.d = hitcounter.q + 1;
                 }
                 else if ((ballXtemp.q - 1) == (padB + 2) && (padB + 2) <= 15 ){
-                  speedX.d = 1;
-                  speedY.d = 0;
+                  directionX.d = 1;
+                  directionY.d = 0;
                   hitcounter.d = hitcounter.q + 1;
                 }
               }
             }  
           
-            if (speedX.q == 1){
+            if (directionX.q == 1){    // ball moves right
               ballXtemp.d = ballXtemp.q + 1;
             }
-            else if (speedX.q == 0){
+            else if (directionX.q == 0){  // ball moves left
               ballXtemp.d = ballXtemp.q - 1;
             }
-            if (speedY.q == 1){
+            if (directionY.q == 1){    // ball moves up
               ballYtemp.d = ballYtemp.q + 1;
             }
-            else if (speedY.q == 0){
+            else if (directionY.q == 0){    // ball moves down
               ballYtemp.d = ballYtemp.q - 1;
             }
-            if (hitcounter.q == 0){
+            
+            if (hitcounter.q == 0){    // initial ballspeed
               ballspeed.d = 8000000;
             }
-            else if (hitcounter.q == 3){
-              ballspeed.d = 7000000;
-            }
-            else if (hitcounter.q == 4){
-              ballspeed.d = 6000000;
-            }
-            else if (hitcounter.q == 6){
-              ballspeed.d = 5000000;
-            }
-            else if (hitcounter.q >= 8){
+            else if (hitcounter.q == 2){    // ballspeed increase 
               ballspeed.d = 4000000;
             }
+            else if (hitcounter.q >= 4){   
+              ballspeed.d = 3000000;
+            }
             ballX = ballXtemp.q;
-            ballY = ballYtemp.q;     
-            counter.d = 0;  
+            ballY = ballYtemp.q;    
+            counter.d = 0;    // reset counter
             }
        else if (playing == 0){
-          state.d = state.GAMESTART;
+          state.d = state.GAMESTART;  // reset game
           }
        }
   }

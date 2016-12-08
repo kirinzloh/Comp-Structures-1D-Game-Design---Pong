@@ -1,11 +1,11 @@
 module paddleA (
     input clk,
     input rst,
-    input playing,
-    //input ballX[4],
+    input playing[2],
     input btnLeft,
     input btnRight,
-    output padA[4]
+    output padA[16],
+    output padApos[4]
   ) {
 
   .clk(clk) {
@@ -14,70 +14,150 @@ module paddleA (
     button_conditioner button_cond_left;
     button_conditioner button_cond_right;
   .rst(rst){
-      fsm state(.clk(clk), #INIT(GAMESTART)) = {GAMEON,GAMESTART,LEFTBTNWAIT,RIGHTBTNWAIT};
-      dff padAtemp[4];
+      fsm state(.clk(clk), #INIT(GAMESTART)) = {LEFTSCREEN,RIGHTSCREEN,CENTERSCREEN,GAMESTART};
+      dff padAlefttemp[8];
+      dff padArighttemp[8];
+      dff padApostemp[4];
       }
   }  
- //sig ai;
   
+  sig alu_output[8];
+  
+  alu alu;
+  
+  // Paddle controlled by shifting the 16-bits left and right
+  // lefttemp and righttemp refers to laterally inverted inputs because LED matrix is laterally inverting
+  // Left,right and center screens refer to actual display orientation
+  // alufn = 6b100000 => SHL
+  // alufn = 6b100001 => SHR
+   
   always {
-    padA = padAtemp.q;
+    padApos = padApostemp.q;
+    padA = c{padAlefttemp.q,padArighttemp.q};
     button_cond_left.in = btnLeft;
     edge_detector_left.in = button_cond_left.out;
     button_cond_right.in = btnRight;
     edge_detector_right.in = button_cond_right.out;
-    
-//    ai = 1;
-    
-    // if (playing == 1){
-    //   if (ai == 1){
-    //     if (ballX < padAtemp && padAtemp > 1){
-    //       padAtemp = padAtemp - 1;
-    //       padA = padAtemp;
-    //     }
-    //     else if (ballX > padAtemp && padAtemp < 14){
-    //       padAtemp = padAtemp + 1;
-    //       padA = padAtemp;
-    //     }
-    //   }
-    //   ai = 0;
-    // }
+      
+    alu.alufn = 6b100000;
+    alu.a = padArighttemp.q;
+    alu.b = 8b1;    
+    alu_output = alu.alu_output;     
     
     case (state.q){
       state.GAMESTART:
-        padAtemp.d = 1;
-        state.d = state.GAMEON;
+        padApostemp.d = 1;
+        padAlefttemp.d = 8b00000000;
+        padArighttemp.d = 8b00000111;
+        state.d = state.LEFTSCREEN;
         
-      state.GAMEON:
+      state.LEFTSCREEN:
         if (playing == 1){
-          if (edge_detector_left.out == 1 && padAtemp.q > 1){
-            padAtemp.d = padAtemp.q - 1;
-            padA = padAtemp.q;
-            state.d = state.LEFTBTNWAIT;
+          if (edge_detector_left.out == 1 && padArighttemp.q != 8b00000111){
+            alu.alufn = 6b100001;
+            alu.a = padArighttemp.q;
+            alu.b = 8b1;
+            alu_output = alu.alu_output; 
+            padArighttemp.d = alu_output;
+            padA = c{padAlefttemp.q,padArighttemp.q};
+            padApostemp.d = padApostemp.q - 1;
+            padApos = padApostemp.q;
           }
-          if (edge_detector_right.out == 1 && padAtemp.q < 14){
-            padAtemp.d = padAtemp.q + 1;
-            padA = padAtemp.q;
-            state.d = state.RIGHTBTNWAIT;
+          if (edge_detector_right.out == 1 && padArighttemp.q != 8b11100000){
+            alu.alufn = 6b100000;
+            alu.a = padArighttemp.q;
+            alu.b = 8b1;
+            alu_output = alu.alu_output; 
+            padArighttemp.d = alu_output;
+            padA = c{padAlefttemp.q,padArighttemp.q};
+            padApostemp.d = padApostemp.q + 1;
+            padApos = padApostemp.q;
+          }
+          
+          else if (edge_detector_right.out == 1 && padArighttemp.q == 8b11100000){
+            padAlefttemp.d = 8b00000001;
+            padArighttemp.d = 8b11000000;
+            padA = c{padAlefttemp.q,padArighttemp.q};
+            padApostemp.d = padApostemp.q + 1;
+            padApos = padApostemp.q;
+            state.d = state.CENTERSCREEN;
           }
         }
         else if (playing == 0){
           state.d = state.GAMESTART;
         }
-        
-      state.LEFTBTNWAIT:
+      
+      state.RIGHTSCREEN:
         if (playing == 1){
-          if (edge_detector_left.out == 0){
-            state.d = state.GAMEON;
+          if (edge_detector_left.out == 1 && padAlefttemp.q != 8b00000111){
+            alu.alufn = 6b100001;
+            alu.a = padAlefttemp.q;
+            alu.b = 8b1;
+            alu_output = alu.alu_output; 
+            padAlefttemp.d = alu_output;
+            padA = c{padAlefttemp.q,padArighttemp.q};
+            padApostemp.d = padApostemp.q - 1;
+            padApos = padApostemp.q;
+          }
+          if (edge_detector_right.out == 1 && padAlefttemp.q != 8b11100000){
+            alu.alufn = 6b100000;
+            alu.a = padAlefttemp.q;
+            alu.b = 8b1;
+            alu_output = alu.alu_output; 
+            padAlefttemp.d = alu_output;
+            padA = c{padAlefttemp.q,padArighttemp.q};
+            padApostemp.d = padApostemp.q + 1;
+            padApos = padApostemp.q;
+          }
+          
+          else if (edge_detector_left.out == 1 && padAlefttemp.q == 8b00000111){
+            padAlefttemp.d = 8b00000011;
+            padArighttemp.d = 8b10000000;
+            padA = c{padAlefttemp.q,padArighttemp.q};
+            padApostemp.d = padApostemp.q - 1;
+            padApos = padApostemp.q;
+            state.d = state.CENTERSCREEN;
           }
         }
-        
-      state.RIGHTBTNWAIT:
+        else if (playing == 0){
+          state.d = state.GAMESTART;
+        }
+      state.CENTERSCREEN:
         if (playing == 1){
-          if (edge_detector_right.out == 0){
-            state.d = state.GAMEON;
+          if (edge_detector_right.out == 1 && padArighttemp.q == 8b11000000){
+            padAlefttemp.d = 8b00000011;
+            padArighttemp.d = 8b10000000;
+            padA = c{padAlefttemp.q,padArighttemp.q};
+            padApostemp.d = padApostemp.q + 1;
+            padApos = padApostemp.q;
+          }
+          else if (edge_detector_right.out == 1 && padArighttemp.q == 8b10000000){
+            padAlefttemp.d = 8b00000111;
+            padArighttemp.d = 8b00000000;
+            padA = c{padAlefttemp.q,padArighttemp.q};
+            padApostemp.d = padApostemp.q + 1;
+            padApos = padApostemp.q;
+            state.d = state.RIGHTSCREEN;
+          }
+          else if (edge_detector_left.out == 1 && padAlefttemp.q == 8b00000011){
+            padAlefttemp.d = 8b00000001;
+            padArighttemp.d = 8b11000000;
+            padA = c{padAlefttemp.q,padArighttemp.q};
+            padApostemp.d = padApostemp.q - 1;
+            padApos = padApostemp.q;
+          }
+          else if (edge_detector_left.out == 1 && padAlefttemp.q == 8b00000001){
+            padAlefttemp.d = 8b00000000;
+            padArighttemp.d = 8b11100000;
+            padA = c{padAlefttemp.q,padArighttemp.q};
+            padApostemp.d = padApostemp.q - 1;
+            padApos = padApostemp.q;
+            state.d = state.LEFTSCREEN;
           }
         }
+        else if (playing == 0){
+          state.d = state.GAMESTART;
+        }     
     }
   }
 }

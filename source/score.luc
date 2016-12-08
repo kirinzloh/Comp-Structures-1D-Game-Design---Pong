@@ -1,43 +1,61 @@
 module score (
     input clk,
     input rst,
-    input playing,
+    input playing[2],
     input ballY[4],
-    output scoreA[4],
-    output scoreB[4]
+    output scoreA[8],
+    output scoreB[8]
   ) {
   
   .clk(clk) {
     .rst(rst){
       fsm state(.clk(clk), #INIT(GAMESTART)) = {GAMEON,GAMESTART};
-      dff scoreAtemp[4];
-      dff scoreBtemp[4];
+      dff scoreAtemp[8];
+      dff scoreBtemp[8];
       }
   }
+  
+  sig alu_output[8];
+  
+  alu alu;
+    
+  // Keeps track of the game score
   
   always {
     scoreA = scoreAtemp.q;
     scoreB = scoreBtemp.q;
+    alu.alufn = 6b0;
+    alu.a = scoreAtemp.q;
+    alu.b = 8b1;    
+    alu_output = alu.alu_output;   
     
     case (state.q){
       state.GAMESTART:
-        scoreAtemp.d = 0;
-        scoreBtemp.d = 0;
+        scoreAtemp.d = 8b0;
+        scoreBtemp.d = 8b0;
         state.d = state.GAMEON;
         
       state.GAMEON:
        if (playing == 1){
          if (ballY == 0){
-          scoreBtemp.d = scoreBtemp.q + 1;
+          alu.alufn = 6b0;
+          alu.a = scoreBtemp.q;
+          alu.b = 8b1;
+          alu_output = alu.alu_output;
+          scoreBtemp.d = alu_output;
           scoreB = scoreBtemp.q;
           }
          else if (ballY  == 15){
-           scoreAtemp.d = scoreAtemp.q + 1;
-           scoreA = scoreAtemp.q;
+          alu.alufn = 6b0;
+          alu.a = scoreAtemp.q;
+          alu.b = 8b1;
+          alu_output = alu.alu_output;
+          scoreAtemp.d = alu_output;
+          scoreA = scoreAtemp.q;
          }
        }
        else if (playing == 0){
-        state.d = state.GAMESTART;
+         state.d = state.GAMESTART;
        }
     }
 }

@@ -7,13 +7,11 @@ module display (
   
   .clk(clk) {
     .rst(rst){
-      fsm state(.clk(clk), #INIT(START)) = {ONE,TWO,THREE,FOUR,START};
-      //timechange changeState;
+      fsm state(.clk(clk), #INIT(START)) = {ONE,TWO,THREE,START};
       dff i[4];
       dff j[4];
       dff k[4];
       dff time[16];
-      //dff counter[19];
       }
   }
   
@@ -29,8 +27,6 @@ module display (
     //c: 15 ledmatrix[1]
     //d: 12 ledmatrix[0]
     
-    //counter.d = counter.q + 1;
-    //if (counter.q >= 499999){
     case(state.q){
     
       state.START:
@@ -49,25 +45,14 @@ module display (
         ledmatrix[5] = 0;  //No data input
         ledmatrix[6] = clk - 1;  //Clock
         if (j.q == 0){
-          state.d = state.THREE;
+          state.d = state.TWO;
           j.d = 15;
           }
         else{
           j.d = j.q - 1;
           }
 
-          
-      //state.TWO:
-        //ledmatrix[4] = 1;
-        //ledmatrix[7] = 0;
-        //ledmatrix[3] = b1;
-        //ledmatrix[2] = b1;
-        //ledmatrix[1] = b0;
-        //ledmatrix[0] = b0;
-        //state.d = state.THREE;
-        
-
-      state.THREE:
+      state.TWO:
         ledmatrix[3] = k.q[0];  //row select 4-16 decoder
         ledmatrix[2] = k.q[1];  
         ledmatrix[1] = k.q[2];
@@ -76,10 +61,10 @@ module display (
         ledmatrix[4] = 1;
         ledmatrix[7] = 0;
         
-        ledmatrix[5] = pattern[i.q][j.q];
+        ledmatrix[5] = pattern[i.q][j.q];  // serial data input
         ledmatrix[6] = clk - 1;
         if (j.q == 0){
-          state.d = state.FOUR;
+          state.d = state.THREE;
           j.d = 15;
           }
         else{
@@ -87,7 +72,7 @@ module display (
           }
 
      
-    state.FOUR:
+    state.THREE:
         ledmatrix[3] = k.q[0];
         ledmatrix[2] = k.q[1];
         ledmatrix[1] = k.q[2];
@@ -110,5 +95,4 @@ module display (
             }
         }
     }
-  //}
 }}

@@ -1,5 +1,5 @@
 module seven_seg (
-    input char[4],
+    input char[8],
     output segs[7]
   ) {
  
