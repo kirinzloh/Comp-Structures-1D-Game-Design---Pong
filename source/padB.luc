@@ -28,7 +28,7 @@ module paddleB (
       case (state.q){
     
       state.GAMESTART:
-        padBtemp.d = 15;
+        padBtemp.d = 14;
         state.d = state.GAMEON;
         
       state.GAMEON:
@@ -43,6 +43,9 @@ module paddleB (
            padB = padBtemp.q;
            state.d = state.RIGHTBTNWAIT;
           }
+        }
+        else if (playing == 0){
+          state.d = state.GAMESTART;
         }
         
       state.LEFTBTNWAIT:

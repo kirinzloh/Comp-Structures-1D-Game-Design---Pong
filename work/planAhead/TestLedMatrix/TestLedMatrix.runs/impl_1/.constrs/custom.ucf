@@ -15,13 +15,19 @@ NET "ledmatrix[6]" IOSTANDARD = LVTTL;
 NET "ledmatrix[7]" LOC = P33;
 NET "ledmatrix[7]" IOSTANDARD = LVTTL;
 
-NET "btnLeft" LOC = P50;
-NET "btnLeft" IOSTANDARD = LVTTL;
-NET "btnLeft" PULLUP;
-NET "btnRight" LOC = P51;
-NET "btnRight" IOSTANDARD = LVTTL;
-NET "btnRight" PULLUP;
-NET "btnStart" LOC = P40;
+NET "abtnLeft" LOC = P50;
+NET "abtnLeft" IOSTANDARD = LVTTL;
+NET "abtnLeft" PULLUP;
+NET "abtnRight" LOC = P51;
+NET "abtnRight" IOSTANDARD = LVTTL;
+NET "abtnRight" PULLUP;
+NET "bbtnLeft" LOC = P40;
+NET "bbtnLeft" IOSTANDARD = LVTTL;
+NET "bbtnLeft" PULLUP;
+NET "bbtnRight" LOC = P34;
+NET "bbtnRight" IOSTANDARD = LVTTL;
+NET "bbtnRight" PULLUP;
+NET "btnStart" LOC = P32;
 NET "btnStart" IOSTANDARD = LVTTL;
 NET "btnStart" PULLUP;
 

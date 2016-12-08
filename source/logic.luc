@@ -7,7 +7,7 @@ module logic (
     output playing
   ) {
   always {
-    playing = 0;
+    playing = 1;
     if (btnStart == 0 && scoreA < 7 && scoreB < 7){
       playing = 1;
     }

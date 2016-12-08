@@ -17,9 +17,11 @@ module mojo_top_0 (
     input avr_tx,
     output reg avr_rx,
     input avr_rx_busy,
-    input btnLeft,
+    input abtnLeft,
+    input abtnRight,
+    input bbtnLeft,
+    input bbtnRight,
     input btnStart,
-    input btnRight,
     output reg [7:0] ledmatrix,
     output reg [6:0] score_seg,
     output reg [3:0] score_sel
@@ -202,14 +204,14 @@ module mojo_top_0 (
     M_paddleA_clk = clk;
     M_paddleA_rst = rst;
     M_paddleA_playing = playing;
-    M_paddleA_btnLeft = btnLeft;
-    M_paddleA_btnRight = btnRight;
+    M_paddleA_btnLeft = abtnLeft;
+    M_paddleA_btnRight = abtnRight;
     padA = M_paddleA_padA;
     M_paddleB_clk = clk;
     M_paddleB_rst = rst;
     M_paddleB_playing = playing;
-    M_paddleB_btnLeft = btnLeft;
-    M_paddleB_btnRight = btnRight;
+    M_paddleB_btnLeft = bbtnLeft;
+    M_paddleB_btnRight = bbtnRight;
     padB = M_paddleB_padB;
     M_ball_clk = clk;
     M_ball_rst = rst;

@@ -11,10 +11,12 @@ module mojo_top (
     input avr_tx,           // AVR TX (FPGA RX)
     output avr_rx,          // AVR RX (FPGA TX)
     input avr_rx_busy,      // AVR RX buffer full
-
-    input btnLeft,          // btn input for paddle to go left
+    
+    input abtnLeft,          // Player A btn input for paddle to go left
+    input abtnRight,         // Player A btn input for paddle to go right
+    input bbtnLeft,         // Player B btn input for paddle to go left
+    input bbtnRight,        // Player B btn input for paddle to go right
     input btnStart,         // btn input to start the game
-    input btnRight,         // btn input for paddle to go right
     output ledmatrix[8],    // led matrix display
     output score_seg[7],    // 7-segment LEDs score display
     output score_sel[4]     // Digit select for score display
@@ -97,15 +99,15 @@ module mojo_top (
     paddleA.rst = rst;
     paddleA.playing = playing;
 //    paddleA.ballX = ballX;
-    paddleA.btnLeft = btnLeft;
-    paddleA.btnRight = btnRight;
+    paddleA.btnLeft = abtnLeft;
+    paddleA.btnRight = abtnRight;
     padA = paddleA.padA;
     
     paddleB.clk = clk;
     paddleB.rst = rst;
     paddleB.playing = playing;
-    paddleB.btnLeft = btnLeft;
-    paddleB.btnRight = btnRight;
+    paddleB.btnLeft = bbtnLeft;
+    paddleB.btnRight = bbtnRight;
     padB = paddleB.padB;
     
     ball.clk = clk;

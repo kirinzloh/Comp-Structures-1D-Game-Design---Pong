@@ -3,7 +3,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> Reading design: mojo_top_0.prj
 
@@ -126,12 +126,12 @@ WARNING:Xst:647 - Input <spi_mosi> is never used. This port will be preserved an
 WARNING:Xst:647 - Input <spi_sck> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_tx> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 1-bit tristate buffer for signal <spi_miso> created at line 188
-    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 188
-    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 188
-    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 188
-    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 188
-    Found 1-bit tristate buffer for signal <avr_rx> created at line 188
+    Found 1-bit tristate buffer for signal <spi_miso> created at line 190
+    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 190
+    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 190
+    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 190
+    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 190
+    Found 1-bit tristate buffer for signal <avr_rx> created at line 190
     Summary:
 	inferred   6 Tristate(s).
 Unit <mojo_top_0> synthesized.
@@ -205,50 +205,71 @@ Unit <logic_4> synthesized.
 
 Synthesizing Unit <ball_5>.
     Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/TestLedMatrix/work/planAhead/TestLedMatrix/TestLedMatrix.srcs/sources_1/imports/verilog/ball_5.v".
-    Found 23-bit register for signal <M_counter_q>.
+    Found 4-bit register for signal <M_hitcounter_q>.
+    Found 23-bit register for signal <M_ballspeed_q>.
     Found 4-bit register for signal <M_ballXtemp_q>.
     Found 4-bit register for signal <M_ballYtemp_q>.
     Found 1-bit register for signal <M_speedX_q>.
     Found 1-bit register for signal <M_speedY_q>.
     Found 1-bit register for signal <M_state_q>.
-    Found 4-bit subtractor for signal <padA[3]_GND_6_o_sub_8_OUT> created at line 56.
-    Found 4-bit subtractor for signal <padA[3]_GND_6_o_sub_19_OUT> created at line 66.
-    Found 4-bit subtractor for signal <padB[3]_GND_6_o_sub_32_OUT> created at line 79.
-    Found 4-bit subtractor for signal <padB[3]_GND_6_o_sub_43_OUT> created at line 89.
-    Found 4-bit subtractor for signal <M_ballXtemp_q[3]_GND_6_o_sub_63_OUT> created at line 121.
-    Found 4-bit subtractor for signal <M_ballYtemp_q[3]_GND_6_o_sub_69_OUT> created at line 128.
-    Found 23-bit adder for signal <M_counter_q[22]_GND_6_o_add_0_OUT> created at line 51.
-    Found 4-bit adder for signal <padA[3]_GND_6_o_add_21_OUT> created at line 66.
-    Found 4-bit adder for signal <padA[3]_GND_6_o_add_24_OUT> created at line 69.
-    Found 4-bit adder for signal <padB[3]_GND_6_o_add_45_OUT> created at line 89.
-    Found 4-bit adder for signal <padB[3]_GND_6_o_add_48_OUT> created at line 92.
-    Found 4-bit adder for signal <M_ballXtemp_q[3]_GND_6_o_add_60_OUT> created at line 118.
-    Found 4-bit adder for signal <M_ballYtemp_q[3]_GND_6_o_add_66_OUT> created at line 125.
-    Found 23-bit comparator greater for signal <n0001> created at line 52
-    Found 4-bit comparator not equal for signal <M_ballXtemp_q[3]_padA[3]_equal_9_o> created at line 56
-    Found 4-bit comparator lessequal for signal <n0007> created at line 60
-    Found 4-bit comparator lessequal for signal <n0009> created at line 60
-    Found 4-bit comparator lessequal for signal <n0016> created at line 66
-    Found 4-bit comparator lessequal for signal <n0019> created at line 66
-    Found 4-bit comparator not equal for signal <M_ballXtemp_q[3]_padA[3]_equal_26_o> created at line 69
-    Found 4-bit comparator not equal for signal <M_ballXtemp_q[3]_padB[3]_equal_33_o> created at line 79
-    Found 4-bit comparator lessequal for signal <n0035> created at line 83
-    Found 4-bit comparator lessequal for signal <n0037> created at line 83
-    Found 4-bit comparator lessequal for signal <n0044> created at line 89
-    Found 4-bit comparator lessequal for signal <n0047> created at line 89
-    Found 4-bit comparator not equal for signal <M_ballXtemp_q[3]_padB[3]_equal_50_o> created at line 92
+    Found 23-bit register for signal <M_counter_q>.
+    Found finite state machine <FSM_1> for signal <M_ballspeed_q>.
+    -----------------------------------------------------------------------
+    | States             | 6                                              |
+    | Transitions        | 85                                             |
+    | Inputs             | 8                                              |
+    | Outputs            | 16                                             |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00000000000000000000000                        |
+    | Power Up State     | 00000000000000000000000                        |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit subtractor for signal <M_ballYtemp_q[3]_GND_6_o_sub_15_OUT> created at line 70.
+    Found 4-bit subtractor for signal <padA[3]_GND_6_o_sub_22_OUT> created at line 76.
+    Found 4-bit subtractor for signal <padA[3]_GND_6_o_sub_37_OUT> created at line 88.
+    Found 4-bit subtractor for signal <padB[3]_GND_6_o_sub_56_OUT> created at line 103.
+    Found 4-bit subtractor for signal <padB[3]_GND_6_o_sub_71_OUT> created at line 115.
+    Found 4-bit subtractor for signal <M_ballXtemp_q[3]_GND_6_o_sub_77_OUT> created at line 119.
+    Found 23-bit adder for signal <M_counter_q[22]_GND_6_o_add_0_OUT> created at line 57.
+    Found 4-bit adder for signal <M_ballYtemp_q[3]_GND_6_o_add_11_OUT> created at line 66.
+    Found 4-bit adder for signal <padA[3]_GND_6_o_add_39_OUT> created at line 88.
+    Found 4-bit adder for signal <padA[3]_GND_6_o_add_43_OUT> created at line 92.
+    Found 4-bit adder for signal <M_ballXtemp_q[3]_GND_6_o_add_59_OUT> created at line 108.
+    Found 4-bit adder for signal <padB[3]_GND_6_o_add_73_OUT> created at line 115.
+    Found 4-bit adder for signal <padB[3]_GND_6_o_add_77_OUT> created at line 119.
+    Found 4-bit adder for signal <M_hitcounter_q[3]_GND_6_o_add_80_OUT> created at line 122.
+    Found 23-bit comparator greater for signal <n0001> created at line 58
+    Found 4-bit comparator greater for signal <M_ballYtemp_q[3]_PWR_11_o_LessThan_6_o> created at line 60
+    Found 4-bit comparator greater for signal <GND_6_o_M_ballYtemp_q[3]_LessThan_7_o> created at line 60
+    Found 4-bit comparator equal for signal <M_ballXtemp_q[3]_padA[3]_equal_23_o> created at line 76
+    Found 4-bit comparator lessequal for signal <n0024> created at line 81
+    Found 4-bit comparator lessequal for signal <n0026> created at line 81
+    Found 4-bit comparator lessequal for signal <n0035> created at line 88
+    Found 4-bit comparator lessequal for signal <n0038> created at line 88
+    Found 4-bit comparator equal for signal <M_ballXtemp_q[3]_padA[3]_equal_45_o> created at line 92
+    Found 4-bit comparator equal for signal <M_ballXtemp_q[3]_padB[3]_equal_57_o> created at line 103
+    Found 4-bit comparator lessequal for signal <n0060> created at line 108
+    Found 4-bit comparator lessequal for signal <n0062> created at line 108
+    Found 4-bit comparator lessequal for signal <n0072> created at line 115
+    Found 4-bit comparator lessequal for signal <n0075> created at line 115
+    Found 4-bit comparator equal for signal <M_ballXtemp_q[3]_padB[3]_equal_79_o> created at line 119
+    Found 4-bit comparator greater for signal <n0110> created at line 155
     Summary:
-	inferred  13 Adder/Subtractor(s).
-	inferred  34 D-type flip-flop(s).
-	inferred  13 Comparator(s).
-	inferred   6 Multiplexer(s).
+	inferred  14 Adder/Subtractor(s).
+	inferred  38 D-type flip-flop(s).
+	inferred  16 Comparator(s).
+	inferred  42 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
 Unit <ball_5> synthesized.
 
 Synthesizing Unit <paddleA_6>.
     Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/TestLedMatrix/work/planAhead/TestLedMatrix/TestLedMatrix.srcs/sources_1/imports/verilog/padA_6.v".
-    Found 2-bit register for signal <M_state_q>.
     Found 4-bit register for signal <M_padAtemp_q>.
-    Found finite state machine <FSM_1> for signal <M_state_q>.
+    Found 2-bit register for signal <M_state_q>.
+    Found finite state machine <FSM_2> for signal <M_state_q>.
     -----------------------------------------------------------------------
     | States             | 4                                              |
     | Transitions        | 15                                             |
@@ -301,7 +322,7 @@ Synthesizing Unit <paddleB_7>.
     Related source file is "C:/Users/weiqu/Documents/ISTD/Computation Structures/1DProject/TestLedMatrix/work/planAhead/TestLedMatrix/TestLedMatrix.srcs/sources_1/imports/verilog/padB_7.v".
     Found 4-bit register for signal <M_padBtemp_q>.
     Found 2-bit register for signal <M_state_q>.
-    Found finite state machine <FSM_2> for signal <M_state_q>.
+    Found finite state machine <FSM_3> for signal <M_state_q>.
     -----------------------------------------------------------------------
     | States             | 4                                              |
     | Transitions        | 19                                             |
@@ -337,6 +358,7 @@ Synthesizing Unit <score_8>.
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred   9 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
 Unit <score_8> synthesized.
 
 Synthesizing Unit <seven_seg_9>.
@@ -362,40 +384,40 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 2
  16x7-bit single-port Read Only RAM                    : 2
-# Adders/Subtractors                                   : 36
+# Adders/Subtractors                                   : 37
  1-bit adder                                           : 2
  16-bit adder                                          : 1
  20-bit adder                                          : 4
  23-bit adder                                          : 1
  32-bit adder                                          : 1
- 4-bit adder                                           : 9
+ 4-bit adder                                           : 10
  4-bit addsub                                          : 2
  4-bit subtractor                                      : 8
  5-bit adder                                           : 2
  5-bit subtractor                                      : 2
  8-bit adder                                           : 4
-# Registers                                            : 29
+# Registers                                            : 30
  1-bit register                                        : 9
  16-bit register                                       : 1
  2-bit register                                        : 4
  20-bit register                                       : 4
  23-bit register                                       : 1
- 4-bit register                                        : 10
-# Comparators                                          : 17
+ 4-bit register                                        : 11
+# Comparators                                          : 20
  23-bit comparator greater                             : 1
- 4-bit comparator greater                              : 4
+ 4-bit comparator equal                                : 4
+ 4-bit comparator greater                              : 7
  4-bit comparator lessequal                            : 8
- 4-bit comparator not equal                            : 4
-# Multiplexers                                         : 1089
- 1-bit 2-to-1 multiplexer                              : 1076
+# Multiplexers                                         : 1127
+ 1-bit 2-to-1 multiplexer                              : 1098
  16-bit 2-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 10
+ 4-bit 2-to-1 multiplexer                              : 26
  7-bit 2-to-1 multiplexer                              : 2
 # Logic shifters                                       : 1
  511-bit shifter logical right                         : 1
 # Tristates                                            : 6
  1-bit tristate buffer                                 : 6
-# FSMs                                                 : 3
+# FSMs                                                 : 4
 
 =========================================================================
 
@@ -449,10 +471,10 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 2
  16x7-bit single-port distributed Read Only RAM        : 2
-# Adders/Subtractors                                   : 25
+# Adders/Subtractors                                   : 26
  1-bit adder                                           : 1
  16-bit adder                                          : 1
- 4-bit adder                                           : 7
+ 4-bit adder                                           : 8
  4-bit subtractor                                      : 8
  5-bit adder                                           : 1
  5-bit subtractor                                      : 2
@@ -464,51 +486,27 @@ Macro Statistics
  23-bit up counter                                     : 1
  4-bit up counter                                      : 2
  4-bit updown counter                                  : 2
-# Registers                                            : 56
- Flip-Flops                                            : 56
-# Comparators                                          : 17
+# Registers                                            : 60
+ Flip-Flops                                            : 60
+# Comparators                                          : 20
  23-bit comparator greater                             : 1
- 4-bit comparator greater                              : 4
+ 4-bit comparator equal                                : 4
+ 4-bit comparator greater                              : 7
  4-bit comparator lessequal                            : 8
- 4-bit comparator not equal                            : 4
-# Multiplexers                                         : 1087
- 1-bit 2-to-1 multiplexer                              : 1076
+# Multiplexers                                         : 1123
+ 1-bit 2-to-1 multiplexer                              : 1098
  16-bit 2-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 8
+ 4-bit 2-to-1 multiplexer                              : 22
  7-bit 2-to-1 multiplexer                              : 2
 # Logic shifters                                       : 1
  511-bit shifter logical right                         : 1
-# FSMs                                                 : 3
+# FSMs                                                 : 4
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/sync/M_pipe_q_0> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/sync/M_pipe_q_0> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/sync/M_pipe_q_0> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/sync/M_pipe_q_0> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/sync/M_pipe_q_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/sync/M_pipe_q_1> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/sync/M_pipe_q_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/sync/M_pipe_q_1> 
-Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <FSM_1> on signal <M_state_q[1:2]> with sequential encoding.
--------------------
- State | Encoding
--------------------
- 01    | 00
- 10    | 01
- 11    | 10
- 00    | 11
--------------------
-Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <FSM_2> on signal <M_state_q[1:2]> with user encoding.
--------------------
- State | Encoding
--------------------
- 01    | 01
- 10    | 10
- 11    | 11
- 00    | 00
--------------------
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <disp/FSM_0> on signal <M_state_q[1:2]> with gray encoding.
 -------------------
@@ -519,6 +517,38 @@ Optimizing FSM <disp/FSM_0> on signal <M_state_q[1:2]> with gray encoding.
  010   | 11
  011   | 10
 -------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <ball/FSM_1> on signal <M_ballspeed_q[1:3]> with sequential encoding.
+-------------------------------------
+ State                   | Encoding
+-------------------------------------
+ 00000000000000000000000 | 000
+ 11110100001001000000000 | 001
+ 01111010000100100000000 | 010
+ 11010101100111111000000 | 011
+ 10110111000110110000000 | 100
+ 10011000100101101000000 | 101
+-------------------------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <paddleA/FSM_2> on signal <M_state_q[1:2]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 01    | 00
+ 10    | 01
+ 11    | 10
+ 00    | 11
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <paddleB/FSM_3> on signal <M_state_q[1:2]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 01    | 00
+ 10    | 01
+ 11    | 10
+ 00    | 11
+-------------------
 
 Optimizing unit <mojo_top_0> ...
 
@@ -526,74 +556,39 @@ Optimizing unit <display_2> ...
 
 Optimizing unit <ball_5> ...
 
+Optimizing unit <paddleA_6> ...
+
+Optimizing unit <paddleB_7> ...
+
 Optimizing unit <score_8> ...
 
 Optimizing unit <drawing_3> ...
 WARNING:Xst:1293 - FF/Latch <disp/M_time_q_15> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <ball/M_state_q> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <score/M_state_q> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_10> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_10> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_11> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_11> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_12> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_12> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_13> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_13> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_14> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_14> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_15> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_15> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_16> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_16> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_17> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_17> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_18> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_18> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_19> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_19> 
-INFO:Xst:2261 - The FF/Latch <paddleA/edge_detector_right/M_last_q> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/edge_detector_right/M_last_q> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_10> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_10> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_11> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_11> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_12> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_12> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_13> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_13> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_14> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_14> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_15> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_15> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_16> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_16> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_17> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_17> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_18> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_18> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_19> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_19> 
-INFO:Xst:2261 - The FF/Latch <paddleA/edge_detector_left/M_last_q> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/edge_detector_left/M_last_q> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_0> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_0> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_1> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_2> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_3> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_3> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_4> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_4> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_5> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_5> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_6> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_6> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_7> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_7> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_8> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_8> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_left/M_ctr_q_9> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_left/M_ctr_q_9> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_0> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_0> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_1> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_2> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_3> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_3> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_4> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_4> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_5> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_5> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_6> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_6> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_7> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_7> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_8> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_8> 
-INFO:Xst:2261 - The FF/Latch <paddleA/button_cond_right/M_ctr_q_9> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <paddleB/button_cond_right/M_ctr_q_9> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 17.
-FlipFlop ball/M_ballXtemp_q_0 has been replicated 3 time(s)
-FlipFlop ball/M_ballXtemp_q_1 has been replicated 4 time(s)
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 19.
+FlipFlop ball/M_ballXtemp_q_0 has been replicated 4 time(s)
+FlipFlop ball/M_ballXtemp_q_1 has been replicated 3 time(s)
 FlipFlop ball/M_ballXtemp_q_2 has been replicated 3 time(s)
-FlipFlop ball/M_ballXtemp_q_3 has been replicated 2 time(s)
-FlipFlop ball/M_ballYtemp_q_0 has been replicated 1 time(s)
-FlipFlop ball/M_ballYtemp_q_1 has been replicated 1 time(s)
-FlipFlop ball/M_ballYtemp_q_2 has been replicated 1 time(s)
-FlipFlop ball/M_ballYtemp_q_3 has been replicated 1 time(s)
+FlipFlop ball/M_ballXtemp_q_3 has been replicated 3 time(s)
+FlipFlop paddleA/M_padAtemp_q_0 has been replicated 2 time(s)
+FlipFlop paddleA/M_padAtemp_q_1 has been replicated 2 time(s)
+FlipFlop paddleA/M_padAtemp_q_2 has been replicated 2 time(s)
+FlipFlop paddleA/M_padAtemp_q_3 has been replicated 2 time(s)
 FlipFlop paddleB/M_padBtemp_q_0 has been replicated 1 time(s)
-FlipFlop paddleB/M_padBtemp_q_1 has been replicated 1 time(s)
-FlipFlop paddleB/M_padBtemp_q_2 has been replicated 1 time(s)
+FlipFlop paddleB/M_padBtemp_q_1 has been replicated 2 time(s)
+FlipFlop paddleB/M_padBtemp_q_2 has been replicated 2 time(s)
+FlipFlop paddleB/M_padBtemp_q_3 has been replicated 3 time(s)
 
 Final Macro Processing ...
 
 Processing Unit <mojo_top_0> :
-	Found 2-bit shift register for signal <paddleA/button_cond_left/sync/M_pipe_q_1>.
 	Found 2-bit shift register for signal <paddleA/button_cond_right/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <paddleA/button_cond_left/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <paddleB/button_cond_right/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <paddleB/button_cond_left/sync/M_pipe_q_1>.
 INFO:Xst:741 - HDL ADVISOR - A 4-bit shift register was found for signal <reset_cond/M_stage_q_3> and currently occupies 4 logic cells (2 slices). Removing the set/reset logic would take advantage of SRL32 (and derived) primitives and reduce this to 1 logic cells (1 slices). Evaluate if the set/reset can be removed for this simple shift register. The majority of simple pipeline structures do not need to be set/reset operationally.
 Unit <mojo_top_0> processed.
 
@@ -601,10 +596,10 @@ Unit <mojo_top_0> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 149
- Flip-Flops                                            : 149
-# Shift Registers                                      : 2
- 2-bit shift register                                  : 2
+# Registers                                            : 208
+ Flip-Flops                                            : 208
+# Shift Registers                                      : 4
+ 2-bit shift register                                  : 4
 
 =========================================================================
 
@@ -627,31 +622,31 @@ Top Level Output File Name         : mojo_top_0.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 695
-#      GND                         : 8
-#      INV                         : 13
-#      LUT1                        : 74
-#      LUT2                        : 24
-#      LUT3                        : 24
-#      LUT4                        : 91
-#      LUT5                        : 57
-#      LUT6                        : 224
-#      MUXCY                       : 74
-#      MUXF7                       : 21
-#      VCC                         : 7
-#      XORCY                       : 78
-# FlipFlops/Latches                : 151
-#      FD                          : 2
-#      FDE                         : 2
-#      FDR                         : 35
-#      FDRE                        : 106
-#      FDS                         : 6
-# Shift Registers                  : 2
-#      SRLC16E                     : 2
+# BELS                             : 886
+#      GND                         : 12
+#      INV                         : 15
+#      LUT1                        : 112
+#      LUT2                        : 28
+#      LUT3                        : 34
+#      LUT4                        : 100
+#      LUT5                        : 79
+#      LUT6                        : 242
+#      MUXCY                       : 122
+#      MUXF7                       : 13
+#      VCC                         : 11
+#      XORCY                       : 118
+# FlipFlops/Latches                : 212
+#      FD                          : 4
+#      FDE                         : 4
+#      FDR                         : 41
+#      FDRE                        : 158
+#      FDS                         : 5
+# Shift Registers                  : 4
+#      SRLC16E                     : 4
 # Clock Buffers                    : 1
 #      BUFG                        : 1
-# IO Buffers                       : 37
-#      IBUF                        : 4
+# IO Buffers                       : 39
+#      IBUF                        : 6
 #      OBUF                        : 27
 #      OBUFT                       : 6
 
@@ -662,22 +657,22 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             151  out of  11440     1%  
- Number of Slice LUTs:                  509  out of   5720     8%  
-    Number used as Logic:               507  out of   5720     8%  
-    Number used as Memory:                2  out of   1440     0%  
-       Number used as SRL:                2
+ Number of Slice Registers:             212  out of  11440     1%  
+ Number of Slice LUTs:                  614  out of   5720    10%  
+    Number used as Logic:               610  out of   5720    10%  
+    Number used as Memory:                4  out of   1440     0%  
+       Number used as SRL:                4
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    537
-   Number with an unused Flip Flop:     386  out of    537    71%  
-   Number with an unused LUT:            28  out of    537     5%  
-   Number of fully used LUT-FF pairs:   123  out of    537    22%  
-   Number of unique control sets:        19
+ Number of LUT Flip Flop pairs used:    656
+   Number with an unused Flip Flop:     444  out of    656    67%  
+   Number with an unused LUT:            42  out of    656     6%  
+   Number of fully used LUT-FF pairs:   170  out of    656    25%  
+   Number of unique control sets:        27
 
 IO Utilization: 
- Number of IOs:                          44
- Number of bonded IOBs:                  37  out of    102    36%  
+ Number of IOs:                          46
+ Number of bonded IOBs:                  39  out of    102    38%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -703,7 +698,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | IBUF+BUFG              | 153   |
+clk                                | IBUF+BUFG              | 216   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -714,10 +709,10 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 6.438ns (Maximum Frequency: 155.328MHz)
+   Minimum period: 7.459ns (Maximum Frequency: 134.066MHz)
    Minimum input arrival time before clock: 3.526ns
    Maximum output required time after clock: 13.780ns
-   Maximum combinational path delay: 5.857ns
+   Maximum combinational path delay: 5.961ns
 
 Timing Details:
 ---------------
@@ -725,33 +720,36 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 6.438ns (frequency: 155.328MHz)
-  Total number of paths / destination ports: 4713 / 399
+  Clock period: 7.459ns (frequency: 134.066MHz)
+  Total number of paths / destination ports: 15864 / 569
 -------------------------------------------------------------------------
-Delay:               6.438ns (Levels of Logic = 5)
-  Source:            paddleA/button_cond_right/M_ctr_q_3 (FF)
-  Destination:       paddleA/M_padAtemp_q_0 (FF)
+Delay:               7.459ns (Levels of Logic = 7)
+  Source:            paddleA/M_padAtemp_q_0_1 (FF)
+  Destination:       ball/M_hitcounter_q_1 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: paddleA/button_cond_right/M_ctr_q_3 to paddleA/M_padAtemp_q_0
+  Data Path: paddleA/M_padAtemp_q_0_1 to ball/M_hitcounter_q_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             2   0.525   1.181  M_ctr_q_3 (M_ctr_q_3)
-     LUT6:I0->O            3   0.254   0.994  out1 (paddleA/button_cond_right/out)
-     LUT5:I2->O            7   0.235   0.910  out4 (out)
-     end scope: 'paddleA/button_cond_right:out'
-     LUT5:I4->O            2   0.254   0.726  M_state_q_FSM_FFd1-In111 (M_state_q_FSM_FFd1-In11)
-     LUT6:I5->O            4   0.254   0.803  _n0074_inv1 (_n0074_inv)
-     FDRE:CE                   0.302          M_padAtemp_q_0
+     FDRE:C->Q             4   0.525   1.080  M_padAtemp_q_0_1 (M_padAtemp_q_0_1)
+     end scope: 'paddleA:M_padAtemp_q_0_1'
+     begin scope: 'ball:padA<0>'
+     LUT4:I0->O            1   0.254   0.790  Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6118_SW0 (N65)
+     LUT6:I4->O            1   0.250   0.682  Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6118 (Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6118)
+     LUT5:I4->O            1   0.254   0.682  Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT61110 (Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT61110)
+     LUT6:I5->O            7   0.254   1.340  Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT61111 (Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT611)
+     LUT6:I1->O            3   0.254   0.766  _n0497_inv11 (_n0497_inv1)
+     LUT3:I2->O            1   0.254   0.000  M_hitcounter_q_1_rstpot (M_hitcounter_q_1_rstpot)
+     FDR:D                     0.074          M_hitcounter_q_1
     ----------------------------------------
-    Total                      6.438ns (1.824ns logic, 4.614ns route)
-                                       (28.3% logic, 71.7% route)
+    Total                      7.459ns (2.119ns logic, 5.340ns route)
+                                       (28.4% logic, 71.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 6 / 6
+  Total number of paths / destination ports: 8 / 8
 -------------------------------------------------------------------------
 Offset:              3.526ns (Levels of Logic = 3)
   Source:            rst_n (PAD)
@@ -772,20 +770,20 @@ Offset:              3.526ns (Levels of Logic = 3)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 1402 / 17
+  Total number of paths / destination ports: 1384 / 17
 -------------------------------------------------------------------------
 Offset:              13.780ns (Levels of Logic = 11)
-  Source:            ball/M_ballYtemp_q_0 (FF)
+  Source:            ball/M_ballYtemp_q_1 (FF)
   Destination:       ledmatrix<5> (PAD)
   Source Clock:      clk rising
 
-  Data Path: ball/M_ballYtemp_q_0 to ledmatrix<5>
+  Data Path: ball/M_ballYtemp_q_1 to ledmatrix<5>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q           104   0.525   2.651  M_ballYtemp_q_0 (M_ballYtemp_q_0)
-     end scope: 'ball:ballY<0>'
-     begin scope: 'drawpong:ballY<0>'
+     FDRE:C->Q           104   0.525   2.651  M_ballYtemp_q_1 (M_ballYtemp_q_1)
+     end scope: 'ball:ballY<1>'
+     begin scope: 'drawpong:ballY<1>'
      LUT5:I0->O            4   0.254   1.234  Mmux_ballY[3]_GND_4_o_MUX_5170_o1121 (Mmux_ballY[3]_GND_4_o_MUX_5170_o112)
      end scope: 'drawpong:Mmux_ballY[3]_GND_4_o_MUX_5170_o112'
      begin scope: 'disp:Mmux_ballY[3]_GND_4_o_MUX_5170_o112'
@@ -793,7 +791,7 @@ Offset:              13.780ns (Levels of Logic = 11)
      LUT6:I4->O            1   0.250   0.958  _n0127<2>222 (_n0127<2>221)
      LUT6:I2->O            1   0.254   0.910  _n0127<2>223 (_n0127<2>222)
      LUT6:I3->O            1   0.235   0.682  _n0127<2>224 (_n0127<2>223)
-     LUT5:I4->O            1   0.254   0.682  _n0127<2>522_SW0 (N300)
+     LUT5:I4->O            1   0.254   0.682  _n0127<2>522_SW0 (N316)
      LUT6:I5->O            1   0.254   0.681  _n0127<2>522 (ledmatrix<5>)
      end scope: 'disp:ledmatrix<5>'
      OBUF:I->O                 2.912          ledmatrix_5_OBUF (ledmatrix<5>)
@@ -805,7 +803,7 @@ Offset:              13.780ns (Levels of Logic = 11)
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Delay:               5.857ns (Levels of Logic = 4)
+Delay:               5.961ns (Levels of Logic = 4)
   Source:            clk (PAD)
   Destination:       ledmatrix<6> (PAD)
 
@@ -813,14 +811,14 @@ Delay:               5.857ns (Levels of Logic = 4)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   1.328   0.682  clk_IBUF (clk_IBUF)
+     IBUF:I->O             1   1.328   0.790  clk_IBUF (clk_IBUF)
      begin scope: 'disp:clk_IBUF'
-     LUT2:I1->O            1   0.254   0.681  ledmatrix<1>1 (ledmatrix<6>)
+     LUT2:I0->O            1   0.250   0.681  ledmatrix<1>1 (ledmatrix<6>)
      end scope: 'disp:ledmatrix<6>'
      OBUF:I->O                 2.912          ledmatrix_6_OBUF (ledmatrix<6>)
     ----------------------------------------
-    Total                      5.857ns (4.494ns logic, 1.363ns route)
-                                       (76.7% logic, 23.3% route)
+    Total                      5.961ns (4.490ns logic, 1.471ns route)
+                                       (75.3% logic, 24.7% route)
 
 =========================================================================
 
@@ -832,20 +830,20 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    6.438|         |         |         |
+clk            |    7.459|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 17.00 secs
-Total CPU time to Xst completion: 17.20 secs
+Total REAL time to Xst completion: 16.00 secs
+Total CPU time to Xst completion: 15.71 secs
  
 --> 
 
-Total memory usage is 359740 kilobytes
+Total memory usage is 360892 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   10 (   0 filtered)
-Number of infos    :   49 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
 

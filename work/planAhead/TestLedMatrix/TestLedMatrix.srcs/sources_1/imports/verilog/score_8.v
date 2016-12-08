@@ -47,6 +47,10 @@ module score_8 (
               scoreA = M_scoreAtemp_q;
             end
           end
+        end else begin
+          if (playing == 1'h0) begin
+            M_state_d = GAMESTART_state;
+          end
         end
       end
     endcase

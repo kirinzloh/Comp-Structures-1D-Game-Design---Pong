@@ -30,9 +30,7 @@ module drawing_3 (
       pattern[240+(padB)*1+0-:1] = 1'h0;
       pattern[240+(padB + 1'h1)*1+0-:1] = 1'h0;
     end else begin
-      for (i = 1'h0; i < 5'h10; i = i + 1) begin
-        pattern[(i)*16+15-:16] = 16'h0000;
-      end
+      pattern = 256'hf111fd55f191fd55f155ffffea2beab7eab7e237ffffac8fdaafdacfdcafffff;
     end
   end
 endmodule

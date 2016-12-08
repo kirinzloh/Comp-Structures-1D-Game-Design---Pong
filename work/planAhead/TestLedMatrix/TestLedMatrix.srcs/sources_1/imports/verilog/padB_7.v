@@ -63,7 +63,7 @@ module paddleB_7 (
     
     case (M_state_q)
       GAMESTART_state: begin
-        M_padBtemp_d = 4'hf;
+        M_padBtemp_d = 4'he;
         M_state_d = GAMEON_state;
       end
       GAMEON_state: begin
@@ -77,6 +77,10 @@ module paddleB_7 (
             M_padBtemp_d = M_padBtemp_q + 1'h1;
             padB = M_padBtemp_q;
             M_state_d = RIGHTBTNWAIT_state;
+          end
+        end else begin
+          if (playing == 1'h0) begin
+            M_state_d = GAMESTART_state;
           end
         end
       end

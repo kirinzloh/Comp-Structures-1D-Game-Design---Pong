@@ -45,7 +45,7 @@ module paddleA (
     
     case (state.q){
       state.GAMESTART:
-        padAtemp.d = 0;
+        padAtemp.d = 1;
         state.d = state.GAMEON;
         
       state.GAMEON:
@@ -60,6 +60,9 @@ module paddleA (
             padA = padAtemp.q;
             state.d = state.RIGHTBTNWAIT;
           }
+        }
+        else if (playing == 0){
+          state.d = state.GAMESTART;
         }
         
       state.LEFTBTNWAIT:

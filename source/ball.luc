@@ -12,10 +12,13 @@ module ball (
     .rst(rst){
       fsm state(.clk(clk), #INIT(GAMESTART)) = {GAMEON,GAMESTART};
       dff counter[23];
+      dff hitcounter[4];
+      dff ballspeed[23];
       dff ballXtemp[4];
       dff ballYtemp[4];
       dff speedX;      
       dff speedY;
+      
       }
   }
 
@@ -32,6 +35,8 @@ module ball (
     
     case (state.q){
       state.GAMESTART:
+        ballspeed.d = 8000000;
+        hitcounter.d = 0;
         ballXtemp.d = 8;
         ballYtemp.d = 7;
         speedX.d = 1;
@@ -42,25 +47,43 @@ module ball (
         
       state.GAMEON:
           counter.d = counter.q + 1;
-          if (counter.q >= 8000000){
-          if (playing == 1){   
+          if (counter.q >= ballspeed.q){
+          if (playing == 1){
+            if ((ballXtemp.q + 1) == 15 && (ballYtemp.q < 14 || ballYtemp.q > 1)){
+              speedX.d = 0;
+            }  
+            if ((ballXtemp.q - 1) == 0 && (ballYtemp.q < 14 || ballYtemp.q > 1)){
+              speedX.d = 1;
+            }
+            if ((ballYtemp.q + 1) == 15){
+              speedY.d = 0;
+              hitcounter.d = 0;
+            }
+            if ((ballYtemp.q - 1) == 0){
+              speedY.d = 1;
+              hitcounter.d = 0;
+            }   
             if ((ballYtemp.q - 1) == 1){
               if (speedX.q == 1){
                 if ((ballXtemp.q + 1) == (padA - 2) && (padA - 2) >= 0 ){
                   speedX.d = 0;
                   speedY.d = 1;
+                  hitcounter.d = hitcounter.q + 1;
                 }
                 else if ((ballXtemp.q + 1) >= (padA-1) && (ballXtemp.q + 1) <= (padA+1)){
                   speedY.d = 1;
+                  hitcounter.d = hitcounter.q + 1;
                 }             
               }
               else if (speedX.q == 0){
                 if ((ballXtemp.q - 1) >= (padA-1) && (ballXtemp.q - 1) <= (padA+1)){
                   speedY.d = 1;
+                  hitcounter.d = hitcounter.q + 1;
                 }
                 else if ((ballXtemp.q - 1) == (padA + 2) && (padA + 2) <= 15 ){
                   speedX.d = 1;
                   speedY.d = 1;
+                  hitcounter.d = hitcounter.q + 1;
                 }              
               }
             }
@@ -69,33 +92,25 @@ module ball (
                 if ((ballXtemp.q + 1) == (padB - 2) && (padB - 2) >= 0 ){
                     speedX.d = 0;
                     speedY.d = 0;
+                    hitcounter.d = hitcounter.q + 1;
                   }
                 else if ((ballXtemp.q + 1) >= (padB-1) && (ballXtemp.q + 1) <= (padB+1)){
                   speedY.d = 0;
+                  hitcounter.d = hitcounter.q + 1;
                 }
               }
               else if (speedX.q == 0){
                 if ((ballXtemp.q - 1) >= (padB-1) && (ballXtemp.q - 1) <= (padB+1)){
                   speedY.d = 0;
+                  hitcounter.d = hitcounter.q + 1;
                 }
                 else if ((ballXtemp.q - 1) == (padB + 2) && (padB + 2) <= 15 ){
                   speedX.d = 1;
                   speedY.d = 0;
+                  hitcounter.d = hitcounter.q + 1;
                 }
               }
             }  
-            else if ((ballXtemp.q + 1) == 15){
-              speedX.d = 0;
-            }  
-            else if ((ballXtemp.q - 1) == 0){
-              speedX.d = 1;
-            }
-            else if ((ballYtemp.q + 1) == 15){
-              speedY.d = 0;
-            }
-            else if ((ballYtemp.q - 1) == 0){
-              speedY.d = 1;
-            }
           
             if (speedX.q == 1){
               ballXtemp.d = ballXtemp.q + 1;
@@ -109,11 +124,28 @@ module ball (
             else if (speedY.q == 0){
               ballYtemp.d = ballYtemp.q - 1;
             }
-          
+            if (hitcounter.q == 0){
+              ballspeed.d = 8000000;
+            }
+            else if (hitcounter.q == 3){
+              ballspeed.d = 7000000;
+            }
+            else if (hitcounter.q == 4){
+              ballspeed.d = 6000000;
+            }
+            else if (hitcounter.q == 6){
+              ballspeed.d = 5000000;
+            }
+            else if (hitcounter.q >= 8){
+              ballspeed.d = 4000000;
+            }
             ballX = ballXtemp.q;
             ballY = ballYtemp.q;     
             counter.d = 0;  
             }
+       else if (playing == 0){
+          state.d = state.GAMESTART;
+          }
        }
   }
   }

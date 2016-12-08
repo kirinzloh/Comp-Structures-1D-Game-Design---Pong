@@ -63,7 +63,7 @@ module paddleA_6 (
     
     case (M_state_q)
       GAMESTART_state: begin
-        M_padAtemp_d = 1'h0;
+        M_padAtemp_d = 1'h1;
         M_state_d = GAMEON_state;
       end
       GAMEON_state: begin
@@ -77,6 +77,10 @@ module paddleA_6 (
             M_padAtemp_d = M_padAtemp_q + 1'h1;
             padA = M_padAtemp_q;
             M_state_d = RIGHTBTNWAIT_state;
+          end
+        end else begin
+          if (playing == 1'h0) begin
+            M_state_d = GAMESTART_state;
           end
         end
       end
@@ -99,18 +103,18 @@ module paddleA_6 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_padAtemp_q <= 1'h0;
+      M_state_q <= 1'h1;
     end else begin
-      M_padAtemp_q <= M_padAtemp_d;
+      M_state_q <= M_state_d;
     end
   end
   
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_state_q <= 1'h1;
+      M_padAtemp_q <= 1'h0;
     end else begin
-      M_state_q <= M_state_d;
+      M_padAtemp_q <= M_padAtemp_d;
     end
   end
   

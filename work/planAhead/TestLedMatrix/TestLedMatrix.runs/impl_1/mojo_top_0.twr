@@ -28,16 +28,16 @@ INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on
 Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 For more information, see Period Analysis in the Timing Closure User Guide (UG612).
 
- 4711 paths analyzed, 760 endpoints analyzed, 0 failing endpoints
+ 15860 paths analyzed, 1054 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   6.973ns.
+ Minimum period is   6.581ns.
 --------------------------------------------------------------------------------
-Slack:                  13.027ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_2 (FF)
-  Destination:          ball/M_speedX_q (FF)
+Slack:                  13.419ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleB/M_padBtemp_q_3 (FF)
+  Destination:          ball/M_hitcounter_q_1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      6.893ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.045ns (0.690 - 0.735)
+  Data Path Delay:      6.427ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.119ns (0.598 - 0.717)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -48,37 +48,39 @@ Slack:                  13.027ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_2 to ball/M_speedX_q
+  Maximum Data Path at Slow Process Corner: paddleB/M_padBtemp_q_3 to ball/M_hitcounter_q_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y38.CQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_2
-    SLICE_X18Y27.C2      net (fanout=25)       2.356   M_paddleA_padA[2]
-    SLICE_X18Y27.C       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv1
-    SLICE_X18Y27.A1      net (fanout=1)        0.532   ball/_n0211_inv2
-    SLICE_X18Y27.A       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv3
-    SLICE_X20Y26.D1      net (fanout=5)        1.197   ball/_n0211_inv5
-    SLICE_X20Y26.CMUX    Topdc                 0.456   ball/n000121
-                                                       ball/_n0211_inv6_SW0_F
-                                                       ball/_n0211_inv6_SW0
-    SLICE_X20Y27.A3      net (fanout=1)        1.113   ball/N41
-    SLICE_X20Y27.CLK     Tas                   0.339   ball/M_speedX_q
-                                                       ball/M_speedX_q_glue_set
-                                                       ball/M_speedX_q
+    SLICE_X8Y15.AQ       Tcko                  0.525   M_paddleB_padB[3]
+                                                       paddleB/M_padBtemp_q_3
+    SLICE_X15Y17.A3      net (fanout=20)       1.395   M_paddleB_padB[3]
+    SLICE_X15Y17.A       Tilo                  0.259   M_padAtemp_q_2_2
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6123
+    SLICE_X14Y18.A4      net (fanout=1)        0.878   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6123
+    SLICE_X14Y18.A       Tilo                  0.235   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6124
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6125
+    SLICE_X17Y19.B3      net (fanout=1)        1.141   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6125
+    SLICE_X17Y19.B       Tilo                  0.259   M_ball_ballX[2]
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT61211
+    SLICE_X18Y19.B2      net (fanout=6)        0.773   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT612
+    SLICE_X18Y19.B       Tilo                  0.235   ball/M_hitcounter_q[1]
+                                                       ball/_n0497_inv11
+    SLICE_X18Y19.C4      net (fanout=2)        0.378   ball/_n0497_inv1
+    SLICE_X18Y19.CLK     Tas                   0.349   ball/M_hitcounter_q[1]
+                                                       ball/M_hitcounter_q_1_rstpot
+                                                       ball/M_hitcounter_q_1
     -------------------------------------------------  ---------------------------
-    Total                                      6.893ns (1.695ns logic, 5.198ns route)
-                                                       (24.6% logic, 75.4% route)
+    Total                                      6.427ns (1.862ns logic, 4.565ns route)
+                                                       (29.0% logic, 71.0% route)
 
 --------------------------------------------------------------------------------
-Slack:                  13.301ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_1 (FF)
-  Destination:          ball/M_speedX_q (FF)
+Slack:                  13.458ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_hitcounter_q_1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      6.619ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.045ns (0.690 - 0.735)
+  Data Path Delay:      6.485ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.022ns (0.293 - 0.315)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -89,37 +91,40 @@ Slack:                  13.301ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_1 to ball/M_speedX_q
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_hitcounter_q_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y38.BQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_1
-    SLICE_X18Y27.C1      net (fanout=27)       2.082   M_paddleA_padA[1]
-    SLICE_X18Y27.C       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv1
-    SLICE_X18Y27.A1      net (fanout=1)        0.532   ball/_n0211_inv2
-    SLICE_X18Y27.A       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv3
-    SLICE_X20Y26.D1      net (fanout=5)        1.197   ball/_n0211_inv5
-    SLICE_X20Y26.CMUX    Topdc                 0.456   ball/n000121
-                                                       ball/_n0211_inv6_SW0_F
-                                                       ball/_n0211_inv6_SW0
-    SLICE_X20Y27.A3      net (fanout=1)        1.113   ball/N41
-    SLICE_X20Y27.CLK     Tas                   0.339   ball/M_speedX_q
-                                                       ball/M_speedX_q_glue_set
-                                                       ball/M_speedX_q
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.351   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lutdi6
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X16Y20.D1      net (fanout=11)       1.528   ball/Mcompar_n0001_cy[7]
+    SLICE_X16Y20.D       Tilo                  0.254   M_ball_ballY[2]
+                                                       ball/_n04131_SW2
+    SLICE_X18Y19.B3      net (fanout=1)        0.637   ball/N59
+    SLICE_X18Y19.B       Tilo                  0.235   ball/M_hitcounter_q[1]
+                                                       ball/_n0497_inv11
+    SLICE_X18Y19.C4      net (fanout=2)        0.378   ball/_n0497_inv1
+    SLICE_X18Y19.CLK     Tas                   0.349   ball/M_hitcounter_q[1]
+                                                       ball/M_hitcounter_q_1_rstpot
+                                                       ball/M_hitcounter_q_1
     -------------------------------------------------  ---------------------------
-    Total                                      6.619ns (1.695ns logic, 4.924ns route)
-                                                       (25.6% logic, 74.4% route)
+    Total                                      6.485ns (2.024ns logic, 4.461ns route)
+                                                       (31.2% logic, 68.8% route)
 
 --------------------------------------------------------------------------------
-Slack:                  13.399ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_2 (FF)
-  Destination:          ball/M_speedX_q (FF)
+Slack:                  13.481ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_hitcounter_q_1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      6.521ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.045ns (0.690 - 0.735)
+  Data Path Delay:      6.462ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.022ns (0.293 - 0.315)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -130,37 +135,40 @@ Slack:                  13.399ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_2 to ball/M_speedX_q
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_hitcounter_q_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y38.CQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_2
-    SLICE_X18Y27.D5      net (fanout=25)       2.202   M_paddleA_padA[2]
-    SLICE_X18Y27.D       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv2
-    SLICE_X18Y27.A5      net (fanout=1)        0.314   ball/_n0211_inv4
-    SLICE_X18Y27.A       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv3
-    SLICE_X20Y26.D1      net (fanout=5)        1.197   ball/_n0211_inv5
-    SLICE_X20Y26.CMUX    Topdc                 0.456   ball/n000121
-                                                       ball/_n0211_inv6_SW0_F
-                                                       ball/_n0211_inv6_SW0
-    SLICE_X20Y27.A3      net (fanout=1)        1.113   ball/N41
-    SLICE_X20Y27.CLK     Tas                   0.339   ball/M_speedX_q
-                                                       ball/M_speedX_q_glue_set
-                                                       ball/M_speedX_q
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.328   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lut<6>
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X16Y20.D1      net (fanout=11)       1.528   ball/Mcompar_n0001_cy[7]
+    SLICE_X16Y20.D       Tilo                  0.254   M_ball_ballY[2]
+                                                       ball/_n04131_SW2
+    SLICE_X18Y19.B3      net (fanout=1)        0.637   ball/N59
+    SLICE_X18Y19.B       Tilo                  0.235   ball/M_hitcounter_q[1]
+                                                       ball/_n0497_inv11
+    SLICE_X18Y19.C4      net (fanout=2)        0.378   ball/_n0497_inv1
+    SLICE_X18Y19.CLK     Tas                   0.349   ball/M_hitcounter_q[1]
+                                                       ball/M_hitcounter_q_1_rstpot
+                                                       ball/M_hitcounter_q_1
     -------------------------------------------------  ---------------------------
-    Total                                      6.521ns (1.695ns logic, 4.826ns route)
-                                                       (26.0% logic, 74.0% route)
+    Total                                      6.462ns (2.001ns logic, 4.461ns route)
+                                                       (31.0% logic, 69.0% route)
 
 --------------------------------------------------------------------------------
-Slack:                  13.461ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_0 (FF)
-  Destination:          ball/M_speedY_q (FF)
+Slack:                  13.549ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_counter_q_17 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      6.461ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.043ns (0.692 - 0.735)
+  Data Path Delay:      6.393ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.023ns (0.292 - 0.315)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -171,34 +179,36 @@ Slack:                  13.461ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_0 to ball/M_speedY_q
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_counter_q_17
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y38.AQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_0
-    SLICE_X20Y30.CX      net (fanout=25)       2.494   M_paddleA_padA[0]
-    SLICE_X20Y30.CMUX    Tcxc                  0.182   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o9
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o8
-    SLICE_X18Y29.D2      net (fanout=2)        1.397   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o9
-    SLICE_X18Y29.CMUX    Topdc                 0.402   ball/_n0257_inv16
-                                                       ball/_n0257_inv23_SW0_F
-                                                       ball/_n0257_inv23_SW0
-    SLICE_X20Y28.A1      net (fanout=1)        1.217   ball/N46
-    SLICE_X20Y28.CLK     Tas                   0.339   ball/M_speedY_q
-                                                       ball/M_speedY_q_glue_set
-                                                       ball/M_speedY_q
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.351   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lutdi6
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X20Y18.A2      net (fanout=11)       1.383   ball/Mcompar_n0001_cy[7]
+    SLICE_X20Y18.A       Tilo                  0.254   score/_n0062_inv
+                                                       ball/Mcount_M_counter_q_val231
+    SLICE_X22Y22.SR      net (fanout=6)        1.223   ball/Mcount_M_counter_q_val
+    SLICE_X22Y22.CLK     Tsrck                 0.429   ball/M_counter_q[19]
+                                                       ball/M_counter_q_17
     -------------------------------------------------  ---------------------------
-    Total                                      6.461ns (1.353ns logic, 5.108ns route)
-                                                       (20.9% logic, 79.1% route)
+    Total                                      6.393ns (1.869ns logic, 4.524ns route)
+                                                       (29.2% logic, 70.8% route)
 
 --------------------------------------------------------------------------------
-Slack:                  13.497ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_2 (FF)
-  Destination:          ball/M_speedY_q (FF)
+Slack:                  13.560ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_counter_q_16 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      6.425ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.043ns (0.692 - 0.735)
+  Data Path Delay:      6.382ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.023ns (0.292 - 0.315)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -209,35 +219,36 @@ Slack:                  13.497ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_2 to ball/M_speedY_q
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_counter_q_16
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y38.CQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_2
-    SLICE_X20Y29.C5      net (fanout=25)       2.335   M_paddleA_padA[2]
-    SLICE_X20Y29.CMUX    Tilo                  0.430   ball/M_ballXtemp_q_3_2
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o5_G
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o5
-    SLICE_X18Y29.D6      net (fanout=2)        1.272   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o6
-    SLICE_X18Y29.CMUX    Topdc                 0.402   ball/_n0257_inv16
-                                                       ball/_n0257_inv23_SW0_F
-                                                       ball/_n0257_inv23_SW0
-    SLICE_X20Y28.A1      net (fanout=1)        1.217   ball/N46
-    SLICE_X20Y28.CLK     Tas                   0.339   ball/M_speedY_q
-                                                       ball/M_speedY_q_glue_set
-                                                       ball/M_speedY_q
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.351   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lutdi6
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X20Y18.A2      net (fanout=11)       1.383   ball/Mcompar_n0001_cy[7]
+    SLICE_X20Y18.A       Tilo                  0.254   score/_n0062_inv
+                                                       ball/Mcount_M_counter_q_val231
+    SLICE_X22Y22.SR      net (fanout=6)        1.223   ball/Mcount_M_counter_q_val
+    SLICE_X22Y22.CLK     Tsrck                 0.418   ball/M_counter_q[19]
+                                                       ball/M_counter_q_16
     -------------------------------------------------  ---------------------------
-    Total                                      6.425ns (1.601ns logic, 4.824ns route)
-                                                       (24.9% logic, 75.1% route)
+    Total                                      6.382ns (1.858ns logic, 4.524ns route)
+                                                       (29.1% logic, 70.9% route)
 
 --------------------------------------------------------------------------------
-Slack:                  13.508ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_0 (FF)
-  Destination:          ball/M_speedX_q (FF)
+Slack:                  13.562ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleB/M_padBtemp_q_3 (FF)
+  Destination:          ball/M_hitcounter_q_1 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      6.412ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.045ns (0.690 - 0.735)
+  Data Path Delay:      6.284ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.119ns (0.598 - 0.717)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -248,37 +259,39 @@ Slack:                  13.508ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_0 to ball/M_speedX_q
+  Maximum Data Path at Slow Process Corner: paddleB/M_padBtemp_q_3 to ball/M_hitcounter_q_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y38.AQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_0
-    SLICE_X18Y27.D2      net (fanout=25)       2.093   M_paddleA_padA[0]
-    SLICE_X18Y27.D       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv2
-    SLICE_X18Y27.A5      net (fanout=1)        0.314   ball/_n0211_inv4
-    SLICE_X18Y27.A       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv3
-    SLICE_X20Y26.D1      net (fanout=5)        1.197   ball/_n0211_inv5
-    SLICE_X20Y26.CMUX    Topdc                 0.456   ball/n000121
-                                                       ball/_n0211_inv6_SW0_F
-                                                       ball/_n0211_inv6_SW0
-    SLICE_X20Y27.A3      net (fanout=1)        1.113   ball/N41
-    SLICE_X20Y27.CLK     Tas                   0.339   ball/M_speedX_q
-                                                       ball/M_speedX_q_glue_set
-                                                       ball/M_speedX_q
+    SLICE_X8Y15.AQ       Tcko                  0.525   M_paddleB_padB[3]
+                                                       paddleB/M_padBtemp_q_3
+    SLICE_X15Y17.A3      net (fanout=20)       1.395   M_paddleB_padB[3]
+    SLICE_X15Y17.A       Tilo                  0.259   M_padAtemp_q_2_2
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6123
+    SLICE_X14Y18.A4      net (fanout=1)        0.878   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6123
+    SLICE_X14Y18.A       Tilo                  0.235   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6124
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6125
+    SLICE_X17Y19.B3      net (fanout=1)        1.141   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6125
+    SLICE_X17Y19.B       Tilo                  0.259   M_ball_ballX[2]
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT61211
+    SLICE_X17Y19.D2      net (fanout=6)        0.554   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT612
+    SLICE_X17Y19.D       Tilo                  0.259   M_ball_ballX[2]
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT62
+    SLICE_X18Y19.C5      net (fanout=1)        0.430   ball/M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT[1]
+    SLICE_X18Y19.CLK     Tas                   0.349   ball/M_hitcounter_q[1]
+                                                       ball/M_hitcounter_q_1_rstpot
+                                                       ball/M_hitcounter_q_1
     -------------------------------------------------  ---------------------------
-    Total                                      6.412ns (1.695ns logic, 4.717ns route)
-                                                       (26.4% logic, 73.6% route)
+    Total                                      6.284ns (1.886ns logic, 4.398ns route)
+                                                       (30.0% logic, 70.0% route)
 
 --------------------------------------------------------------------------------
-Slack:                  13.512ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_3 (FF)
-  Destination:          ball/M_speedY_q (FF)
+Slack:                  13.572ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_counter_q_17 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      6.410ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.043ns (0.692 - 0.735)
+  Data Path Delay:      6.370ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.023ns (0.292 - 0.315)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -289,35 +302,36 @@ Slack:                  13.512ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_3 to ball/M_speedY_q
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_counter_q_17
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y38.DQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_3
-    SLICE_X20Y30.C2      net (fanout=25)       2.195   M_paddleA_padA[3]
-    SLICE_X20Y30.CMUX    Tilo                  0.430   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o9
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o8_G
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o8
-    SLICE_X18Y29.D2      net (fanout=2)        1.397   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o9
-    SLICE_X18Y29.CMUX    Topdc                 0.402   ball/_n0257_inv16
-                                                       ball/_n0257_inv23_SW0_F
-                                                       ball/_n0257_inv23_SW0
-    SLICE_X20Y28.A1      net (fanout=1)        1.217   ball/N46
-    SLICE_X20Y28.CLK     Tas                   0.339   ball/M_speedY_q
-                                                       ball/M_speedY_q_glue_set
-                                                       ball/M_speedY_q
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.328   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lut<6>
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X20Y18.A2      net (fanout=11)       1.383   ball/Mcompar_n0001_cy[7]
+    SLICE_X20Y18.A       Tilo                  0.254   score/_n0062_inv
+                                                       ball/Mcount_M_counter_q_val231
+    SLICE_X22Y22.SR      net (fanout=6)        1.223   ball/Mcount_M_counter_q_val
+    SLICE_X22Y22.CLK     Tsrck                 0.429   ball/M_counter_q[19]
+                                                       ball/M_counter_q_17
     -------------------------------------------------  ---------------------------
-    Total                                      6.410ns (1.601ns logic, 4.809ns route)
-                                                       (25.0% logic, 75.0% route)
+    Total                                      6.370ns (1.846ns logic, 4.524ns route)
+                                                       (29.0% logic, 71.0% route)
 
 --------------------------------------------------------------------------------
-Slack:                  13.515ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_3 (FF)
-  Destination:          ball/M_speedX_q (FF)
+Slack:                  13.583ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_counter_q_18 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      6.405ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.045ns (0.690 - 0.735)
+  Data Path Delay:      6.359ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.023ns (0.292 - 0.315)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -328,770 +342,36 @@ Slack:                  13.515ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_3 to ball/M_speedX_q
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_counter_q_18
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y38.DQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_3
-    SLICE_X21Y29.A3      net (fanout=25)       1.908   M_paddleA_padA[3]
-    SLICE_X21Y29.A       Tilo                  0.259   M_ball_ballX[3]
-                                                       ball/_n0211_inv11
-    SLICE_X19Y29.C4      net (fanout=2)        0.742   ball/_n0211_inv1
-    SLICE_X19Y29.C       Tilo                  0.259   ball/M_ballXtemp_q_0_3
-                                                       ball/_n0211_inv4
-    SLICE_X20Y27.D2      net (fanout=3)        1.217   ball/_n0211_inv6
-    SLICE_X20Y27.CMUX    Topdc                 0.456   ball/M_speedX_q
-                                                       ball/_n0211_inv6_SW1_F
-                                                       ball/_n0211_inv6_SW1
-    SLICE_X20Y27.A1      net (fanout=1)        0.795   ball/N42
-    SLICE_X20Y27.CLK     Tas                   0.339   ball/M_speedX_q
-                                                       ball/M_speedX_q_glue_set
-                                                       ball/M_speedX_q
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.351   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lutdi6
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X20Y18.A2      net (fanout=11)       1.383   ball/Mcompar_n0001_cy[7]
+    SLICE_X20Y18.A       Tilo                  0.254   score/_n0062_inv
+                                                       ball/Mcount_M_counter_q_val231
+    SLICE_X22Y22.SR      net (fanout=6)        1.223   ball/Mcount_M_counter_q_val
+    SLICE_X22Y22.CLK     Tsrck                 0.395   ball/M_counter_q[19]
+                                                       ball/M_counter_q_18
     -------------------------------------------------  ---------------------------
-    Total                                      6.405ns (1.743ns logic, 4.662ns route)
-                                                       (27.2% logic, 72.8% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.527ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_3 (FF)
-  Destination:          ball/M_speedX_q (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.393ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.045ns (0.690 - 0.735)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_3 to ball/M_speedX_q
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y38.DQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_3
-    SLICE_X21Y29.A3      net (fanout=25)       1.908   M_paddleA_padA[3]
-    SLICE_X21Y29.A       Tilo                  0.259   M_ball_ballX[3]
-                                                       ball/_n0211_inv11
-    SLICE_X19Y29.C4      net (fanout=2)        0.742   ball/_n0211_inv1
-    SLICE_X19Y29.C       Tilo                  0.259   ball/M_ballXtemp_q_0_3
-                                                       ball/_n0211_inv4
-    SLICE_X20Y26.CX      net (fanout=3)        1.161   ball/_n0211_inv6
-    SLICE_X20Y26.CMUX    Tcxc                  0.182   ball/n000121
-                                                       ball/_n0211_inv6_SW0
-    SLICE_X20Y27.A3      net (fanout=1)        1.113   ball/N41
-    SLICE_X20Y27.CLK     Tas                   0.339   ball/M_speedX_q
-                                                       ball/M_speedX_q_glue_set
-                                                       ball/M_speedX_q
-    -------------------------------------------------  ---------------------------
-    Total                                      6.393ns (1.469ns logic, 4.924ns route)
-                                                       (23.0% logic, 77.0% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.536ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_2 (FF)
-  Destination:          ball/M_speedY_q (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.386ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.043ns (0.692 - 0.735)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_2 to ball/M_speedY_q
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y38.CQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_2
-    SLICE_X20Y30.D5      net (fanout=25)       2.145   M_paddleA_padA[2]
-    SLICE_X20Y30.CMUX    Topdc                 0.456   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o9
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o8_F
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o8
-    SLICE_X18Y29.D2      net (fanout=2)        1.397   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o9
-    SLICE_X18Y29.CMUX    Topdc                 0.402   ball/_n0257_inv16
-                                                       ball/_n0257_inv23_SW0_F
-                                                       ball/_n0257_inv23_SW0
-    SLICE_X20Y28.A1      net (fanout=1)        1.217   ball/N46
-    SLICE_X20Y28.CLK     Tas                   0.339   ball/M_speedY_q
-                                                       ball/M_speedY_q_glue_set
-                                                       ball/M_speedY_q
-    -------------------------------------------------  ---------------------------
-    Total                                      6.386ns (1.627ns logic, 4.759ns route)
-                                                       (25.5% logic, 74.5% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.567ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_0 (FF)
-  Destination:          ball/M_speedY_q (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.355ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.043ns (0.692 - 0.735)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_0 to ball/M_speedY_q
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y38.AQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_0
-    SLICE_X20Y31.D2      net (fanout=25)       2.578   M_paddleA_padA[0]
-    SLICE_X20Y31.CMUX    Topdc                 0.456   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o4
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o3_F
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o3
-    SLICE_X18Y29.D4      net (fanout=2)        0.933   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o4
-    SLICE_X18Y29.CMUX    Topdc                 0.402   ball/_n0257_inv16
-                                                       ball/_n0257_inv23_SW0_F
-                                                       ball/_n0257_inv23_SW0
-    SLICE_X20Y28.A1      net (fanout=1)        1.217   ball/N46
-    SLICE_X20Y28.CLK     Tas                   0.339   ball/M_speedY_q
-                                                       ball/M_speedY_q_glue_set
-                                                       ball/M_speedY_q
-    -------------------------------------------------  ---------------------------
-    Total                                      6.355ns (1.627ns logic, 4.728ns route)
-                                                       (25.6% logic, 74.4% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.588ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_2 (FF)
-  Destination:          ball/M_speedY_q (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.334ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.043ns (0.692 - 0.735)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_2 to ball/M_speedY_q
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y38.CQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_2
-    SLICE_X20Y30.C5      net (fanout=25)       2.119   M_paddleA_padA[2]
-    SLICE_X20Y30.CMUX    Tilo                  0.430   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o9
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o8_G
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o8
-    SLICE_X18Y29.D2      net (fanout=2)        1.397   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o9
-    SLICE_X18Y29.CMUX    Topdc                 0.402   ball/_n0257_inv16
-                                                       ball/_n0257_inv23_SW0_F
-                                                       ball/_n0257_inv23_SW0
-    SLICE_X20Y28.A1      net (fanout=1)        1.217   ball/N46
-    SLICE_X20Y28.CLK     Tas                   0.339   ball/M_speedY_q
-                                                       ball/M_speedY_q_glue_set
-                                                       ball/M_speedY_q
-    -------------------------------------------------  ---------------------------
-    Total                                      6.334ns (1.601ns logic, 4.733ns route)
-                                                       (25.3% logic, 74.7% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.591ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_0 (FF)
-  Destination:          ball/M_speedX_q (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.329ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.045ns (0.690 - 0.735)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_0 to ball/M_speedX_q
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y38.AQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_0
-    SLICE_X19Y29.B2      net (fanout=25)       2.161   M_paddleA_padA[0]
-    SLICE_X19Y29.B       Tilo                  0.259   ball/M_ballXtemp_q_0_3
-                                                       ball/_n0211_inv42_SW1
-    SLICE_X19Y29.C5      net (fanout=2)        0.413   ball/N35
-    SLICE_X19Y29.C       Tilo                  0.259   ball/M_ballXtemp_q_0_3
-                                                       ball/_n0211_inv4
-    SLICE_X20Y27.D2      net (fanout=3)        1.217   ball/_n0211_inv6
-    SLICE_X20Y27.CMUX    Topdc                 0.456   ball/M_speedX_q
-                                                       ball/_n0211_inv6_SW1_F
-                                                       ball/_n0211_inv6_SW1
-    SLICE_X20Y27.A1      net (fanout=1)        0.795   ball/N42
-    SLICE_X20Y27.CLK     Tas                   0.339   ball/M_speedX_q
-                                                       ball/M_speedX_q_glue_set
-                                                       ball/M_speedX_q
-    -------------------------------------------------  ---------------------------
-    Total                                      6.329ns (1.743ns logic, 4.586ns route)
-                                                       (27.5% logic, 72.5% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.603ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_0 (FF)
-  Destination:          ball/M_speedX_q (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.317ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.045ns (0.690 - 0.735)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_0 to ball/M_speedX_q
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y38.AQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_0
-    SLICE_X19Y29.B2      net (fanout=25)       2.161   M_paddleA_padA[0]
-    SLICE_X19Y29.B       Tilo                  0.259   ball/M_ballXtemp_q_0_3
-                                                       ball/_n0211_inv42_SW1
-    SLICE_X19Y29.C5      net (fanout=2)        0.413   ball/N35
-    SLICE_X19Y29.C       Tilo                  0.259   ball/M_ballXtemp_q_0_3
-                                                       ball/_n0211_inv4
-    SLICE_X20Y26.CX      net (fanout=3)        1.161   ball/_n0211_inv6
-    SLICE_X20Y26.CMUX    Tcxc                  0.182   ball/n000121
-                                                       ball/_n0211_inv6_SW0
-    SLICE_X20Y27.A3      net (fanout=1)        1.113   ball/N41
-    SLICE_X20Y27.CLK     Tas                   0.339   ball/M_speedX_q
-                                                       ball/M_speedX_q_glue_set
-                                                       ball/M_speedX_q
-    -------------------------------------------------  ---------------------------
-    Total                                      6.317ns (1.469ns logic, 4.848ns route)
-                                                       (23.3% logic, 76.7% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.694ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_0 (FF)
-  Destination:          ball/M_speedX_q (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.226ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.045ns (0.690 - 0.735)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_0 to ball/M_speedX_q
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y38.AQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_0
-    SLICE_X18Y27.C6      net (fanout=25)       1.689   M_paddleA_padA[0]
-    SLICE_X18Y27.C       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv1
-    SLICE_X18Y27.A1      net (fanout=1)        0.532   ball/_n0211_inv2
-    SLICE_X18Y27.A       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv3
-    SLICE_X20Y26.D1      net (fanout=5)        1.197   ball/_n0211_inv5
-    SLICE_X20Y26.CMUX    Topdc                 0.456   ball/n000121
-                                                       ball/_n0211_inv6_SW0_F
-                                                       ball/_n0211_inv6_SW0
-    SLICE_X20Y27.A3      net (fanout=1)        1.113   ball/N41
-    SLICE_X20Y27.CLK     Tas                   0.339   ball/M_speedX_q
-                                                       ball/M_speedX_q_glue_set
-                                                       ball/M_speedX_q
-    -------------------------------------------------  ---------------------------
-    Total                                      6.226ns (1.695ns logic, 4.531ns route)
-                                                       (27.2% logic, 72.8% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.705ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               reset_cond/M_stage_q_3 (FF)
-  Destination:          ball/M_ballXtemp_q_1_4 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.139ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.121ns (0.599 - 0.720)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: reset_cond/M_stage_q_3 to ball/M_ballXtemp_q_1_4
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X1Y6.AMUX      Tshcko                0.518   reset_cond/M_stage_q[2]
-                                                       reset_cond/M_stage_q_3
-    SLICE_X20Y25.A1      net (fanout=26)       3.286   M_reset_cond_out
-    SLICE_X20Y25.A       Tilo                  0.254   Reset_OR_DriverANDClockEnable
-                                                       ball/Reset_OR_DriverANDClockEnable1
-    SLICE_X17Y29.SR      net (fanout=7)        1.613   Reset_OR_DriverANDClockEnable
-    SLICE_X17Y29.CLK     Tsrck                 0.468   ball/M_ballXtemp_q_1_4
-                                                       ball/M_ballXtemp_q_1_4
-    -------------------------------------------------  ---------------------------
-    Total                                      6.139ns (1.240ns logic, 4.899ns route)
-                                                       (20.2% logic, 79.8% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.715ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_1 (FF)
-  Destination:          ball/M_speedX_q (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.205ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.045ns (0.690 - 0.735)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_1 to ball/M_speedX_q
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y38.BQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_1
-    SLICE_X18Y27.D3      net (fanout=27)       1.886   M_paddleA_padA[1]
-    SLICE_X18Y27.D       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv2
-    SLICE_X18Y27.A5      net (fanout=1)        0.314   ball/_n0211_inv4
-    SLICE_X18Y27.A       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv3
-    SLICE_X20Y26.D1      net (fanout=5)        1.197   ball/_n0211_inv5
-    SLICE_X20Y26.CMUX    Topdc                 0.456   ball/n000121
-                                                       ball/_n0211_inv6_SW0_F
-                                                       ball/_n0211_inv6_SW0
-    SLICE_X20Y27.A3      net (fanout=1)        1.113   ball/N41
-    SLICE_X20Y27.CLK     Tas                   0.339   ball/M_speedX_q
-                                                       ball/M_speedX_q_glue_set
-                                                       ball/M_speedX_q
-    -------------------------------------------------  ---------------------------
-    Total                                      6.205ns (1.695ns logic, 4.510ns route)
-                                                       (27.3% logic, 72.7% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.735ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               reset_cond/M_stage_q_3 (FF)
-  Destination:          ball/M_ballXtemp_q_1_3 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.109ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.121ns (0.599 - 0.720)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: reset_cond/M_stage_q_3 to ball/M_ballXtemp_q_1_3
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X1Y6.AMUX      Tshcko                0.518   reset_cond/M_stage_q[2]
-                                                       reset_cond/M_stage_q_3
-    SLICE_X20Y25.A1      net (fanout=26)       3.286   M_reset_cond_out
-    SLICE_X20Y25.A       Tilo                  0.254   Reset_OR_DriverANDClockEnable
-                                                       ball/Reset_OR_DriverANDClockEnable1
-    SLICE_X17Y29.SR      net (fanout=7)        1.613   Reset_OR_DriverANDClockEnable
-    SLICE_X17Y29.CLK     Tsrck                 0.438   ball/M_ballXtemp_q_1_4
-                                                       ball/M_ballXtemp_q_1_3
-    -------------------------------------------------  ---------------------------
-    Total                                      6.109ns (1.210ns logic, 4.899ns route)
-                                                       (19.8% logic, 80.2% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.739ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_2 (FF)
-  Destination:          ball/M_speedX_q (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.181ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.045ns (0.690 - 0.735)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_2 to ball/M_speedX_q
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y38.CQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_2
-    SLICE_X18Y27.C2      net (fanout=25)       2.356   M_paddleA_padA[2]
-    SLICE_X18Y27.C       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv1
-    SLICE_X18Y27.A1      net (fanout=1)        0.532   ball/_n0211_inv2
-    SLICE_X18Y27.A       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv3
-    SLICE_X20Y27.D3      net (fanout=5)        0.803   ball/_n0211_inv5
-    SLICE_X20Y27.CMUX    Topdc                 0.456   ball/M_speedX_q
-                                                       ball/_n0211_inv6_SW1_F
-                                                       ball/_n0211_inv6_SW1
-    SLICE_X20Y27.A1      net (fanout=1)        0.795   ball/N42
-    SLICE_X20Y27.CLK     Tas                   0.339   ball/M_speedX_q
-                                                       ball/M_speedX_q_glue_set
-                                                       ball/M_speedX_q
-    -------------------------------------------------  ---------------------------
-    Total                                      6.181ns (1.695ns logic, 4.486ns route)
-                                                       (27.4% logic, 72.6% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.748ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_2 (FF)
-  Destination:          ball/M_speedX_q (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.172ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.045ns (0.690 - 0.735)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_2 to ball/M_speedX_q
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y38.CQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_2
-    SLICE_X18Y27.C2      net (fanout=25)       2.356   M_paddleA_padA[2]
-    SLICE_X18Y27.C       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv1
-    SLICE_X18Y27.A1      net (fanout=1)        0.532   ball/_n0211_inv2
-    SLICE_X18Y27.A       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv3
-    SLICE_X20Y27.C3      net (fanout=5)        0.820   ball/_n0211_inv5
-    SLICE_X20Y27.CMUX    Tilo                  0.430   ball/M_speedX_q
-                                                       ball/_n0211_inv6_SW1_G
-                                                       ball/_n0211_inv6_SW1
-    SLICE_X20Y27.A1      net (fanout=1)        0.795   ball/N42
-    SLICE_X20Y27.CLK     Tas                   0.339   ball/M_speedX_q
-                                                       ball/M_speedX_q_glue_set
-                                                       ball/M_speedX_q
-    -------------------------------------------------  ---------------------------
-    Total                                      6.172ns (1.669ns logic, 4.503ns route)
-                                                       (27.0% logic, 73.0% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.760ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               reset_cond/M_stage_q_3 (FF)
-  Destination:          ball/M_ballXtemp_q_1_2 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.084ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.121ns (0.599 - 0.720)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: reset_cond/M_stage_q_3 to ball/M_ballXtemp_q_1_2
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X1Y6.AMUX      Tshcko                0.518   reset_cond/M_stage_q[2]
-                                                       reset_cond/M_stage_q_3
-    SLICE_X20Y25.A1      net (fanout=26)       3.286   M_reset_cond_out
-    SLICE_X20Y25.A       Tilo                  0.254   Reset_OR_DriverANDClockEnable
-                                                       ball/Reset_OR_DriverANDClockEnable1
-    SLICE_X17Y29.SR      net (fanout=7)        1.613   Reset_OR_DriverANDClockEnable
-    SLICE_X17Y29.CLK     Tsrck                 0.413   ball/M_ballXtemp_q_1_4
-                                                       ball/M_ballXtemp_q_1_2
-    -------------------------------------------------  ---------------------------
-    Total                                      6.084ns (1.185ns logic, 4.899ns route)
-                                                       (19.5% logic, 80.5% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.763ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               reset_cond/M_stage_q_3 (FF)
-  Destination:          ball/M_ballXtemp_q_1_1 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.081ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.121ns (0.599 - 0.720)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: reset_cond/M_stage_q_3 to ball/M_ballXtemp_q_1_1
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X1Y6.AMUX      Tshcko                0.518   reset_cond/M_stage_q[2]
-                                                       reset_cond/M_stage_q_3
-    SLICE_X20Y25.A1      net (fanout=26)       3.286   M_reset_cond_out
-    SLICE_X20Y25.A       Tilo                  0.254   Reset_OR_DriverANDClockEnable
-                                                       ball/Reset_OR_DriverANDClockEnable1
-    SLICE_X17Y29.SR      net (fanout=7)        1.613   Reset_OR_DriverANDClockEnable
-    SLICE_X17Y29.CLK     Tsrck                 0.410   ball/M_ballXtemp_q_1_4
-                                                       ball/M_ballXtemp_q_1_1
-    -------------------------------------------------  ---------------------------
-    Total                                      6.081ns (1.182ns logic, 4.899ns route)
-                                                       (19.4% logic, 80.6% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.781ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_0 (FF)
-  Destination:          ball/M_speedY_q (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.141ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.043ns (0.692 - 0.735)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_0 to ball/M_speedY_q
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y38.AQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_0
-    SLICE_X20Y29.C4      net (fanout=25)       2.051   M_paddleA_padA[0]
-    SLICE_X20Y29.CMUX    Tilo                  0.430   ball/M_ballXtemp_q_3_2
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o5_G
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o5
-    SLICE_X18Y29.D6      net (fanout=2)        1.272   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o6
-    SLICE_X18Y29.CMUX    Topdc                 0.402   ball/_n0257_inv16
-                                                       ball/_n0257_inv23_SW0_F
-                                                       ball/_n0257_inv23_SW0
-    SLICE_X20Y28.A1      net (fanout=1)        1.217   ball/N46
-    SLICE_X20Y28.CLK     Tas                   0.339   ball/M_speedY_q
-                                                       ball/M_speedY_q_glue_set
-                                                       ball/M_speedY_q
-    -------------------------------------------------  ---------------------------
-    Total                                      6.141ns (1.601ns logic, 4.540ns route)
-                                                       (26.1% logic, 73.9% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.854ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_3 (FF)
-  Destination:          ball/M_speedY_q (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.068ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.043ns (0.692 - 0.735)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_3 to ball/M_speedY_q
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y38.DQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_3
-    SLICE_X20Y30.D6      net (fanout=25)       1.827   M_paddleA_padA[3]
-    SLICE_X20Y30.CMUX    Topdc                 0.456   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o9
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o8_F
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o8
-    SLICE_X18Y29.D2      net (fanout=2)        1.397   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o9
-    SLICE_X18Y29.CMUX    Topdc                 0.402   ball/_n0257_inv16
-                                                       ball/_n0257_inv23_SW0_F
-                                                       ball/_n0257_inv23_SW0
-    SLICE_X20Y28.A1      net (fanout=1)        1.217   ball/N46
-    SLICE_X20Y28.CLK     Tas                   0.339   ball/M_speedY_q
-                                                       ball/M_speedY_q_glue_set
-                                                       ball/M_speedY_q
-    -------------------------------------------------  ---------------------------
-    Total                                      6.068ns (1.627ns logic, 4.441ns route)
-                                                       (26.8% logic, 73.2% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.901ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_3 (FF)
-  Destination:          ball/M_speedX_q (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.019ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.045ns (0.690 - 0.735)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_3 to ball/M_speedX_q
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y38.DQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_3
-    SLICE_X21Y29.A3      net (fanout=25)       1.908   M_paddleA_padA[3]
-    SLICE_X21Y29.A       Tilo                  0.259   M_ball_ballX[3]
-                                                       ball/_n0211_inv11
-    SLICE_X19Y29.C4      net (fanout=2)        0.742   ball/_n0211_inv1
-    SLICE_X19Y29.C       Tilo                  0.259   ball/M_ballXtemp_q_0_3
-                                                       ball/_n0211_inv4
-    SLICE_X20Y27.C5      net (fanout=3)        0.857   ball/_n0211_inv6
-    SLICE_X20Y27.CMUX    Tilo                  0.430   ball/M_speedX_q
-                                                       ball/_n0211_inv6_SW1_G
-                                                       ball/_n0211_inv6_SW1
-    SLICE_X20Y27.A1      net (fanout=1)        0.795   ball/N42
-    SLICE_X20Y27.CLK     Tas                   0.339   ball/M_speedX_q
-                                                       ball/M_speedX_q_glue_set
-                                                       ball/M_speedX_q
-    -------------------------------------------------  ---------------------------
-    Total                                      6.019ns (1.717ns logic, 4.302ns route)
-                                                       (28.5% logic, 71.5% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.946ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_2 (FF)
-  Destination:          ball/M_speedY_q (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      5.976ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.043ns (0.692 - 0.735)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_2 to ball/M_speedY_q
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y38.CQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_2
-    SLICE_X20Y31.D4      net (fanout=25)       2.199   M_paddleA_padA[2]
-    SLICE_X20Y31.CMUX    Topdc                 0.456   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o4
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o3_F
-                                                       ball/padA[3]_M_ballXtemp_q[3]_AND_611_o3
-    SLICE_X18Y29.D4      net (fanout=2)        0.933   ball/padA[3]_M_ballXtemp_q[3]_AND_611_o4
-    SLICE_X18Y29.CMUX    Topdc                 0.402   ball/_n0257_inv16
-                                                       ball/_n0257_inv23_SW0_F
-                                                       ball/_n0257_inv23_SW0
-    SLICE_X20Y28.A1      net (fanout=1)        1.217   ball/N46
-    SLICE_X20Y28.CLK     Tas                   0.339   ball/M_speedY_q
-                                                       ball/M_speedY_q_glue_set
-                                                       ball/M_speedY_q
-    -------------------------------------------------  ---------------------------
-    Total                                      5.976ns (1.627ns logic, 4.349ns route)
-                                                       (27.2% logic, 72.8% route)
-
---------------------------------------------------------------------------------
-Slack:                  13.977ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_0 (FF)
-  Destination:          ball/M_speedX_q (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      5.943ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.045ns (0.690 - 0.735)
-  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
-  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_0 to ball/M_speedX_q
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y38.AQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_0
-    SLICE_X19Y29.B2      net (fanout=25)       2.161   M_paddleA_padA[0]
-    SLICE_X19Y29.B       Tilo                  0.259   ball/M_ballXtemp_q_0_3
-                                                       ball/_n0211_inv42_SW1
-    SLICE_X19Y29.C5      net (fanout=2)        0.413   ball/N35
-    SLICE_X19Y29.C       Tilo                  0.259   ball/M_ballXtemp_q_0_3
-                                                       ball/_n0211_inv4
-    SLICE_X20Y27.C5      net (fanout=3)        0.857   ball/_n0211_inv6
-    SLICE_X20Y27.CMUX    Tilo                  0.430   ball/M_speedX_q
-                                                       ball/_n0211_inv6_SW1_G
-                                                       ball/_n0211_inv6_SW1
-    SLICE_X20Y27.A1      net (fanout=1)        0.795   ball/N42
-    SLICE_X20Y27.CLK     Tas                   0.339   ball/M_speedX_q
-                                                       ball/M_speedX_q_glue_set
-                                                       ball/M_speedX_q
-    -------------------------------------------------  ---------------------------
-    Total                                      5.943ns (1.717ns logic, 4.226ns route)
+    Total                                      6.359ns (1.835ns logic, 4.524ns route)
                                                        (28.9% logic, 71.1% route)
 
 --------------------------------------------------------------------------------
-Slack:                  14.007ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_0 (FF)
-  Destination:          ball/M_speedY_q (FF)
+Slack:                  13.583ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_counter_q_16 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      5.915ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.043ns (0.692 - 0.735)
+  Data Path Delay:      6.359ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.023ns (0.292 - 0.315)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -1102,37 +382,36 @@ Slack:                  14.007ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_0 to ball/M_speedY_q
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_counter_q_16
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y38.AQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_0
-    SLICE_X19Y29.B2      net (fanout=25)       2.161   M_paddleA_padA[0]
-    SLICE_X19Y29.B       Tilo                  0.259   ball/M_ballXtemp_q_0_3
-                                                       ball/_n0211_inv42_SW1
-    SLICE_X18Y29.A2      net (fanout=2)        0.503   ball/N35
-    SLICE_X18Y29.A       Tilo                  0.235   ball/_n0257_inv16
-                                                       ball/_n0211_inv42
-    SLICE_X18Y29.D5      net (fanout=1)        0.369   ball/_n0211_inv42
-    SLICE_X18Y29.CMUX    Topdc                 0.402   ball/_n0257_inv16
-                                                       ball/_n0257_inv23_SW0_F
-                                                       ball/_n0257_inv23_SW0
-    SLICE_X20Y28.A1      net (fanout=1)        1.217   ball/N46
-    SLICE_X20Y28.CLK     Tas                   0.339   ball/M_speedY_q
-                                                       ball/M_speedY_q_glue_set
-                                                       ball/M_speedY_q
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.328   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lut<6>
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X20Y18.A2      net (fanout=11)       1.383   ball/Mcompar_n0001_cy[7]
+    SLICE_X20Y18.A       Tilo                  0.254   score/_n0062_inv
+                                                       ball/Mcount_M_counter_q_val231
+    SLICE_X22Y22.SR      net (fanout=6)        1.223   ball/Mcount_M_counter_q_val
+    SLICE_X22Y22.CLK     Tsrck                 0.418   ball/M_counter_q[19]
+                                                       ball/M_counter_q_16
     -------------------------------------------------  ---------------------------
-    Total                                      5.915ns (1.665ns logic, 4.250ns route)
-                                                       (28.1% logic, 71.9% route)
+    Total                                      6.359ns (1.835ns logic, 4.524ns route)
+                                                       (28.9% logic, 71.1% route)
 
 --------------------------------------------------------------------------------
-Slack:                  14.012ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/button_cond_right/M_ctr_q_17 (FF)
-  Destination:          paddleB/M_padBtemp_q_0_1 (FF)
+Slack:                  13.597ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_counter_q_19 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      5.902ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.051ns (0.601 - 0.652)
+  Data Path Delay:      6.345ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.023ns (0.292 - 0.315)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -1143,36 +422,158 @@ Slack:                  14.012ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: paddleA/button_cond_right/M_ctr_q_17 to paddleB/M_padBtemp_q_0_1
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_counter_q_19
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X8Y45.BQ       Tcko                  0.525   paddleA/button_cond_right/M_ctr_q[19]
-                                                       paddleA/button_cond_right/M_ctr_q_17
-    SLICE_X9Y44.A1       net (fanout=2)        0.733   paddleA/button_cond_right/M_ctr_q[17]
-    SLICE_X9Y44.A        Tilo                  0.259   paddleA/M_button_cond_right_out_inv
-                                                       paddleA/button_cond_right/out2
-    SLICE_X11Y41.A1      net (fanout=3)        1.154   out1
-    SLICE_X11Y41.A       Tilo                  0.259   M_last_q
-                                                       paddleA/button_cond_right/out4
-    SLICE_X15Y35.C3      net (fanout=6)        1.564   M_button_cond_right_out
-    SLICE_X15Y35.C       Tilo                  0.259   M_paddleB_padB[3]
-                                                       paddleB/_n0074_inv1
-    SLICE_X19Y32.A4      net (fanout=5)        0.776   paddleB/_n0074_inv1
-    SLICE_X19Y32.CLK     Tas                   0.373   M_padBtemp_q_0_1
-                                                       paddleB/M_padBtemp_q_0_1_dpot
-                                                       paddleB/M_padBtemp_q_0_1
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.351   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lutdi6
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X20Y18.A2      net (fanout=11)       1.383   ball/Mcompar_n0001_cy[7]
+    SLICE_X20Y18.A       Tilo                  0.254   score/_n0062_inv
+                                                       ball/Mcount_M_counter_q_val231
+    SLICE_X22Y22.SR      net (fanout=6)        1.223   ball/Mcount_M_counter_q_val
+    SLICE_X22Y22.CLK     Tsrck                 0.381   ball/M_counter_q[19]
+                                                       ball/M_counter_q_19
     -------------------------------------------------  ---------------------------
-    Total                                      5.902ns (1.675ns logic, 4.227ns route)
+    Total                                      6.345ns (1.821ns logic, 4.524ns route)
+                                                       (28.7% logic, 71.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.606ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_counter_q_18 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.336ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.023ns (0.292 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_counter_q_18
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.328   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lut<6>
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X20Y18.A2      net (fanout=11)       1.383   ball/Mcompar_n0001_cy[7]
+    SLICE_X20Y18.A       Tilo                  0.254   score/_n0062_inv
+                                                       ball/Mcount_M_counter_q_val231
+    SLICE_X22Y22.SR      net (fanout=6)        1.223   ball/Mcount_M_counter_q_val
+    SLICE_X22Y22.CLK     Tsrck                 0.395   ball/M_counter_q[19]
+                                                       ball/M_counter_q_18
+    -------------------------------------------------  ---------------------------
+    Total                                      6.336ns (1.812ns logic, 4.524ns route)
+                                                       (28.6% logic, 71.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.606ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleB/M_padBtemp_q_3 (FF)
+  Destination:          ball/M_hitcounter_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.240ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.119ns (0.598 - 0.717)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleB/M_padBtemp_q_3 to ball/M_hitcounter_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y15.AQ       Tcko                  0.525   M_paddleB_padB[3]
+                                                       paddleB/M_padBtemp_q_3
+    SLICE_X15Y17.A3      net (fanout=20)       1.395   M_paddleB_padB[3]
+    SLICE_X15Y17.A       Tilo                  0.259   M_padAtemp_q_2_2
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6123
+    SLICE_X14Y18.A4      net (fanout=1)        0.878   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6123
+    SLICE_X14Y18.A       Tilo                  0.235   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6124
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6125
+    SLICE_X17Y19.B3      net (fanout=1)        1.141   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6125
+    SLICE_X17Y19.B       Tilo                  0.259   M_ball_ballX[2]
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT61211
+    SLICE_X18Y19.B2      net (fanout=6)        0.773   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT612
+    SLICE_X18Y19.B       Tilo                  0.235   ball/M_hitcounter_q[1]
+                                                       ball/_n0497_inv11
+    SLICE_X19Y19.CE      net (fanout=2)        0.150   ball/_n0497_inv1
+    SLICE_X19Y19.CLK     Tceck                 0.390   ball/M_hitcounter_q[3]
+                                                       ball/M_hitcounter_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      6.240ns (1.903ns logic, 4.337ns route)
+                                                       (30.5% logic, 69.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.620ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_counter_q_19 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.322ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.023ns (0.292 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_counter_q_19
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.328   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lut<6>
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X20Y18.A2      net (fanout=11)       1.383   ball/Mcompar_n0001_cy[7]
+    SLICE_X20Y18.A       Tilo                  0.254   score/_n0062_inv
+                                                       ball/Mcount_M_counter_q_val231
+    SLICE_X22Y22.SR      net (fanout=6)        1.223   ball/Mcount_M_counter_q_val
+    SLICE_X22Y22.CLK     Tsrck                 0.381   ball/M_counter_q[19]
+                                                       ball/M_counter_q_19
+    -------------------------------------------------  ---------------------------
+    Total                                      6.322ns (1.798ns logic, 4.524ns route)
                                                        (28.4% logic, 71.6% route)
 
 --------------------------------------------------------------------------------
-Slack:                  14.013ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               paddleA/M_padAtemp_q_1 (FF)
-  Destination:          ball/M_speedX_q (FF)
+Slack:                  13.631ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleB/M_padBtemp_q_3 (FF)
+  Destination:          ball/M_hitcounter_q_2 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      5.907ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.045ns (0.690 - 0.735)
+  Data Path Delay:      6.215ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.119ns (0.598 - 0.717)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -1183,29 +584,709 @@ Slack:                  14.013ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: paddleA/M_padAtemp_q_1 to ball/M_speedX_q
+  Maximum Data Path at Slow Process Corner: paddleB/M_padBtemp_q_3 to ball/M_hitcounter_q_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y38.BQ      Tcko                  0.430   M_paddleA_padA[3]
-                                                       paddleA/M_padAtemp_q_1
-    SLICE_X18Y27.C1      net (fanout=27)       2.082   M_paddleA_padA[1]
-    SLICE_X18Y27.C       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv1
-    SLICE_X18Y27.A1      net (fanout=1)        0.532   ball/_n0211_inv2
-    SLICE_X18Y27.A       Tilo                  0.235   ball/M_ballXtemp_q_2_3
-                                                       ball/_n0211_inv3
-    SLICE_X20Y27.D3      net (fanout=5)        0.803   ball/_n0211_inv5
-    SLICE_X20Y27.CMUX    Topdc                 0.456   ball/M_speedX_q
-                                                       ball/_n0211_inv6_SW1_F
-                                                       ball/_n0211_inv6_SW1
-    SLICE_X20Y27.A1      net (fanout=1)        0.795   ball/N42
-    SLICE_X20Y27.CLK     Tas                   0.339   ball/M_speedX_q
-                                                       ball/M_speedX_q_glue_set
-                                                       ball/M_speedX_q
+    SLICE_X8Y15.AQ       Tcko                  0.525   M_paddleB_padB[3]
+                                                       paddleB/M_padBtemp_q_3
+    SLICE_X15Y17.A3      net (fanout=20)       1.395   M_paddleB_padB[3]
+    SLICE_X15Y17.A       Tilo                  0.259   M_padAtemp_q_2_2
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6123
+    SLICE_X14Y18.A4      net (fanout=1)        0.878   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6123
+    SLICE_X14Y18.A       Tilo                  0.235   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6124
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6125
+    SLICE_X17Y19.B3      net (fanout=1)        1.141   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6125
+    SLICE_X17Y19.B       Tilo                  0.259   M_ball_ballX[2]
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT61211
+    SLICE_X18Y19.B2      net (fanout=6)        0.773   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT612
+    SLICE_X18Y19.B       Tilo                  0.235   ball/M_hitcounter_q[1]
+                                                       ball/_n0497_inv11
+    SLICE_X19Y19.CE      net (fanout=2)        0.150   ball/_n0497_inv1
+    SLICE_X19Y19.CLK     Tceck                 0.365   ball/M_hitcounter_q[3]
+                                                       ball/M_hitcounter_q_2
     -------------------------------------------------  ---------------------------
-    Total                                      5.907ns (1.695ns logic, 4.212ns route)
-                                                       (28.7% logic, 71.3% route)
+    Total                                      6.215ns (1.878ns logic, 4.337ns route)
+                                                       (30.2% logic, 69.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.645ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_hitcounter_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.298ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.022ns (0.293 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_hitcounter_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.351   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lutdi6
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X16Y20.D1      net (fanout=11)       1.528   ball/Mcompar_n0001_cy[7]
+    SLICE_X16Y20.D       Tilo                  0.254   M_ball_ballY[2]
+                                                       ball/_n04131_SW2
+    SLICE_X18Y19.B3      net (fanout=1)        0.637   ball/N59
+    SLICE_X18Y19.B       Tilo                  0.235   ball/M_hitcounter_q[1]
+                                                       ball/_n0497_inv11
+    SLICE_X19Y19.CE      net (fanout=2)        0.150   ball/_n0497_inv1
+    SLICE_X19Y19.CLK     Tceck                 0.390   ball/M_hitcounter_q[3]
+                                                       ball/M_hitcounter_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      6.298ns (2.065ns logic, 4.233ns route)
+                                                       (32.8% logic, 67.2% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.646ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleB/M_padBtemp_q_3 (FF)
+  Destination:          ball/M_hitcounter_q_0 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.200ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.119ns (0.598 - 0.717)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleB/M_padBtemp_q_3 to ball/M_hitcounter_q_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y15.AQ       Tcko                  0.525   M_paddleB_padB[3]
+                                                       paddleB/M_padBtemp_q_3
+    SLICE_X15Y17.A3      net (fanout=20)       1.395   M_paddleB_padB[3]
+    SLICE_X15Y17.A       Tilo                  0.259   M_padAtemp_q_2_2
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6123
+    SLICE_X14Y18.A4      net (fanout=1)        0.878   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6123
+    SLICE_X14Y18.A       Tilo                  0.235   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6124
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6125
+    SLICE_X17Y19.B3      net (fanout=1)        1.141   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6125
+    SLICE_X17Y19.B       Tilo                  0.259   M_ball_ballX[2]
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT61211
+    SLICE_X17Y19.C4      net (fanout=6)        0.346   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT612
+    SLICE_X17Y19.C       Tilo                  0.259   M_ball_ballX[2]
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT615
+    SLICE_X18Y19.A3      net (fanout=1)        0.554   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT61
+    SLICE_X18Y19.CLK     Tas                   0.349   ball/M_hitcounter_q[1]
+                                                       ball/M_hitcounter_q_0_rstpot
+                                                       ball/M_hitcounter_q_0
+    -------------------------------------------------  ---------------------------
+    Total                                      6.200ns (1.886ns logic, 4.314ns route)
+                                                       (30.4% logic, 69.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.668ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_hitcounter_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.275ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.022ns (0.293 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_hitcounter_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.328   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lut<6>
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X16Y20.D1      net (fanout=11)       1.528   ball/Mcompar_n0001_cy[7]
+    SLICE_X16Y20.D       Tilo                  0.254   M_ball_ballY[2]
+                                                       ball/_n04131_SW2
+    SLICE_X18Y19.B3      net (fanout=1)        0.637   ball/N59
+    SLICE_X18Y19.B       Tilo                  0.235   ball/M_hitcounter_q[1]
+                                                       ball/_n0497_inv11
+    SLICE_X19Y19.CE      net (fanout=2)        0.150   ball/_n0497_inv1
+    SLICE_X19Y19.CLK     Tceck                 0.390   ball/M_hitcounter_q[3]
+                                                       ball/M_hitcounter_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      6.275ns (2.042ns logic, 4.233ns route)
+                                                       (32.5% logic, 67.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.670ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_hitcounter_q_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.273ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.022ns (0.293 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_hitcounter_q_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.351   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lutdi6
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X16Y20.D1      net (fanout=11)       1.528   ball/Mcompar_n0001_cy[7]
+    SLICE_X16Y20.D       Tilo                  0.254   M_ball_ballY[2]
+                                                       ball/_n04131_SW2
+    SLICE_X18Y19.B3      net (fanout=1)        0.637   ball/N59
+    SLICE_X18Y19.B       Tilo                  0.235   ball/M_hitcounter_q[1]
+                                                       ball/_n0497_inv11
+    SLICE_X19Y19.CE      net (fanout=2)        0.150   ball/_n0497_inv1
+    SLICE_X19Y19.CLK     Tceck                 0.365   ball/M_hitcounter_q[3]
+                                                       ball/M_hitcounter_q_2
+    -------------------------------------------------  ---------------------------
+    Total                                      6.273ns (2.040ns logic, 4.233ns route)
+                                                       (32.5% logic, 67.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.693ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_hitcounter_q_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.250ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.022ns (0.293 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_hitcounter_q_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.328   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lut<6>
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X16Y20.D1      net (fanout=11)       1.528   ball/Mcompar_n0001_cy[7]
+    SLICE_X16Y20.D       Tilo                  0.254   M_ball_ballY[2]
+                                                       ball/_n04131_SW2
+    SLICE_X18Y19.B3      net (fanout=1)        0.637   ball/N59
+    SLICE_X18Y19.B       Tilo                  0.235   ball/M_hitcounter_q[1]
+                                                       ball/_n0497_inv11
+    SLICE_X19Y19.CE      net (fanout=2)        0.150   ball/_n0497_inv1
+    SLICE_X19Y19.CLK     Tceck                 0.365   ball/M_hitcounter_q[3]
+                                                       ball/M_hitcounter_q_2
+    -------------------------------------------------  ---------------------------
+    Total                                      6.250ns (2.017ns logic, 4.233ns route)
+                                                       (32.3% logic, 67.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.700ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_counter_q_21 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.239ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.026ns (0.289 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_counter_q_21
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.351   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lutdi6
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X20Y18.A2      net (fanout=11)       1.383   ball/Mcompar_n0001_cy[7]
+    SLICE_X20Y18.A       Tilo                  0.254   score/_n0062_inv
+                                                       ball/Mcount_M_counter_q_val231
+    SLICE_X22Y23.SR      net (fanout=6)        1.069   ball/Mcount_M_counter_q_val
+    SLICE_X22Y23.CLK     Tsrck                 0.429   ball/M_counter_q[22]
+                                                       ball/M_counter_q_21
+    -------------------------------------------------  ---------------------------
+    Total                                      6.239ns (1.869ns logic, 4.370ns route)
+                                                       (30.0% logic, 70.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.710ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_hitcounter_q_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.233ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.022ns (0.293 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_hitcounter_q_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y20.A1      net (fanout=13)       0.839   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y20.A       Tilo                  0.259   ball/M_ballspeed_q[10]
+                                                       ball/M_ballspeed_q[14]1
+    SLICE_X20Y20.A3      net (fanout=2)        0.600   ball/M_ballspeed_q[14]
+    SLICE_X20Y20.COUT    Topcya                0.482   ball/Mcompar_n0001_cy[3]
+                                                       ball/Mcompar_n0001_lutdi
+                                                       ball/Mcompar_n0001_cy<3>
+    SLICE_X20Y21.CIN     net (fanout=1)        0.003   ball/Mcompar_n0001_cy[3]
+    SLICE_X20Y21.COUT    Tbyp                  0.093   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X16Y20.D1      net (fanout=11)       1.528   ball/Mcompar_n0001_cy[7]
+    SLICE_X16Y20.D       Tilo                  0.254   M_ball_ballY[2]
+                                                       ball/_n04131_SW2
+    SLICE_X18Y19.B3      net (fanout=1)        0.637   ball/N59
+    SLICE_X18Y19.B       Tilo                  0.235   ball/M_hitcounter_q[1]
+                                                       ball/_n0497_inv11
+    SLICE_X18Y19.C4      net (fanout=2)        0.378   ball/_n0497_inv1
+    SLICE_X18Y19.CLK     Tas                   0.349   ball/M_hitcounter_q[1]
+                                                       ball/M_hitcounter_q_1_rstpot
+                                                       ball/M_hitcounter_q_1
+    -------------------------------------------------  ---------------------------
+    Total                                      6.233ns (2.248ns logic, 3.985ns route)
+                                                       (36.1% logic, 63.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.711ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_counter_q_20 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.228ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.026ns (0.289 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_counter_q_20
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.351   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lutdi6
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X20Y18.A2      net (fanout=11)       1.383   ball/Mcompar_n0001_cy[7]
+    SLICE_X20Y18.A       Tilo                  0.254   score/_n0062_inv
+                                                       ball/Mcount_M_counter_q_val231
+    SLICE_X22Y23.SR      net (fanout=6)        1.069   ball/Mcount_M_counter_q_val
+    SLICE_X22Y23.CLK     Tsrck                 0.418   ball/M_counter_q[22]
+                                                       ball/M_counter_q_20
+    -------------------------------------------------  ---------------------------
+    Total                                      6.228ns (1.858ns logic, 4.370ns route)
+                                                       (29.8% logic, 70.2% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.718ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_hitcounter_q_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.225ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.022ns (0.293 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_hitcounter_q_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y20.A1      net (fanout=13)       0.839   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y20.A       Tilo                  0.259   ball/M_ballspeed_q[10]
+                                                       ball/M_ballspeed_q[14]1
+    SLICE_X20Y20.A3      net (fanout=2)        0.600   ball/M_ballspeed_q[14]
+    SLICE_X20Y20.COUT    Topcya                0.474   ball/Mcompar_n0001_cy[3]
+                                                       ball/Mcompar_n0001_lut<0>
+                                                       ball/Mcompar_n0001_cy<3>
+    SLICE_X20Y21.CIN     net (fanout=1)        0.003   ball/Mcompar_n0001_cy[3]
+    SLICE_X20Y21.COUT    Tbyp                  0.093   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X16Y20.D1      net (fanout=11)       1.528   ball/Mcompar_n0001_cy[7]
+    SLICE_X16Y20.D       Tilo                  0.254   M_ball_ballY[2]
+                                                       ball/_n04131_SW2
+    SLICE_X18Y19.B3      net (fanout=1)        0.637   ball/N59
+    SLICE_X18Y19.B       Tilo                  0.235   ball/M_hitcounter_q[1]
+                                                       ball/_n0497_inv11
+    SLICE_X18Y19.C4      net (fanout=2)        0.378   ball/_n0497_inv1
+    SLICE_X18Y19.CLK     Tas                   0.349   ball/M_hitcounter_q[1]
+                                                       ball/M_hitcounter_q_1_rstpot
+                                                       ball/M_hitcounter_q_1
+    -------------------------------------------------  ---------------------------
+    Total                                      6.225ns (2.240ns logic, 3.985ns route)
+                                                       (36.0% logic, 64.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.723ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_counter_q_21 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.216ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.026ns (0.289 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_counter_q_21
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.328   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lut<6>
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X20Y18.A2      net (fanout=11)       1.383   ball/Mcompar_n0001_cy[7]
+    SLICE_X20Y18.A       Tilo                  0.254   score/_n0062_inv
+                                                       ball/Mcount_M_counter_q_val231
+    SLICE_X22Y23.SR      net (fanout=6)        1.069   ball/Mcount_M_counter_q_val
+    SLICE_X22Y23.CLK     Tsrck                 0.429   ball/M_counter_q[22]
+                                                       ball/M_counter_q_21
+    -------------------------------------------------  ---------------------------
+    Total                                      6.216ns (1.846ns logic, 4.370ns route)
+                                                       (29.7% logic, 70.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.734ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_counter_q_20 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.205ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.026ns (0.289 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_counter_q_20
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.328   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lut<6>
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X20Y18.A2      net (fanout=11)       1.383   ball/Mcompar_n0001_cy[7]
+    SLICE_X20Y18.A       Tilo                  0.254   score/_n0062_inv
+                                                       ball/Mcount_M_counter_q_val231
+    SLICE_X22Y23.SR      net (fanout=6)        1.069   ball/Mcount_M_counter_q_val
+    SLICE_X22Y23.CLK     Tsrck                 0.418   ball/M_counter_q[22]
+                                                       ball/M_counter_q_20
+    -------------------------------------------------  ---------------------------
+    Total                                      6.205ns (1.835ns logic, 4.370ns route)
+                                                       (29.6% logic, 70.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.734ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_counter_q_22 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.205ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.026ns (0.289 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_counter_q_22
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.351   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lutdi6
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X20Y18.A2      net (fanout=11)       1.383   ball/Mcompar_n0001_cy[7]
+    SLICE_X20Y18.A       Tilo                  0.254   score/_n0062_inv
+                                                       ball/Mcount_M_counter_q_val231
+    SLICE_X22Y23.SR      net (fanout=6)        1.069   ball/Mcount_M_counter_q_val
+    SLICE_X22Y23.CLK     Tsrck                 0.395   ball/M_counter_q[22]
+                                                       ball/M_counter_q_22
+    -------------------------------------------------  ---------------------------
+    Total                                      6.205ns (1.835ns logic, 4.370ns route)
+                                                       (29.6% logic, 70.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.735ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_hitcounter_q_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.208ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.022ns (0.293 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_hitcounter_q_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y22.A5      net (fanout=13)       0.751   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y22.A       Tilo                  0.259   ball/M_state_q_inv
+                                                       ball/M_ballspeed_q_M_ballspeed_q[17]1
+    SLICE_X20Y21.B2      net (fanout=1)        0.758   ball/M_ballspeed_q[17]
+    SLICE_X20Y21.COUT    Topcyb                0.483   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lut<5>
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X16Y20.D1      net (fanout=11)       1.528   ball/Mcompar_n0001_cy[7]
+    SLICE_X16Y20.D       Tilo                  0.254   M_ball_ballY[2]
+                                                       ball/_n04131_SW2
+    SLICE_X18Y19.B3      net (fanout=1)        0.637   ball/N59
+    SLICE_X18Y19.B       Tilo                  0.235   ball/M_hitcounter_q[1]
+                                                       ball/_n0497_inv11
+    SLICE_X18Y19.C4      net (fanout=2)        0.378   ball/_n0497_inv1
+    SLICE_X18Y19.CLK     Tas                   0.349   ball/M_hitcounter_q[1]
+                                                       ball/M_hitcounter_q_1_rstpot
+                                                       ball/M_hitcounter_q_1
+    -------------------------------------------------  ---------------------------
+    Total                                      6.208ns (2.156ns logic, 4.052ns route)
+                                                       (34.7% logic, 65.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.735ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_counter_q_13 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.209ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.021ns (0.294 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_counter_q_13
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.351   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lutdi6
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X20Y18.A2      net (fanout=11)       1.383   ball/Mcompar_n0001_cy[7]
+    SLICE_X20Y18.A       Tilo                  0.254   score/_n0062_inv
+                                                       ball/Mcount_M_counter_q_val231
+    SLICE_X22Y21.SR      net (fanout=6)        1.039   ball/Mcount_M_counter_q_val
+    SLICE_X22Y21.CLK     Tsrck                 0.429   ball/M_counter_q[15]
+                                                       ball/M_counter_q_13
+    -------------------------------------------------  ---------------------------
+    Total                                      6.209ns (1.869ns logic, 4.340ns route)
+                                                       (30.1% logic, 69.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.745ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               paddleB/M_padBtemp_q_0_1 (FF)
+  Destination:          ball/M_hitcounter_q_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.200ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.020ns (0.293 - 0.313)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: paddleB/M_padBtemp_q_0_1 to ball/M_hitcounter_q_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y16.AQ      Tcko                  0.430   M_padBtemp_q_0_1
+                                                       paddleB/M_padBtemp_q_0_1
+    SLICE_X19Y16.A1      net (fanout=7)        1.056   M_padBtemp_q_0_1
+    SLICE_X19Y16.A       Tilo                  0.259   ball/N62
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6128_SW0
+    SLICE_X17Y16.A3      net (fanout=1)        0.563   ball/N62
+    SLICE_X17Y16.A       Tilo                  0.259   ball/N63
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6128
+    SLICE_X17Y19.A2      net (fanout=1)        0.940   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT6128
+    SLICE_X17Y19.A       Tilo                  0.259   M_ball_ballX[2]
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT61210
+    SLICE_X17Y19.B5      net (fanout=1)        0.440   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT61210
+    SLICE_X17Y19.B       Tilo                  0.259   M_ball_ballX[2]
+                                                       ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT61211
+    SLICE_X18Y19.B2      net (fanout=6)        0.773   ball/Mmux_M_hitcounter_q[3]_M_hitcounter_q[3]_mux_86_OUT612
+    SLICE_X18Y19.B       Tilo                  0.235   ball/M_hitcounter_q[1]
+                                                       ball/_n0497_inv11
+    SLICE_X18Y19.C4      net (fanout=2)        0.378   ball/_n0497_inv1
+    SLICE_X18Y19.CLK     Tas                   0.349   ball/M_hitcounter_q[1]
+                                                       ball/M_hitcounter_q_1_rstpot
+                                                       ball/M_hitcounter_q_1
+    -------------------------------------------------  ---------------------------
+    Total                                      6.200ns (2.050ns logic, 4.150ns route)
+                                                       (33.1% logic, 66.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.746ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ball/M_ballspeed_q_FSM_FFd3 (FF)
+  Destination:          ball/M_counter_q_12 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.198ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.021ns (0.294 - 0.315)
+  Source Clock:         clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUF_BUFG rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ball/M_ballspeed_q_FSM_FFd3 to ball/M_counter_q_12
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y19.DMUX    Tshcko                0.576   ball/_n0501_inv1
+                                                       ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A4      net (fanout=13)       0.987   ball/M_ballspeed_q_FSM_FFd3
+    SLICE_X23Y21.A       Tilo                  0.259   ball/M_ballspeed_q[20]
+                                                       ball/M_ballspeed_q_M_ballspeed_q[20]2
+    SLICE_X20Y21.C1      net (fanout=1)        0.931   ball/M_ballspeed_q[20]
+    SLICE_X20Y21.COUT    Topcyc                0.351   ball/Mcompar_n0001_cy[7]
+                                                       ball/Mcompar_n0001_lutdi6
+                                                       ball/Mcompar_n0001_cy<7>
+    SLICE_X20Y18.A2      net (fanout=11)       1.383   ball/Mcompar_n0001_cy[7]
+    SLICE_X20Y18.A       Tilo                  0.254   score/_n0062_inv
+                                                       ball/Mcount_M_counter_q_val231
+    SLICE_X22Y21.SR      net (fanout=6)        1.039   ball/Mcount_M_counter_q_val
+    SLICE_X22Y21.CLK     Tsrck                 0.418   ball/M_counter_q[15]
+                                                       ball/M_counter_q_12
+    -------------------------------------------------  ---------------------------
+    Total                                      6.198ns (1.858ns logic, 4.340ns route)
+                                                       (30.0% logic, 70.0% route)
 
 --------------------------------------------------------------------------------
 
@@ -1223,8 +1304,24 @@ Slack: 18.601ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 1.399ns (714.796MHz) (Tcp)
   Physical resource: paddleA/button_cond_right/M_sync_out/CLK
+  Logical resource: paddleB/button_cond_left/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X4Y8.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: paddleA/button_cond_right/M_sync_out/CLK
+  Logical resource: paddleB/button_cond_right/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X4Y8.CLK
+  Clock network: clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: paddleA/button_cond_right/M_sync_out/CLK
   Logical resource: paddleA/button_cond_left/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X8Y38.CLK
+  Location pin: SLICE_X4Y8.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 18.601ns (period - min period limit)
@@ -1232,7 +1329,7 @@ Slack: 18.601ns (period - min period limit)
   Min period limit: 1.399ns (714.796MHz) (Tcp)
   Physical resource: paddleA/button_cond_right/M_sync_out/CLK
   Logical resource: paddleA/button_cond_right/sync/Mshreg_M_pipe_q_1/CLK
-  Location pin: SLICE_X8Y38.CLK
+  Location pin: SLICE_X4Y8.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1240,7 +1337,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[3]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_0/CK
-  Location pin: SLICE_X12Y38.CLK
+  Location pin: SLICE_X12Y6.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1248,7 +1345,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[3]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_1/CK
-  Location pin: SLICE_X12Y38.CLK
+  Location pin: SLICE_X12Y6.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1256,7 +1353,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[3]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_2/CK
-  Location pin: SLICE_X12Y38.CLK
+  Location pin: SLICE_X12Y6.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1264,7 +1361,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[3]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_3/CK
-  Location pin: SLICE_X12Y38.CLK
+  Location pin: SLICE_X12Y6.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1272,7 +1369,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[7]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_4/CK
-  Location pin: SLICE_X12Y39.CLK
+  Location pin: SLICE_X12Y7.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1280,7 +1377,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[7]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_5/CK
-  Location pin: SLICE_X12Y39.CLK
+  Location pin: SLICE_X12Y7.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1288,7 +1385,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[7]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_6/CK
-  Location pin: SLICE_X12Y39.CLK
+  Location pin: SLICE_X12Y7.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1296,7 +1393,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[7]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_7/CK
-  Location pin: SLICE_X12Y39.CLK
+  Location pin: SLICE_X12Y7.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1304,7 +1401,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[11]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_8/CK
-  Location pin: SLICE_X12Y40.CLK
+  Location pin: SLICE_X12Y8.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1312,7 +1409,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[11]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_9/CK
-  Location pin: SLICE_X12Y40.CLK
+  Location pin: SLICE_X12Y8.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1320,7 +1417,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[11]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_10/CK
-  Location pin: SLICE_X12Y40.CLK
+  Location pin: SLICE_X12Y8.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1328,7 +1425,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[11]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_11/CK
-  Location pin: SLICE_X12Y40.CLK
+  Location pin: SLICE_X12Y8.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1336,7 +1433,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[15]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_12/CK
-  Location pin: SLICE_X12Y41.CLK
+  Location pin: SLICE_X12Y9.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1344,7 +1441,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[15]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_13/CK
-  Location pin: SLICE_X12Y41.CLK
+  Location pin: SLICE_X12Y9.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1352,7 +1449,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[15]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_14/CK
-  Location pin: SLICE_X12Y41.CLK
+  Location pin: SLICE_X12Y9.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1360,7 +1457,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[15]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_15/CK
-  Location pin: SLICE_X12Y41.CLK
+  Location pin: SLICE_X12Y9.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1368,7 +1465,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[19]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_16/CK
-  Location pin: SLICE_X12Y42.CLK
+  Location pin: SLICE_X12Y10.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1376,7 +1473,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[19]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_17/CK
-  Location pin: SLICE_X12Y42.CLK
+  Location pin: SLICE_X12Y10.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1384,7 +1481,7 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[19]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_18/CK
-  Location pin: SLICE_X12Y42.CLK
+  Location pin: SLICE_X12Y10.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
@@ -1392,63 +1489,47 @@ Slack: 19.520ns (period - min period limit)
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
   Physical resource: paddleA/button_cond_left/M_ctr_q[19]/CLK
   Logical resource: paddleA/button_cond_left/M_ctr_q_19/CK
-  Location pin: SLICE_X12Y42.CLK
+  Location pin: SLICE_X12Y10.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: paddleA/button_cond_right/M_ctr_q[3]/CLK
-  Logical resource: paddleA/button_cond_right/M_ctr_q_0/CK
-  Location pin: SLICE_X8Y41.CLK
+  Physical resource: paddleB/button_cond_left/M_ctr_q[3]/CLK
+  Logical resource: paddleB/button_cond_left/M_ctr_q_0/CK
+  Location pin: SLICE_X8Y8.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: paddleA/button_cond_right/M_ctr_q[3]/CLK
-  Logical resource: paddleA/button_cond_right/M_ctr_q_1/CK
-  Location pin: SLICE_X8Y41.CLK
+  Physical resource: paddleB/button_cond_left/M_ctr_q[3]/CLK
+  Logical resource: paddleB/button_cond_left/M_ctr_q_1/CK
+  Location pin: SLICE_X8Y8.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: paddleA/button_cond_right/M_ctr_q[3]/CLK
-  Logical resource: paddleA/button_cond_right/M_ctr_q_2/CK
-  Location pin: SLICE_X8Y41.CLK
+  Physical resource: paddleB/button_cond_left/M_ctr_q[3]/CLK
+  Logical resource: paddleB/button_cond_left/M_ctr_q_2/CK
+  Location pin: SLICE_X8Y8.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: paddleA/button_cond_right/M_ctr_q[3]/CLK
-  Logical resource: paddleA/button_cond_right/M_ctr_q_3/CK
-  Location pin: SLICE_X8Y41.CLK
+  Physical resource: paddleB/button_cond_left/M_ctr_q[3]/CLK
+  Logical resource: paddleB/button_cond_left/M_ctr_q_3/CK
+  Location pin: SLICE_X8Y8.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: paddleA/button_cond_right/M_ctr_q[7]/CLK
-  Logical resource: paddleA/button_cond_right/M_ctr_q_4/CK
-  Location pin: SLICE_X8Y42.CLK
-  Clock network: clk_IBUF_BUFG
---------------------------------------------------------------------------------
-Slack: 19.520ns (period - min period limit)
-  Period: 20.000ns
-  Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: paddleA/button_cond_right/M_ctr_q[7]/CLK
-  Logical resource: paddleA/button_cond_right/M_ctr_q_5/CK
-  Location pin: SLICE_X8Y42.CLK
-  Clock network: clk_IBUF_BUFG
---------------------------------------------------------------------------------
-Slack: 19.520ns (period - min period limit)
-  Period: 20.000ns
-  Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: paddleA/button_cond_right/M_ctr_q[7]/CLK
-  Logical resource: paddleA/button_cond_right/M_ctr_q_6/CK
-  Location pin: SLICE_X8Y42.CLK
+  Physical resource: paddleB/button_cond_left/M_ctr_q[7]/CLK
+  Logical resource: paddleB/button_cond_left/M_ctr_q_4/CK
+  Location pin: SLICE_X8Y9.CLK
   Clock network: clk_IBUF_BUFG
 --------------------------------------------------------------------------------
 
@@ -1465,7 +1546,7 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    6.973|         |         |         |
+clk            |    6.581|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
@@ -1474,23 +1555,23 @@ Timing summary:
 
 Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
 
-Constraints cover 4711 paths, 0 nets, and 958 connections
+Constraints cover 15860 paths, 0 nets, and 1305 connections
 
 Design statistics:
-   Minimum period:   6.973ns{1}   (Maximum frequency: 143.410MHz)
+   Minimum period:   6.581ns{1}   (Maximum frequency: 151.953MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Wed Dec 07 17:24:00 2016 
+Analysis completed Wed Dec 07 20:19:28 2016 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 225 MB
+Peak Memory Usage: 226 MB
 
 
 
